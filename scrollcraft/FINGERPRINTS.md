@@ -63,3 +63,7 @@ If you want to see what a filled-in table looks like, and which shapes tend to
 collide, read `EXAMPLES.md` in the scrollcraft repository. Treat it as
 illustration only: those rows are somebody else's builds and they do **not**
 constrain yours.
+
+| # | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | ymaw (ymaw.com) | Continuous world (worldflight) | The trail: a drawn trail-line rail (right edge desktop, dot row mobile), clickable waypoints that stamp as passed, ember playhead | Worldflight leg 1 with greet hero copy over a real photograph (misty solo kayak) | 6 legs, 5×1.8vh + one 2.6vh peak w/ linger 0.45, 12.6vh total incl. spacer | Arrival at a face: a boy's direct gaze holds with the register CTA and small print, finale window never fades | The trail line: one continuous path drawing itself with scroll, doubling as the map, ending at the Register mark | Real archive photography 2003–2025, deep-forest ground, bone ink, ember accent | Shares nothing with prior rows (first build in this registry) |

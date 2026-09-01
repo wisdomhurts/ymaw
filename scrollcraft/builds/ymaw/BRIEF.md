@@ -142,3 +142,35 @@ re-cut from footage with the same weights. Pace: every 8s clip carries 1.8vh
   years are the only numbers.
 - Registration promises only what the flow does (card now / e-transfer later /
   assistance requested — nothing "instant" that isn't).
+
+## Feel check (run cold against the contact sheets, 2026-09-01)
+
+Felt, one word per act: stillness · work · effort · closeness · lift · calm.
+Intended: stillness · awakening · grit · intimacy · awe · resolve.
+
+Diff: acts 1, 2, 4, 5, 6 land. Act 3 reads "calm effort" rather than grit —
+the serene kayak frame carries determination, not strain. Accepted for the
+photo-built version and flagged: when the real challenge footage arrives from
+the archive (mud, ropes, straining faces), leg 3 takes it first.
+
+Peak confirmed on the sheet: the raised-hands frame is the largest visual
+change on the page and holds the most scroll room. The act before it (the
+circle) is the quietest. The end resolves and holds: face + CTA + small print
+remain on the final screen.
+
+## Verification record
+
+- worldflight-assert: 21/24 pass. The 3 fails are documented choices/artifacts:
+  lerp 0.12 (worldflight.md §7c) vs the assert's 0.18 expectation; a 68ms
+  playhead residual at the fixed 70-frame trace end (software VP9 decode in the
+  codec-less test Chromium; converges beyond the window); a seam-release
+  sample taken exactly on the band edge where the outgoing leg is already
+  fully covered by the opaque incoming leg (z-index 120) — no visible flash.
+- shoot.mjs: desktop 1300×900, mobile 390×844, reduced-motion — no dead
+  scroll; ALL copy clears 4.5:1 at its worst frame on all three passes.
+- The band scrim breathes (0.5 base → 1.0 with copy visibility) so the
+  photography carries the copy-free stretches; the circle leg adds a centre
+  veil raised via the waypoint event.
+- NOT verified: a real phone (decoder, autoplay policy, Low Power Mode,
+  touch scrolling). Headless Chrome cannot reproduce those; check on-device
+  after deploy and reach for device-diag.html on the first mobile defect.

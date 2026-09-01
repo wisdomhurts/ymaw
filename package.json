@@ -12,6 +12,6 @@
     "stripe": "^16.12.0"
   },
   "devDependencies": {
-    "playwright-core": "^1.47.0"
+    "playwright-core": "^1.62.1"
   }
 }

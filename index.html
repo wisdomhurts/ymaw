@@ -16,13 +16,13 @@
 <meta property="og:image" content="https://ymaw.com/assets/p5.webp">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Geist:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="scrollcraft.css">
 <link rel="stylesheet" href="site.css">
 </head>
-<body>
+<!-- Worldflight damping: 0.12 rather than the engine's 0.18 default, per
+     worldflight.md §7c (more legs and seams mounted than an act page). -->
+<body data-sc-lerp="0.12">
 
 <span data-sc-progress></span>
 <div class="sc-grain" aria-hidden="true"></div>
@@ -34,8 +34,7 @@
   <a class="cta cta--bar" href="register.html">Register Your Son</a>
 </header>
 
-<main>
-<div data-sc-mode="worldflight" data-sc-seam="0.16" data-sc-lerp="0.12" id="flight">
+<main data-sc-mode="worldflight" data-sc-seam="0.16" id="flight">
 
   <div data-sc-world>
     <div data-sc-segment data-sc-w="1.8" data-sc-waypoint="Friday, dusk">
@@ -84,7 +83,7 @@
 
   <div data-sc-world-copy>
     <div class="sc-world__scrim sc-scrim sc-scrim--band"></div>
-    <div class="w-veil" data-sc-copy data-sc-window="0.49 0.605" aria-hidden="true"></div>
+    <div class="w-veil" aria-hidden="true"></div>
 
     <div class="sc-copy sc-copy--lead w-hero" data-sc-copy data-sc-window="hero">
       <p class="sc-label w-label">Young Men's Adventure Weekend · Vancouver, BC</p>
@@ -154,7 +153,6 @@
   </nav>
 
   <div data-sc-spacer aria-hidden="true"></div>
-</div>
 </main>
 
 <noscript>
@@ -168,9 +166,22 @@
   </div>
 </noscript>
 
+<script>
+// Chromium builds without proprietary codecs cannot decode H.264; give them
+// the frame-identical VP9 copies before the engine reads any data-sc-src.
+(function () {
+  if (document.createElement('video').canPlayType('video/mp4; codecs="avc1.42E01E"')) return;
+  document.querySelectorAll('video[data-sc-src]').forEach(function (v) {
+    ['data-sc-src', 'data-sc-src-mobile'].forEach(function (a) {
+      var s = v.getAttribute(a);
+      if (s) v.setAttribute(a, s.replace(/\.mp4$/, '.webm'));
+    });
+  });
+})();
+</script>
 <script src="scrollcraft.js"></script>
 <script>
-ScrollCraft.mount(document.body);
+window.__sc = ScrollCraft.mount(document.body);
 
 // The spacer is sized once at mount; a 0-height viewport at that moment kills
 // the scroll track silently. Re-measure once the window and fonts settle.
@@ -197,6 +208,12 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
   draw.style.strokeDasharray = '100 100';
   draw.style.strokeDashoffset = '100';
 
+  // The band scrim breathes: a light base so the photography carries the
+  // copy-free stretches, full density only while a copy block is lit. The
+  // engine writes each block's opacity inline every frame; mirror the max.
+  var band = document.querySelector('.sc-world__scrim');
+  var copies = Array.prototype.slice.call(document.querySelectorAll('[data-sc-copy]'));
+
   // Place each stop's dot on the path at its fraction of the track.
   stops.forEach(function (b) {
     var f = parseFloat(b.getAttribute('data-frac'));
@@ -217,6 +234,14 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
   function paint() {
     ticking = false;
     var p = progress();
+    if (band) {
+      var m = 0;
+      for (var i = 0; i < copies.length; i++) {
+        var o = parseFloat(copies[i].style.opacity || '0');
+        if (o > m) m = o;
+      }
+      band.style.opacity = (0.5 + 0.5 * m).toFixed(3);
+    }
     draw.style.strokeDashoffset = String(100 * (1 - p));
     var pt = base.getPointAtLength(p * L);
     him.setAttribute('cx', pt.x); him.setAttribute('cy', pt.y);
@@ -230,8 +255,10 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
   }, { passive: true });
   paint();
 
-  // Waypoint announcements drive aria-current on the map.
+  // Waypoint announcements drive aria-current on the map, and the current
+  // leg index lets CSS raise the centre veil only while the circle is lit.
   addEventListener('sc:waypoint', function (e) {
+    document.body.setAttribute('data-leg', String(e.detail.index));
     stops.forEach(function (b, i) {
       b.setAttribute('aria-current', i === e.detail.index ? 'true' : 'false');
     });

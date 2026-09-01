@@ -105,3 +105,14 @@ done
 "$FF" -y -loglevel error -i "$P/logo.png" -vf "geq=r='if(between(r(X,Y),40,110)*between(g(X,Y),80,140)*between(b(X,Y),40,100),242,r(X,Y))':g='if(between(r(X,Y),40,110)*between(g(X,Y),80,140)*between(b(X,Y),40,100),239,g(X,Y))':b='if(between(r(X,Y),40,110)*between(g(X,Y),80,140)*between(b(X,Y),40,100),231,b(X,Y))':a='alpha(X,Y)',scale=560:-2" "$OUT/wordmark-bone.png"
 
 du -sh "$OUT"; ls -la "$OUT"
+
+# ---- VP9 fallbacks ---------------------------------------------------------
+# Chromium builds without proprietary codecs (some Linux distros, headless
+# test browsers) cannot decode H.264. The page swaps .mp4 -> .webm via a
+# canPlayType check before mount; frames are identical transcodes.
+for f in "$OUT"/leg*.mp4; do
+  g="${f%.mp4}.webm"
+  gop=8; case "$f" in *-m.mp4) gop=4;; esac
+  "$FF" -y -loglevel error -i "$f" -c:v libvpx-vp9 -crf 34 -b:v 0 -g $gop \
+    -row-mt 1 -cpu-used 5 -an "$g"
+done

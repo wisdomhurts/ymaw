@@ -18,6 +18,7 @@
 .reg-main { padding-block: var(--sc-4) var(--sc-9); }
 .reg-card {
   max-width: 40rem;
+  scroll-margin-top: clamp(4.5rem, 10vh, 6.5rem);
   background: var(--sc-surface);
   border: 1px solid var(--sc-hairline);
   border-radius: var(--sc-r-lg);
@@ -31,7 +32,8 @@
   letter-spacing: var(--sc-track-wide); text-transform: uppercase;
   color: var(--sc-ink-soft);
 }
-.reg-steps li { display: flex; align-items: center; gap: 0.5em; }
+.reg-steps li { display: flex; align-items: center; gap: 0.5em; white-space: nowrap; }
+@media (max-width: 560px) { .reg-steps { gap: var(--sc-3) var(--sc-4); flex-wrap: wrap; } }
 .reg-steps li::before {
   content: ""; width: 8px; height: 8px; border-radius: 50%;
   border: 1.5px solid color-mix(in oklab, var(--sc-ink) 40%, transparent);

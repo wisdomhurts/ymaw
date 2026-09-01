@@ -66,7 +66,9 @@
 .cta--solid:hover { background: color-mix(in oklab, var(--sc-accent) 88%, white); }
 
 /* ----------------------------------------------------------- copy layer -- */
-.w-label { margin: 0 0 var(--sc-3); color: var(--sc-ink-soft); }
+/* Labels ride photographs at small size: tinted toward full ink so the
+   worst frame under them still clears 4.5:1. */
+.w-label { margin: 0 0 var(--sc-3); color: color-mix(in oklab, var(--sc-ink) 85%, var(--sc-ink-soft)); }
 .w-sub { margin-top: var(--sc-4); color: var(--sc-ink); }
 .w-sub--quiet { color: var(--sc-ink-soft); max-width: 44ch; margin-inline: auto; font-size: var(--sc-t-base); line-height: 1.55; }
 .w-hero .w-sub { max-width: 40ch; }
@@ -94,16 +96,32 @@
   margin-top: var(--sc-2);
 }
 
-/* The veil: a sibling scrim for the one centred block over a busy frame.
-   It is its own windowed layer, never a child of the text it protects. */
+/* The one scrim shape for the flight, strengthened and pointed at the
+   bottom, where every copy block on this page sits. */
+.sc-world__copy .sc-scrim--band {
+  background: linear-gradient(to top,
+    color-mix(in oklab, var(--sc-canvas) 97%, transparent) 0%,
+    color-mix(in oklab, var(--sc-canvas) 88%, transparent) 26%,
+    color-mix(in oklab, var(--sc-canvas) 66%, transparent) 50%,
+    color-mix(in oklab, var(--sc-canvas) 30%, transparent) 64%,
+    transparent 76%);
+}
+
+/* The veil: a sibling scrim for the one centred block (the circle, leg 4).
+   A plain layer, never a child of the text it protects, raised by the
+   data-leg attribute the waypoint listener stamps on <body>. */
 .w-veil {
   position: absolute; inset: 0;
-  pointer-events: none !important;
-  background: radial-gradient(58% 52% at 50% 52%,
-    color-mix(in oklab, var(--sc-canvas) 82%, transparent) 0%,
-    color-mix(in oklab, var(--sc-canvas) 55%, transparent) 55%,
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 600ms var(--sc-ease-out);
+  background: radial-gradient(64% 58% at 50% 50%,
+    color-mix(in oklab, var(--sc-canvas) 93%, transparent) 0%,
+    color-mix(in oklab, var(--sc-canvas) 72%, transparent) 55%,
     transparent 100%);
 }
+.w-circle .w-sub--quiet { color: color-mix(in oklab, var(--sc-ink) 55%, var(--sc-ink-soft)); }
+body[data-leg="3"] .w-veil { opacity: 1; }
 
 /* The peak and the finale ride the bottom band so the photograph's subject
    (raised hands, his face) stays clear above the copy. */
