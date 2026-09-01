@@ -86,6 +86,20 @@
 
   show(0);
 
+  /* Only offer the payment rails that are actually live. If card payments are
+     not configured yet, hide that option and default to e-Transfer. */
+  fetch('/api/config').then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (cfg) {
+      if (!cfg || cfg.card) return;
+      var card = form.querySelector('input[name=payment_method][value=card]');
+      if (!card) return;
+      card.closest('.reg-payopt').hidden = true;
+      card.checked = false;
+      form.querySelector('input[name=payment_method][value=etransfer]').checked = true;
+      if (current === steps.length - 1) next.textContent = payLabel();
+    })
+    .catch(function () {});
+
   /* Cancelled Stripe checkout returns here. */
   if (new URLSearchParams(location.search).get('canceled')) {
     errEl.textContent = 'Checkout was cancelled. Nothing was charged; his details are saved and you can pay any time.';
