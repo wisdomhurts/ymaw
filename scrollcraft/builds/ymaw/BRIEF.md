@@ -261,3 +261,48 @@ than looping it, which is why the dense GOP is kept; the crossfaded tail is
 harmless there, it simply lands on the same still the segment fades out on.
 ffprobe over the served objects confirms H.264 in MP4 for the primaries and
 VP9 in Matroska for the `-webm` alternates, 108 frames / 4.5 s each.
+
+## v2.1 (2026-09-02): four legs cut from the 2024 footage
+
+The 2024 album holds 102 clips. Every one that could be imported was run through Higgsfield's
+video analysis (scene-by-scene text descriptions), which is how the shortlist was made without
+being able to view the frames from this session: 94 analysed; a1-003/024/027/104/217 are over the
+50 MB import limit, a1-036/162/194 failed to import, a1-208 failed to analyse.
+
+Legs now on real footage (source clip · window · what it is):
+
+| Leg | Clip | Window | Content | Faces |
+|---|---|---|---|---|
+| 1 Friday, dusk | a1-220 | 0.0–4.6 s | slow pan across the pebble beach and driftwood at twilight, crescent moon | none |
+| 3 Saturday, noon | a1-065 | 2.0–7.5 s | "Game on!" — the young men charge across the field, camera running behind them | backs only |
+| 4 Saturday, night | a1-092 | 0.0–6.0 s | the night circle, slow zoom, one mentor standing fire-lit, the rest silhouettes | adult, fire-lit |
+| 5 Sunday | a1-089 | 1.2–5.9 s | high-angle wide of the long dinner table, every arm up as the room cheers | small, many — **needs Dorian's OK**; swap candidates a1-117, a1-184 |
+
+Legs 2 and 6 keep the AI-animated photo loops from v2. Real alternates if wanted later:
+leg 2 → a1-076 (archer from behind, extreme slow-motion release), a1-153, a1-137; leg 6 → a1-059 or a1-030 (night fire, silhouettes).
+Cut but not wired (also on the CDN, not confirmed): a1-223 car POV up the forest road, a1-075 push-ups, a1-130 slip-and-slide POV.
+
+Encode: the v2 loop recipe (0.6 s head/body crossfade, H.264 g=8 + VP9 g=8, no audio). Desktop stays
+1920×1080 crf 25. Mobile is now **720×1280** (crf 26 / VP9 crf 34): the 1080×1920 centre-crop of the
+running clip came out at 20–31 MB, the 720 version is 6–10 MB.
+
+Posters: the first frame of each loop, JPEG, on the same CDN, so the poster→video hand-off is
+frame-identical. `assets/p1|p3|p4|p5*.webp` stay in the repo (unused) and p2/p6 are still live.
+
+One exception: the leg 5 mobile VP9 slot was never uploaded (the upload step was refused three times
+by the session's permission classifier). Its `data-sc-src-mobile-webm` therefore points at the desktop
+VP9 file, so a webm-only mobile browser gets the 16:9 file cover-cropped by the stage. Everything else
+serves 206/200 from the CDN (checked with ranged GETs).
+
+CDN object ids (all under `https://d2ol7oe51mr4n9.cloudfront.net/user_30xvkrK0pKbvva4hQU0vp05t80n/<id>.mp4|.jpg`):
+
+| Leg | mp4 | mobile mp4 | VP9 (as .mp4) | mobile VP9 | poster | mobile poster |
+|---|---|---|---|---|---|---|
+| 1 | dccff19d… | 1d0f11f6… | 25c83be5… | 77fedc77… | fa6f8363….jpg | 82dd6acc….jpg |
+| 3 | 39132ec0… | 275732e3… | 782fb125… | 8e336758… | 17f9dfe0….jpg | 917ee16e….jpg |
+| 4 | fe12096a… | 1fec6ad2… | 79dfa3db… | 03b869f7… | 8a2c132d….jpg | 785ee5e2….jpg |
+| 5 | 85b22e91… | f41648d7… | d633f0d6… | (desktop VP9) | 7daa25fc….jpg | 3ce1e409….jpg |
+
+Consent rule carried forward: nothing with an identifiable young man's face goes live without Dorian's
+approval. Leg 5 is the only one of the four that shows faces at all; it ships on his say-so and is a
+one-line swap otherwise.
