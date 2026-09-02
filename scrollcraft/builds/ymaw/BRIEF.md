@@ -308,3 +308,9 @@ CDN object ids (all under `https://d2ol7oe51mr4n9.cloudfront.net/user_30xvkrK0pK
 Consent rule carried forward: nothing with an identifiable young man's face goes live without Dorian's
 approval. Leg 5 is the only one of the four that shows faces at all; it ships on his say-so and is a
 one-line swap otherwise.
+
+**Verified live (2026-09-02 06:15 UTC, headless Chromium in the Higgsfield sandbox against
+https://ymaw.vercel.app, desktop 1440×900 and mobile 390×844, commit 1018ba6):** served HTML carries
+the four new ids; all six legs reach readyState 4 as the flight advances with durations 4.0 / 4.5 / 4.9 /
+5.4 / 4.1 / 4.5 s at 1920 (desktop) and 720 (mobile) wide; currentTime tracks scroll to the end of each
+clip; every poster decodes; no console errors and no failed requests on either viewport.
