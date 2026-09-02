@@ -206,3 +206,14 @@ button.cta.reg-add { border: 1px solid var(--sc-hairline-strong); background: no
 
 /* Author display rules beat the UA [hidden] rule; make hidden mean hidden. */
 [hidden] { display: none !important; }
+
+/* ---- media release (release-2026-1), every registrant type -----------------*/
+.reg-release { border-top: 1px solid var(--sc-hairline); margin-top: var(--sc-5); padding-top: var(--sc-5); }
+.reg-release .reg-waiver { max-height: none; }   /* short enough to show whole; nothing hidden below a scroll */
+.reg-waiver a { color: var(--sc-ink); }
+.reg-release__choice { margin-bottom: var(--sc-4); }
+.reg-sub legend em { font-style: normal; opacity: 0.75; }
+.reg-release__choice .reg-check { margin-bottom: var(--sc-2); }
+.reg-release__sign { max-width: 24rem; }
+.reg-release__sign input { font-family: var(--sc-font-display); font-size: 1.05rem; letter-spacing: 0.01em; }
+.reg-release__who { margin-top: calc(-1 * var(--sc-2)); }

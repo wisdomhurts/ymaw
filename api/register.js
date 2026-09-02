@@ -6,8 +6,14 @@
 //   card       -> Stripe Checkout session, respond { url }
 //   etransfer  -> record as pending,   respond { ok, ref }
 //   aid        -> record aid request,  respond { ok, ref }
+// Every registration also carries the media release (release-2026-1): a
+// required granted/declined choice and a typed full-name signature, dated
+// here. Granting is voluntary; registration proceeds either way.
 // With no SUPABASE_URL configured the endpoint answers { demo: true } and
 // stores nothing, so the deployed site works honestly before provisioning.
+// With SHEETS_WEBHOOK_URL set, a summary of each stored row is mirrored to the
+// team's Google Sheet (scripts/sheets-sync.gs); medical notes, emergency
+// contacts and the typed signature never leave Supabase.
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { randomBytes } from 'node:crypto';
@@ -16,6 +22,8 @@ const PRICE_CENTS = 32000;
 const EVENT = 'ymaw-2026';
 const TYPES = ['young_man', 'sponsor', 'production'];
 const TYPE_LABEL = { young_man: 'Young Man', sponsor: 'Sponsor', production: 'Production Team' };
+const MEDIA_RELEASE_VERSION = 'release-2026-1';
+const SHEET_TIMEOUT_MS = 3000;
 
 function makeRef() {
   const alphabet = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
@@ -28,6 +36,53 @@ const bad = (res, msg) => res.status(400).json({ error: msg });
 const clip = (v, n) => String(v ?? '').slice(0, n);
 const truthy = (v) => v === true || v === 'true' || v === 'on';
 const okAge = (a) => { const n = parseInt(a, 10); return n >= 12 && n <= 17 ? n : null; };
+
+/* ---- Google Sheet mirror (also used by api/stripe-webhook.js) ---------------
+   The summary the Sheet receives. Deliberately not the whole row: no medical
+   notes, no emergency contact, no signature name. */
+export function sheetSummary(row) {
+  const d = row.details || {};
+  return {
+    ref: row.ref,
+    created_at: row.created_at || null,
+    registrant_type: row.registrant_type,
+    parent_name: row.parent_name,
+    parent_email: row.parent_email,
+    parent_phone: row.parent_phone,
+    son_first: row.son_first || null,
+    son_last: row.son_last || null,
+    son_age: row.son_age || null,
+    young_men: Array.isArray(d.young_men) ? d.young_men : [],
+    pickup: d.pickup || null,
+    headcount: row.headcount,
+    amount_cents: row.amount_cents,
+    payment_method: row.payment_method,
+    payment_status: row.payment_status,
+    paid_at: row.paid_at || null,
+    media_release_granted: typeof row.media_release_granted === 'boolean' ? row.media_release_granted : null,
+    media_release_version: row.media_release_version || null,
+    details: d
+  };
+}
+
+/* Best effort. It is awaited (Vercel freezes a function once its response is
+   sent, so a true fire-and-forget would never reach the Sheet) but capped at
+   3 s and never allowed to fail the registration. Errors go to the logs. */
+export async function mirrorToSheet(summary) {
+  const url = process.env.SHEETS_WEBHOOK_URL;
+  if (!url) return;
+  try {
+    const r = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ source: 'ymaw-site', record: summary }),
+      signal: AbortSignal.timeout(SHEET_TIMEOUT_MS)
+    });
+    if (!r.ok) console.error('sheet mirror: HTTP ' + r.status + ' for ' + summary.ref);
+  } catch (e) {
+    console.error('sheet mirror failed for ' + summary.ref + ':', e && e.message ? e.message : e);
+  }
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
@@ -42,6 +97,13 @@ export default async function handler(req, res) {
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.contact_email)) return bad(res, 'That email does not look right.');
   if (!['card', 'etransfer', 'aid'].includes(d.payment_method)) return bad(res, 'Unknown payment method.');
   if (!truthy(d.consent_waiver)) return bad(res, type === 'production' ? 'The YMAW Standards have to be accepted.' : 'The participation agreement has to be accepted.');
+
+  // Media release: choosing is required, granting is not. Every type signs:
+  // the parent/guardian or sponsor for the young men, production men for themselves.
+  const release = d.media_release === 'granted' ? true : d.media_release === 'declined' ? false : null;
+  if (release === null) return bad(res, 'Choose whether you grant the media release. Either answer is fine.');
+  const signedName = String(d.media_release_signature ?? '').trim();
+  if (signedName.length < 2 || signedName.length > 120) return bad(res, 'Type your full name to sign the media release.');
 
   // Type-specific validation + the details we store alongside the row.
   let details = {};
@@ -81,6 +143,7 @@ export default async function handler(req, res) {
   }
 
   const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+  const now = new Date().toISOString();
   const row = {
     ref,
     event: EVENT,
@@ -96,24 +159,33 @@ export default async function handler(req, res) {
     medical_notes: clip(d.medical_notes, 2000) || null,
     consent_waiver: true,
     waiver_version: clip(d.waiver_version, 40) || (type === 'production' ? 'standards-2026-1' : 'v2026-1'),
-    consented_at: new Date().toISOString(),
-    photo_consent: truthy(d.photo_consent),
+    consented_at: now,
+    photo_consent: release,                 // legacy column, kept in sync with the release
+    media_release_granted: release,
+    media_release_signed_name: signedName,
+    media_release_signed_at: now,
+    media_release_version: clip(d.media_release_version, 40) || MEDIA_RELEASE_VERSION,
     payment_method: d.payment_method,
     payment_status: d.payment_method === 'aid' ? 'aid_requested' : 'pending',
     amount_cents: total,
     headcount,
     details
   };
-  const ins = await supabase.from('registrations').insert(row).select('id').single();
+  const ins = await supabase.from('registrations').insert(row).select('id, created_at').single();
   if (ins.error) {
     console.error('register insert failed', ins.error);
     return res.status(500).json({ error: 'Could not save the registration. Email info@ymaw.com and we will register you by hand.' });
   }
+  const saved = { ...row, id: ins.data.id, created_at: ins.data.created_at };
 
-  if (d.payment_method !== 'card') return res.status(200).json({ ok: true, ref, total_cents: total });
+  if (d.payment_method !== 'card') {
+    await mirrorToSheet(sheetSummary(saved));
+    return res.status(200).json({ ok: true, ref, total_cents: total });
+  }
 
   if (!process.env.STRIPE_SECRET_KEY) {
     await supabase.from('registrations').update({ payment_method: 'etransfer' }).eq('id', ins.data.id);
+    await mirrorToSheet(sheetSummary({ ...saved, payment_method: 'etransfer' }));
     return res.status(200).json({ ok: true, ref, total_cents: total, url: null, fallback: 'etransfer' });
   }
 
@@ -142,9 +214,11 @@ export default async function handler(req, res) {
       cancel_url: origin + '/register.html?canceled=1#' + type.replace('_', '-')
     });
     await supabase.from('registrations').update({ stripe_session_id: session.id }).eq('id', ins.data.id);
+    await mirrorToSheet(sheetSummary(saved));
     return res.status(200).json({ ok: true, ref, total_cents: total, url: session.url });
   } catch (e) {
     console.error('stripe session failed', e);
+    await mirrorToSheet(sheetSummary(saved));   // the row exists; the team should still see it
     return res.status(500).json({ error: 'Card checkout is unavailable right now. Choose e-Transfer, or email info@ymaw.com.' });
   }
 }

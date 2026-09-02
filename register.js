@@ -1,5 +1,7 @@
 /* Registration: three registrant types, four steps, three payment paths, one
-   POST. The server validates everything again. */
+   POST. Step 3 carries the media release (release-2026-1) for every type: a
+   required grant/decline choice plus a typed signature. The server validates
+   everything again. */
 (function () {
   var form = document.getElementById('regForm');
   if (!form) return;
@@ -125,7 +127,15 @@
     r.addEventListener('change', function () { next.textContent = payLabel(); });
   });
 
+  /* The media release signature must be a real name: `required` alone lets
+     whitespace through, so the trimmed length is checked here as well. */
+  var sig = form.querySelector('input[name=media_release_signature]');
+  if (sig) sig.addEventListener('input', function () { sig.setCustomValidity(''); });
+
   function validStep(i) {
+    if (sig && steps[i].contains(sig)) {
+      sig.setCustomValidity(sig.value.trim().length < 2 ? 'Type your full name to sign the media release.' : '');
+    }
     var fields = steps[i].querySelectorAll('input:not([disabled]), select:not([disabled]), textarea:not([disabled])');
     for (var k = 0; k < fields.length; k++) {
       if (!fields[k].checkValidity()) { fields[k].reportValidity(); return false; }
@@ -165,8 +175,12 @@
     }
     var cw = form.querySelector('input[name=consent_waiver]:not([disabled])');
     data.consent_waiver = !!(cw && cw.checked);
-    var pc = form.querySelector('input[name=photo_consent]:not([disabled])');
-    data.photo_consent = !!(pc && pc.checked);
+    /* Media release: the granted/declined radio and the typed signature arrive
+       via FormData; the version sent is the one the signer actually saw. The
+       server records the date. */
+    var rel = form.querySelector('.reg-release');
+    data.media_release_version = (rel && rel.getAttribute('data-release-version')) || 'release-2026-1';
+    if (typeof data.media_release_signature === 'string') data.media_release_signature = data.media_release_signature.trim();
     var so = form.querySelector('input[name=screening_ok]:not([disabled])');
     data.screening_ok = !!(so && so.checked);
     data.waiver_version = type() === 'production' ? 'standards-2026-1' : 'v2026-1';
@@ -216,9 +230,13 @@
   addEventListener('hashchange', fromHash);
   show(0, true);
 
+  /* Back from a cancelled Stripe Checkout. The registration is stored as
+     pending, but this page loads empty, so say plainly what the options are.
+     show() clears the error line, so it has to run before the message is set. */
   if (new URLSearchParams(location.search).get('canceled')) {
-    errEl.textContent = 'Checkout was cancelled. Nothing was charged; the details are saved and you can pay any time.';
+    show(0);
+    errEl.textContent = 'Checkout was cancelled and nothing was charged. To pay by card, register again with the same details; ' +
+      'or send an Interac e-Transfer of the total to info@ymaw.com with the names in the message and we will match it to your registration.';
     errEl.hidden = false;
-    show(3);
   }
 })();

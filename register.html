@@ -232,10 +232,6 @@
             <input type="checkbox" name="consent_waiver" required>
             <span>I have read the participation agreement and I consent to the young man or men I am registering taking part.</span>
           </label>
-          <label class="reg-check">
-            <input type="checkbox" name="photo_consent">
-            <span>Photos taken at the weekend may be used by YMAW <em>(optional)</em>.</span>
-          </label>
         </div>
 
         <div data-for="production">
@@ -257,6 +253,38 @@
             <input type="checkbox" name="screening_ok" required>
             <span>I understand volunteer staff are screened, and I will complete a criminal record check if asked.</span>
           </label>
+        </div>
+
+        <!-- Media release: shown to every registrant type (production men appear in
+             photos too). Granting is voluntary; choosing and signing are required.
+             The server records the date and the version shown here. -->
+        <div class="reg-release" data-release-version="release-2026-1">
+          <div class="reg-waiver" tabindex="0" aria-label="Media release">
+            <h3>Media release (release-2026-1)</h3>
+            <p>Photos and video are taken during the weekend. I give the Young Men's Adventure Weekend Society of BC permission to use photos and video that include the young man or men I am registering, or me if I am taking part, on its website, on its social media and in printed material, to invite other families and men to take part.</p>
+            <p>A young man's name is never published without separate written permission.</p>
+            <p>This release can be withdrawn at any time by emailing <a href="mailto:info@ymaw.com">info@ymaw.com</a>.</p>
+            <p>Photos and video are never sold or given to third parties for their own use.</p>
+            <p>Granting this release is voluntary. Registration goes ahead either way.</p>
+          </div>
+          <fieldset class="reg-sub reg-release__choice">
+            <legend>Your choice <em>(required; either answer is fine)</em></legend>
+            <label class="reg-check">
+              <input type="radio" name="media_release" value="granted" required>
+              <span>I grant this release</span>
+            </label>
+            <label class="reg-check">
+              <input type="radio" name="media_release" value="declined" required>
+              <span>I do not grant this release</span>
+            </label>
+          </fieldset>
+          <label class="reg-field reg-release__sign">
+            <span>Type your full name to sign</span>
+            <input name="media_release_signature" type="text" autocomplete="name" required minlength="2" maxlength="120" spellcheck="false">
+          </label>
+          <p class="reg-help reg-release__who" data-for="young_man">You sign as the parent or guardian of the young man you are registering. The date is recorded when you submit.</p>
+          <p class="reg-help reg-release__who" data-for="sponsor">You sign as the sponsor, for yourself and for the young men you are bringing. The date is recorded when you submit.</p>
+          <p class="reg-help reg-release__who" data-for="production">You sign for yourself. The date is recorded when you submit.</p>
         </div>
       </fieldset>
 

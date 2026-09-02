@@ -1,5 +1,6 @@
 -- YMAW schema: paste this whole file into the Supabase SQL editor and click Run.
--- (Concatenation of migrations 0001 + 0002; safe to run once on a fresh project.)
+-- (Concatenation of migrations 0001 + 0002 + 0003; safe to run once on a fresh project.
+--  Already on 0002? Run only supabase/migrations/0003_media_release.sql.)
 
 -- YMAW registrations + inquiries.
 -- RLS is enabled with NO policies on purpose: no anon or authenticated access
@@ -75,3 +76,15 @@ alter table public.registrations alter column amount_cents set default 32000;
 alter table public.registrations alter column event set default 'ymaw-2026';
 
 create index if not exists registrations_type_idx on public.registrations (event, registrant_type);
+
+-- Media release (release-2026-1) is now part of registration for every
+-- registrant type (young_man, sponsor, production). Granting is voluntary;
+-- choosing and signing are required, and api/register.js dates the signature.
+-- Additive: existing rows keep nulls. The legacy photo_consent column stays
+-- and is written in sync (= media_release_granted) so older exports and the
+-- Sheet mirror keep working.
+alter table public.registrations
+  add column if not exists media_release_granted boolean,
+  add column if not exists media_release_signed_name text,
+  add column if not exists media_release_signed_at timestamptz,
+  add column if not exists media_release_version text;

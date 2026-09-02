@@ -66,7 +66,8 @@
         <div id="okAid" hidden>
           <p class="sc-body">Thank you for asking: that is exactly what the assistance fund is for. The registration is recorded, and someone from the team will reach out personally within a few days. Nothing more to do right now.</p>
         </div>
-        <p class="reg-note">Reference <strong id="refCode2"></strong> · Questions: <a href="mailto:info@ymaw.com">info@ymaw.com</a></p>
+        <p class="reg-note"><span id="refWrap">Reference <strong id="refCode2"></strong> · </span>Questions: <a href="mailto:info@ymaw.com">info@ymaw.com</a></p>
+        <p class="reg-note">Your media release choice is recorded with this registration. To change it at any time, email <a href="mailto:info@ymaw.com">info@ymaw.com</a>.</p>
         <p class="reg-note"><a href="/">Back to the weekend</a></p>
       </div>
     </div>
@@ -93,7 +94,8 @@
   document.getElementById('etrTotal').textContent = '$' + total + ' CAD';
   if (who) document.getElementById('whoName').textContent = who + (type === 'young_man' ? '’s name' : '');
   document.getElementById('refCode').textContent = ref;
-  document.getElementById('refCode2').textContent = ref || '(sent by email)';
+  document.getElementById('refCode2').textContent = ref;
+  document.getElementById('refWrap').hidden = !ref;
 })();
 </script>
 </body>
