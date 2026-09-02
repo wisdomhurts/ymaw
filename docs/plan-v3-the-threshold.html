@@ -107,11 +107,18 @@
   /* questions */
   .qs { counter-reset: q; list-style: none; padding: 0; margin: 1rem 0 0; }
   .qs li { counter-increment: q; position: relative; padding: 0.9rem 0 0.9rem 3.2rem; border-top: 1px solid var(--rule); max-width: none; }
-  .qs li::before { content: counter(q, decimal-leading-zero); position: absolute; left: 0; top: 0.95rem; font-family: var(--mono); font-size: 13px; color: var(--fire); }
+  .qs li::before { content: counter(q, decimal-leading-zero); position: absolute; left: 0; top: 0.95rem; font-family: var(--mono); font-size: 13px; color: var(--forest); }
+  .qs.open li::before { color: var(--fire); }
+  .qs li p.answer { color: var(--ink); }
+  .qs li p.answer q { font-style: italic; }
   .qs li b { display: block; font-family: var(--display); font-weight: 600; font-size: 1.08rem; margin-bottom: 0.2rem; }
   .qs li p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
   .qs li p.assume { font-size: 0.93rem; margin-top: 0.3rem; }
   .qs li p.assume b { display: inline; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest); margin-right: 0.4rem; }
+
+  .when { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest); margin-right: 0.5rem; white-space: nowrap; }
+  .band .when { color: var(--band-ink); }
+  td .when { display: block; margin: 0 0 0.2rem; }
 
   .pull { border-left: 3px solid var(--fire); padding-left: 1.2rem; margin: 1.6rem 0; }
   .pull p { font-family: var(--display); font-size: 1.35rem; line-height: 1.3; margin: 0 0 0.3rem; text-wrap: balance; }
@@ -127,11 +134,11 @@
 
 <header class="thesis">
   <div class="wrap">
-    <div><p class="stamp">ymaw.com · v3 plan · 2 September 2026</p></div>
+    <div><p class="stamp">ymaw.com · v3 plan · answered · 2 September 2026</p></div>
     <div>
       <h1>The website is the <em>threshold</em>. Not a brochure. The first quest.</h1>
-      <p class="lede">A plan to start ymaw.com from nothing and build it the way the weekend itself is built: on the shape of the hero's journey, in real footage, with two doors at the front, one for the young man and one for the person bringing him. Everything below is a proposal for Dorian to cut, keep and answer.</p>
-      <p class="meta"><span>Bus leaves in <b>9 days</b></span><span>Stills on hand <b>644</b></span><span>Clips on hand <b>102</b></span><span>Consent on file <b>unknown</b></span><span>Questions for Dorian <b>14</b></span></p>
+      <p class="lede">A plan to start ymaw.com from nothing and build it the way the weekend itself is built: on the shape of the hero's journey, in real footage, with two doors at the front, one for the young man and one for the person bringing him. Dorian has answered the fourteen questions. This is the plan with the answers folded in: what ships today, what the nine days carry, what the weekend gives, and what waits for spring.</p>
+      <p class="meta"><span>Bus leaves in <b>9 days</b></span><span>Goal <b>50 young men registered</b></span><span>Stills on hand <b>644</b></span><span>Clips on hand <b>102</b></span><span>Release <b>inside registration</b></span><span>Answered <b>14 of 14</b></span><span>Still open <b>4</b></span></p>
     </div>
   </div>
 </header>
@@ -148,7 +155,7 @@
       <li><a href="#build">The build</a></li>
       <li><a href="#share">Sharing it</a></li>
       <li><a href="#phases">Phases</a></li>
-      <li><a href="#questions">Questions</a></li>
+      <li><a href="#questions">Answered</a></li>
     </ol>
   </nav>
 
@@ -161,7 +168,7 @@
       <ul>
         <li><strong>Two doors at the front.</strong> "I'm 12 to 17" and "I'm bringing him." Same weekend, two voices, one registration. The young man is never talked about in the third person on his own path.</li>
         <li><strong>Every frame is real.</strong> No animated stills, no stock, no AI. What is on the site happened at a YMAW weekend. This is the one thing a young man can smell from a mile off, and the one thing no other youth program's website in BC can claim.</li>
-        <li><strong>The site crosses into the weekend.</strong> A line he writes on the site in September comes back to him, on paper, at Future Plans on Sunday. The website is the first station and the bus is the second.</li>
+        <li><strong>The site crosses into the weekend.</strong> The media release he and his guardian complete at registration is what the men work from on Friday. The one thing the site says about Sunday, that he will be acknowledged by the men who watched him all weekend, is kept by the team, not by code. The website is the first station and the bus is the second.</li>
       </ul>
       <div class="pull">
         <p>We aren't a summer camp; we're a rite of passage.</p>
@@ -177,9 +184,9 @@
         <li><strong>Real over rendered.</strong> Photographs and film from YMAW weekends only. Where we have no footage of something, we write about it or we film it in September. We do not generate it.</li>
         <li><strong>His voice and theirs.</strong> Every page speaks to the young man in the second person somewhere, and to his family in the plain, unhurried voice a good production man uses at the bus stop.</li>
         <li><strong>Nothing invented.</strong> No statistics we cannot source, no quotes nobody said, no promises the weekend does not keep. If it is on the site, a man on the team can stand behind it in a parking lot.</li>
-        <li><strong>Consent is the design constraint.</strong> No identifiable young man appears without a signed release from a guardian and his own assent. The site is designed so that it is beautiful with backs, hands, silhouettes and landscape, and becomes richer as consents arrive.</li>
-        <li><strong>The sacred stays off camera.</strong> The Push, the Sunday ceremony and anything said in a circle are never filmed, recorded or described beyond what the handbook already says publicly.</li>
-        <li><strong>Fast, quiet, for everyone.</strong> Loads in under two seconds on a phone on a bus. Works without sound, without motion, without JavaScript, with a screen reader. Sound and motion are gifts you opt into, not a toll.</li>
+        <li><strong>Consent is the design constraint.</strong> The media release is part of registration itself: a required grant-or-decline choice with a typed signature, not a follow-up email. No identifiable young man appears without a grant on file. The site is designed so that it is beautiful with backs, hands, silhouettes and landscape, and becomes richer as grants arrive.</li>
+        <li><strong>The sacred stays off camera.</strong> Confidentiality is respected at the weekend, in Dorian's words. The Push, the Sunday ceremony and anything said in a circle are never filmed, recorded, quoted or described beyond what the handbook already says publicly. No quote on the site comes from a circle, ever.</li>
+        <li><strong>Fast, quiet, for everyone.</strong> Loads in under two seconds on a phone on a bus. Works without sound, without motion, without JavaScript, with a screen reader. Sound and motion are offered, never imposed; you opt in with a tap.</li>
       </ol>
     </section>
 
@@ -189,15 +196,15 @@
       <p>The site map below is a trail, not a menu. Every page hands you to the next one, and every page ends at the same fire: registration. The names are working names.</p>
       <dl class="map">
         <dt>The Threshold</dt><dd>Home. Two doors, then one continuous scroll through the weekend in real footage: dusk, dawn, the Quests, the circle, Sunday, the walk out. The version live today is the prototype of this.</dd>
-        <dt>His Path</dt><dd>The young man's door. Second person throughout. What actually happens, what is hard, what nobody makes you do, what you come home with. Ends with "Write your line" and Register.</dd>
-        <dt>Bringing Him</dt><dd>The family's door. Why this exists, safety and the standards, what $320 covers, how the weekend runs hour by hour, what to expect Sunday night. Ends with Register and Come as a Sponsor.</dd>
+        <dt>His Path</dt><dd>The young man's door, confirmed by Dorian. Second person throughout. What actually happens, what is hard, what nobody makes you do, what you come home with. Ends with Register.</dd>
+        <dt>Bringing Him</dt><dd>The family's door, confirmed by Dorian. Why this exists, safety and the standards, what $320 covers, the Squamish region and no phones stated plainly, how the weekend runs hour by hour, what to expect Sunday night. Ends with Register and Come as a Sponsor.</dd>
         <dt>The Weekend</dt><dd>The field log, hour by hour, each hour with a real clip or still from that hour. The one page both doors share.</dd>
-        <dt>Voices</dt><dd>Short vertical films and written lines from young men and men, every one with a signed release. Empty until the 2026 weekend gives us consented material; launched the day it does.</dd>
-        <dt>Since 1990</dt><dd>The archive. One photograph per year we have (the "Old" album, 2012, 2013, 2014, 2015, 2016, 2019, 2024, 2026), scrubbed through time. "Then and now": men who came as young men.</dd>
-        <dt>The Men</dt><dd>Who runs it, the departments, the standards, the Man Code, how to join. The straight-talk block for men stays.</dd>
-        <dt>Register</dt><dd>One form, three roles, five minutes on a phone. Card, Apple Pay and Google Pay when Stripe is unpaused; e-transfer; the assistance and work-to-earn box. The confirmation is the walk out.</dd>
+        <dt>Voices</dt><dd>Written lines and short films drawn from letters, invitations, men's public reflections and approved testimonials, every one with a release on file. Never a word from a circle. Not recorded at the weekend. Fills after September; a spring page.</dd>
+        <dt>Since 1990</dt><dd>The archive, and the founding story in Dorian's words: Brad Leslie, co-founder and vision holder, and why. One photograph per year we have (the "Old" album, 2012, 2013, 2014, 2015, 2016, 2019, 2024, 2026), scrubbed through time. "Then and now": men who came as young men. The words ship today; the timeline is spring.</dd>
+        <dt>The Men</dt><dd>The Team page. Who runs it, by name and role: Brad Leslie, co-founder and vision holder, and the men Dorian names as he sends the roster. The departments, the standards, the Man Code, how to join. This page has a second job Dorian named: engaging men to participate. The straight-talk block for men stays.</dd>
+        <dt>Register</dt><dd>One form, three roles, five minutes on a phone. The media release lives inside it: grant or decline, typed signature, required. Card payments through Stripe, unpaused today; Apple Pay and Google Pay once ymaw.com is verified with Stripe; e-transfer stays. The assistance box; work-to-earn only if it is confirmed for 2026. The confirmation is the walk out.</dd>
         <dt>Support</dt><dd>Send a young man, sponsor one you know, give time on the load and strike crews, spread the word. Donation receipts if the Society can issue them.</dd>
-        <dt>Partners</dt><dd>For schools, counsellors, youth organisations, treatment centres and faith communities: the 20-minute meeting ask, the work-to-earn path, a downloadable kit. This page exists because the outreach templates already do.</dd>
+        <dt>Partners</dt><dd>For schools, counsellors, youth organisations, treatment centres and faith communities: the 20-minute meeting ask, the work-to-earn path if it runs, a downloadable kit. This page exists because the outreach templates already do. Spring.</dd>
       </dl>
       <p class="small">Two more pages appear only when they are useful: <strong>While He's Gone</strong>, a page for parents to read over the weekend itself, and <strong>Events</strong>, the monthly gatherings and the January kickoff that the communications strategy already describes.</p>
     </section>
@@ -205,20 +212,20 @@
     <section class="stop" id="moments">
       <p class="stamp">04 · Signature moments</p>
       <h2>The ten things a visitor remembers.</h2>
-      <p>Each moment says what it is, why it matters to a young man, and what it needs from us. Most need footage and consent more than they need code.</p>
+      <p>Each moment says what it is, why it matters to a young man, what it needs from us, and when it is realistic: today, in the nine days, or in the spring refresh. Most need footage and consent more than they need code.</p>
       <div class="band">
         <p class="stamp">Real, not rendered</p>
         <div class="moments">
-          <div class="moment"><h4>Dusk mode</h4><p>The site knows the visitor's local time. After sunset the paper goes to night and the fire is the only warm light on the page. Friday, dusk, on his phone, at dusk.</p><p class="needs">Needs: nothing but code and the night footage we have.</p></div>
-          <div class="moment"><h4>The fire</h4><p>The hearth on the home page is the real Saturday-night fire. Press and hold to hear it crackle. Sound is opt-in, recorded at the weekend, never music.</p><p class="needs">Needs: a clean 60 s audio capture in September.</p></div>
-          <div class="moment"><h4>The bus countdown</h4><p>Days, hours, minutes to the Friday pickup, with the three stops and the Island carpool on a hand-drawn map. When it hits zero it becomes While He's Gone.</p><p class="needs">Needs: confirmed stop locations and times.</p></div>
-          <div class="moment"><h4>Letter to Sunday</h4><p>At registration the young man may write one line to himself. The team prints it and hands it to him at Future Plans. The site reaches into the weekend and the weekend reaches back.</p><p class="needs">Needs: the PTM's yes, a printer, an envelope per young man.</p></div>
-          <div class="moment"><h4>The field card</h4><p>Registration produces a printable card: the packing list, the arc of the weekend, and a blank line for the standard he will write on Friday night. Something to hold on the bus.</p><p class="needs">Needs: the packing list and a one-hour design pass.</p></div>
-          <div class="moment"><h4>The walk out</h4><p>The registration confirmation is the two lines of men, in photographs, and one written line from a man who was once on the bus. He has been received before he has left home.</p><p class="needs">Needs: releases from a dozen production men and one true paragraph.</p></div>
-          <div class="moment"><h4>Voices</h4><p>Vertical films of 30 to 60 seconds, captioned, no music, shot at a "voices booth" on Sunday afternoon with three questions. Young men with releases, men with releases.</p><p class="needs">Needs: consent forms at the bus stop, a phone on a tripod, one man for two hours.</p></div>
-          <div class="moment"><h4>Since 1990</h4><p>A timeline you scrub with your thumb. One frame per year we have, from the old prints to last September. Faces in the old photographs only with the men's permission; they are men now.</p><p class="needs">Needs: a date for every album and an hour with Dorian on names.</p></div>
-          <div class="moment"><h4>Send this to a dad</h4><p>Every page has one share button that writes the message for you: a real line from the page, a vertical clip, the link. Built for a text message, because that is how young men arrive.</p><p class="needs">Needs: the 9:16 cuts we already know how to make.</p></div>
-          <div class="moment"><h4>What he built</h4><p>Four weeks after the weekend, a page for families and young men: the consented photographs from their year, and an invitation to the October gathering. The trail does not end at the bus stop.</p><p class="needs">Needs: the documentarian's work from September and a gathering date.</p></div>
+          <div class="moment"><h4>Dusk mode</h4><p>The site knows the visitor's local time. After sunset the paper goes to night and the fire is the only warm light on the page. Friday, dusk, on his phone, at dusk.</p><p class="needs"><span class="when">Spring</span>Needs: nothing but code and the night footage we have.</p></div>
+          <div class="moment"><h4>The fire</h4><p>The hearth on the home page is the real Saturday-night fire. Press and hold to hear it crackle. Sound is opt-in, recorded at the weekend, never music.</p><p class="needs"><span class="when">Spring</span>Needs: a clean 60 s audio capture in September, if a documentarian is named.</p></div>
+          <div class="moment"><h4>The bus countdown</h4><p>Days, hours, minutes to the Friday pickup, with the three stops and the Island carpool on a hand-drawn map. When it hits zero it becomes While He's Gone.</p><p class="needs"><span class="when">Nine days</span>Needs: confirmed stop locations and times.</p></div>
+          <div class="moment"><h4>Seen all weekend</h4><p>The site says one true thing about Sunday and no more: each young man is acknowledged by the men who watched him all weekend. What that looks like stays inside the weekend. The promise is small on the page because it is large in the room.</p><p class="needs"><span class="when">Today</span>Needs: one paragraph and restraint. The team already does the rest.</p></div>
+          <div class="moment"><h4>The field card</h4><p>Registration produces a printable card: the packing list, the arc of the weekend, and a blank line for the standard he will write on Friday night. Something to hold on the bus.</p><p class="needs"><span class="when">Nine days</span>Needs: the packing list and a one-hour design pass.</p></div>
+          <div class="moment"><h4>The walk out</h4><p>The registration confirmation is the two lines of men, in photographs, and one written line from a man who was once on the bus. He has been received before he has left home.</p><p class="needs"><span class="when">Nine days</span>Needs: Dorian's roster of men, their own yes to their faces, and one true paragraph.</p></div>
+          <div class="moment"><h4>Voices</h4><p>Written lines and short vertical films, captioned, no music. Drawn only from letters, invitations, men's public reflections and approved testimonials. Never from a circle; never recorded at the weekend. Confidentiality is respected there.</p><p class="needs"><span class="when">Spring</span>Needs: the release on file, and patience. It fills after September, not during it.</p></div>
+          <div class="moment"><h4>Since 1990</h4><p>A timeline you scrub with your thumb. One frame per year we have, from the old prints to last September. Faces in the old photographs only with the men's permission; they are men now.</p><p class="needs"><span class="when">Spring</span>Needs: a date for every album and an hour with Dorian on names. Rights are clear: he shot most of it.</p></div>
+          <div class="moment"><h4>Send this to a dad</h4><p>Every page has one share button that writes the message for you: a real line from the page, a vertical clip, the link. Built for a text message, because that is how young men arrive.</p><p class="needs"><span class="when">Nine days</span>Needs: the 9:16 cuts we already know how to make.</p></div>
+          <div class="moment"><h4>What he built</h4><p>After the weekend, once the consented photographs exist, a page for families and young men: the consented photographs from their year, and an invitation to the October gathering. The trail does not end at the bus stop.</p><p class="needs"><span class="when">Spring</span>Needs: consented photographs from September, which needs a documentarian, and a gathering date.</p></div>
         </div>
       </div>
       <p class="small quiet" style="margin-top: 1rem;">What is deliberately not on this list: parallax for its own sake, gamified quizzes, badges, a chatbot, anything that asks a young man for data the weekend does not need.</p>
@@ -227,25 +234,31 @@
     <section class="stop" id="content">
       <p class="stamp">05 · Content</p>
       <h2>Two voices, one truth, written new.</h2>
-      <p>All copy is rewritten from the source documents (The Big Why, the standards, the flyer, the partner templates, the communications strategy) and from Dorian's answers to the questions at the end. Two registers:</p>
+      <p>All copy is rewritten from the source documents (The Big Why, the standards, the flyer, the partner templates, the communications strategy) and from Dorian's answers in section 10. Two registers:</p>
       <dl class="kv">
-        <dt>To him</dt><dd>Second person, present tense, short sentences, no adjectives that sell. Says what is hard first. Never explains what he should feel. "Your phone spends the weekend in your bag. Everyone survives this, including you."</dd>
-        <dt>To them</dt><dd>Plain, unhurried, specific. Safety and standards before magic. Names what $320 covers to the meal. Ends every page with the one thing they can do next.</dd>
-        <dt>Quotes</dt><dd>Only recorded words with a signed release, gathered at the voices booth in September and from men who write their own line for the walk out. Until then, the organisation's own lines carry the pages.</dd>
-        <dt>Numbers</dt><dd>Price, ages, dates, stops, since 1990. Nothing else unless the Society can source it and stand behind it.</dd>
+        <dt>To him</dt><dd>Second person, present tense, short sentences, no adjectives that sell. Says what is hard first. Never explains what he should feel. "No phones. Everyone survives this, including you."</dd>
+        <dt>To them</dt><dd>Plain, unhurried, specific. Safety and standards before magic. Names what $320 covers to the meal; $320 flat, no early bird. The Squamish region, never the site's name. Non-denominational, in that word. Ends every page with the one thing they can do next.</dd>
+        <dt>Quotes</dt><dd>Never from a circle. Confidentiality is respected at the weekend. Voices are drawn from letters, invitations, men's public reflections and approved testimonials only, each with a release on file. Until they arrive, the organisation's own lines and Dorian's words carry the pages.</dd>
+        <dt>Numbers</dt><dd>$320, ages 12 to 17, 11 to 13 September 2026, the stops, since 1990. Nothing else unless the Society can source it and stand behind it; the site does not count the weekends.</dd>
         <dt>Language</dt><dd>Young men, never boys. Production men, not staff. The weekend, not the event. Rite of passage, not program.</dd>
       </dl>
-      <p>A content matrix (page by audience by job) comes with the first draft, so every paragraph can be traced to a reader and a reason. Reading level for His Path is checked against a 13-year-old, not a 40-year-old.</p>
+      <h3>The founding story, in Dorian's words</h3>
+      <div class="pull">
+        <p>My dad did it for me and for the next generation. It's his legacy and I'm here to support him and it moving forward. This is an opportunity to be of service.</p>
+        <cite>Dorian Leslie · 2 September 2026 · the spine of Since 1990</cite>
+      </div>
+      <p>Brad Leslie is YMAW's co-founder and vision holder (2011 Production Manual). In Dorian's words, he "loves to make a difference in the world, supporting men and young men to be their best and live lives of integrity and service, and hold high standards for themselves and their communities." That paragraph opens Since 1990 and The Men. Dorian also named the site's second job: it is used for engaging men to participate, so The Men is written as an invitation, not an org chart. The where of 1990 and the count of weekends were not part of the answer; the site says "since 1990" and stops there.</p>
+      <p>A content matrix (page by audience by job) is a spring item; today's copy is traced by hand, paragraph by paragraph, to a reader and a reason. Reading level for His Path is checked against a 13-year-old, not a 40-year-old.</p>
     </section>
 
     <section class="stop" id="media">
       <p class="stamp">06 · Real footage</p>
       <h2>What we have, what we can use, and what September has to give us.</h2>
-      <p>The eight shared albums hold 644 stills and 102 clips. The 2024 clips were surveyed frame by frame by description this week; the stills have not been surveyed yet. Roughly:</p>
+      <p>The eight shared albums hold 644 stills and 102 clips. Dorian shot most of them himself over the years, so the rights to the archive are clear; an identifiable young man in any of them still needs a release or approval before he appears. The 2024 clips were surveyed frame by frame by description this week; the stills have not been surveyed yet. Roughly:</p>
       <div class="tbl"><table>
         <thead><tr><th>Album</th><th class="num">Stills</th><th class="num">Clips</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>2024</td><td class="num">237</td><td class="num">102</td><td>Beach, camp, Quests, archery, night circle, kitchen, the Sunday game, seven interviews with young men, two with men.</td></tr>
+          <tr><td>2024</td><td class="num">237</td><td class="num">102</td><td>Beach, camp, Quests, archery, night circle, kitchen, the Sunday game, seven interviews with young men, two with men. The interviews are not used (question 4).</td></tr>
           <tr><td>2019</td><td class="num">40</td><td class="num">0</td><td>Unsurveyed.</td></tr>
           <tr><td>2016</td><td class="num">85</td><td class="num">0</td><td>Unsurveyed.</td></tr>
           <tr><td>YMAW 15 (2015)</td><td class="num">88</td><td class="num">0</td><td>Unsurveyed.</td></tr>
@@ -258,29 +271,29 @@
       <h3>Usable today, no release needed</h3>
       <p>Landscape and weather, the beach at twilight, the forest road, tarps going up, gear on the ground, hands on a bow from behind, the night circle in silhouette, young men running away from the camera, the wide Sunday table. The four legs cut this week came from this set. It is enough for a beautiful site. It is not enough for Voices or the walk out.</p>
       <h3>Needs a release before it goes live</h3>
-      <p>Every interview, every close-up, the boxing pads with a face, the line of young men facing camera, anything a classmate could recognise. The 2024 interviews (seven young men, two men) are the best material in the archive and they need a guardian's signature each. Dorian knows these families.</p>
+      <p>Every close-up, the boxing pads with a face, the line of young men facing camera, anything a classmate could recognise. The 2024 interviews (seven young men, two men) are the best material in the archive and Dorian's answer on reaching those families is no, so they stay in the archive and off the site. Which identifiable young men from 2012 to 2024 are approved is still open; until a name is approved, the frame is cropped, turned or left out.</p>
       <h3>The September capture</h3>
-      <p>The weekend in nine days is the single biggest opportunity this plan has, and it costs one man's weekend. Proposal: appoint one production man as <strong>Documentarian</strong>, a real role on the team chart, with a shot list mapped to the ten moments above and a rule that he never films a circle. Consent forms go out with the pickup details and are signed at the bus stop; a young man who opts out wears a coloured wristband and the documentarian works around him. Deliverables to aim for:</p>
+      <p>The weekend in nine days is the single biggest opportunity this plan has, and it costs one man's weekend. Proposal, still open: appoint one production man as <strong>Documentarian</strong>, a real role on the team chart, with a shot list mapped to the ten moments above and a rule that he never films a circle. Dorian has been the documentarian in practice for years; whether someone is named for this September is his call. The release is no longer paper at the bus stop: it is granted or declined inside registration, so before Friday the team knows from the records who may be photographed and who may not. How a decline is marked in the field is the team's call. Deliverables to aim for, if a man is named:</p>
       <ul>
         <li>Twenty stills that carry a page each: the bus at dusk, the hike in as silhouettes, hands (knots, axe, fire), the shelters, a Quest from behind, the kitchen, the Sunday game wide, the walk out from behind the lines.</li>
         <li>Twelve clips of five to ten seconds, tripod or steady, each one a moment on the trail, shot for both 16:9 and 9:16.</li>
         <li>Six sound captures of one minute: fire, the drum circle, the bus, wind on the beach, the game, morning birds.</li>
-        <li>Eight voices at the Sunday booth: five young men, three men, three questions each, releases signed.</li>
+        <li>Nothing from a circle, and no interviews at the weekend. Confidentiality is respected there; the documentarian films the trail, not the words.</li>
       </ul>
-      <p class="small">Hosting: the footage moves off the temporary CDN it sits on now to a video host the Society owns and pays for (Mux or Cloudflare Stream, roughly the price of two coffees a month at this traffic), with the originals kept in the Society's Drive.</p>
+      <p class="small">Hosting, spring: the footage moves off the temporary CDN it sits on now to a video host the Society owns and pays for (Mux or Cloudflare Stream, roughly the price of two coffees a month at this traffic), with the originals kept in the Society's Drive.</p>
     </section>
 
     <section class="stop" id="build">
       <p class="stamp">07 · The build</p>
-      <h2>Keep the engine, replace everything on it.</h2>
+      <h2>Keep the engine, replace everything on it. Today: the parts that are forms and words.</h2>
       <dl class="kv">
         <dt>Experience</dt><dd>The scroll-driven trail (the scrollcraft engine already running) stays as the spine of the home page and The Weekend; it is proven on desktop and phone. Every other page is plain, fast HTML.</dd>
-        <dt>Identity</dt><dd>The logo's colours on warm paper stay unless Dorian wants a reset (question 1). Typography gets a real display face for headlines and a hyper-legible body face for a 13-year-old on a cracked phone screen.</dd>
-        <dt>Registration</dt><dd>Supabase for the records, owner-only access, no third-party trackers. Stripe with Apple Pay and Google Pay when unpaused; e-transfer with a reference code as it works today; the assistance and work-to-earn box; the Google Sheet sync the team asked for.</dd>
-        <dt>Consent</dt><dd>Releases collected at the bus stop on paper and photographed into the registration record, or signed on a phone through the same form. A "faces list" the site checks before any identifiable image is published.</dd>
+        <dt>Identity</dt><dd>Dorian has invited a new identity: Star Wars, The Last Samurai, Joseph Campbell's hero's journey. The direction is being written as its own document, <a href="brand-v3.html">the v3 brand direction</a>. The palette is no longer a constraint. Typography still gets a real display face for headlines and a hyper-legible body face for a 13-year-old on a cracked phone screen. How much of the new identity reaches the live site today depends on how far that document gets today; the rest is spring.</dd>
+        <dt>Registration</dt><dd>Reworked today, with Dorian's blessing. Supabase for the records, owner-only access, no third-party trackers. Stripe unpaused today and card payments in the form today; Apple Pay and Google Pay once ymaw.com is verified with Stripe; e-transfer with a reference code as it works today; the assistance box, with work-to-earn held back until it is confirmed for 2026; the Google Sheet sync the team asked for.</dd>
+        <dt>Consent</dt><dd>The media release is a required step of the registration form: grant or decline, with a typed signature, stored on the registration record. No follow-up email, no paper at the bus stop. The grants become the "faces list" the site checks before any identifiable image is published.</dd>
         <dt>Performance</dt><dd>Budget: first paint under two seconds on a 4G phone, under five megabytes per page view including the first clip, reduced-motion visitors get stills, no sound without a tap.</dd>
         <dt>Accessibility</dt><dd>WCAG AA contrast on both grounds, captions on every voice, keyboard through everything, alt text written by a person.</dd>
-        <dt>Domain</dt><dd>ymaw.com points at the new site on launch day with the old registration links redirected; the .vercel.app address is never printed anywhere.</dd>
+        <dt>Domain</dt><dd>Dorian controls the DNS and points ymaw.com at the site this evening. Old registration links redirected; checked on a phone tomorrow. The .vercel.app address is never printed anywhere.</dd>
       </dl>
     </section>
 
@@ -288,74 +301,89 @@
       <p class="stamp">08 · Sharing it</p>
       <h2>How a young man hears about this in the first place.</h2>
       <p>Most young men arrive because a man they knew told their parents. Everything below is built to make that one conversation easier to start and harder to forget.</p>
-      <h3>Inside the circle</h3>
+      <p>The goal Dorian named is <strong>50 young men registered</strong>. With nine days, that number moves one way: through the men, each carrying his own link into conversations he is already having, and through families forwarding one honest message. Those two levers come first below and are marked for the nine days. Everything else is the spring, kept here so the site built today does not have to be undone to make room for it.</p>
+      <h3>Among the men</h3>
       <ul>
-        <li><strong>Who brought you? Who will you bring?</strong> Every registered young man's family and every production man gets a personal link. Not a discount, an invitation with his name on it. The team sees, privately, which invitations became registrations.</li>
-        <li><strong>The men's own link.</strong> Each production man carries a QR card in his wallet. At the every-other-Thursday meeting the count is read out, kindly. Men are competitive about the right things.</li>
-        <li><strong>The alumni line.</strong> Men who came as young men are asked for one written line for the walk out and one for the October gathering. Their names go on the site only if they want them there.</li>
+        <li><span class="when">Nine days</span><strong>Who brought you? Who will you bring?</strong> Every registered young man's family and every production man gets a personal link. Not a discount, an invitation with his name on it. The team sees, privately, which invitations became registrations. The written invitations are also the first source Voices draws on.</li>
+        <li><span class="when">Nine days</span><strong>The men's own link.</strong> Each production man carries a QR card in his wallet. At the every-other-Thursday meeting the count is read out, kindly. Men are competitive about the right things.</li>
+        <li><span class="when">Nine days</span><strong>The alumni line.</strong> Men who came as young men are asked for one written line for the walk out. Now that men may be named, their names go on the site if they want them there.</li>
       </ul>
       <h3>For families</h3>
       <ul>
-        <li><strong>Send this to a dad.</strong> One tap writes the text message and attaches the clip. The message is honest: "This is the weekend I wish I'd had."</li>
-        <li><strong>The field card in the world.</strong> The printable card doubles as the flyer: a school counsellor pins it, a coach hands it out, a barbershop keeps a stack by the register.</li>
-        <li><strong>The Open Fire.</strong> One of the monthly gatherings the communications strategy already plans becomes the spring enrolment night: an actual fire, in Burnaby or Squamish, families and young men invited, men who have been there speaking, RSVP on the site.</li>
+        <li><span class="when">Nine days</span><strong>Send this to a dad.</strong> One tap writes the text message and attaches the clip. The message is honest: "This is the weekend I wish I'd had."</li>
+        <li><span class="when">Nine days</span><strong>The field card in the world.</strong> The printable card doubles as the flyer: a school counsellor pins it, a coach hands it out, a barbershop keeps a stack by the register.</li>
+        <li><span class="when">Spring</span><strong>The Open Fire.</strong> One of the monthly gatherings the communications strategy already plans becomes the spring enrolment night: an actual fire, in Burnaby or Squamish, families and young men invited, men who have been there speaking, RSVP on the site.</li>
       </ul>
       <h3>Partners</h3>
       <ul>
-        <li><strong>The Partners page and kit.</strong> Youth organisations, treatment centres, faith communities and schools, exactly the audiences the partner email templates already address: the 20-minute meeting ask, the work-to-earn path, a one-page PDF and a 60-second film they can forward.</li>
-        <li><strong>Work-to-earn with a partner.</strong> A community organisation provides the service hours; the Society provides the seat. The story writes itself and it is true.</li>
+        <li><span class="when">Spring</span><strong>The Partners page and kit.</strong> Youth organisations, treatment centres, faith communities and schools, exactly the audiences the partner email templates already address: the 20-minute meeting ask, a one-page PDF and a 60-second film they can forward.</li>
+        <li><span class="when">Open</span><strong>Work-to-earn with a partner.</strong> A community organisation provides the service hours; the Society provides the seat. The story writes itself and it is true, but whether work-to-earn runs in 2026 is not confirmed, so the site does not offer it until Dorian says so.</li>
       </ul>
       <h3>In public</h3>
       <ul>
-        <li><strong>The bus-stop posters.</strong> QR posters in the three pickup towns where young men actually are: climbing gyms, skate parks, barbershops, rec centres. The poster is a photograph and eight words.</li>
-        <li><strong>The countdown films.</strong> From the January kickoff to September, one vertical clip a week on Instagram and Facebook, cut from the real footage, captioned, no faces without releases. Twelve weeks out, the countdown starts counting.</li>
-        <li><strong>Local press.</strong> A volunteer society of men running a rite of passage since 1990 is a story the Squamish and Burnaby papers will print, especially with consented photographs from September. Pitch in October with the "What he built" page as the hook.</li>
-        <li><strong>Search.</strong> If the Society qualifies for Google for Nonprofits, the Ad Grants program funds search advertising at no cost; worth one afternoon to find out. Either way the site is written so that "rite of passage BC", "boys wilderness weekend BC" and "youth mentorship Squamish" land on it.</li>
-        <li><strong>The two newsletters.</strong> Rising the Man Within for families and The Forged Circle for the men, already designed on paper in the communications strategy, get a home and a sign-up on the site.</li>
+        <li><span class="when">Nine days</span><strong>The bus-stop posters.</strong> QR posters in the three pickup towns where young men actually are: climbing gyms, skate parks, barbershops, rec centres. The poster is a photograph and eight words; it can be printed the day the domain resolves.</li>
+        <li><span class="when">Spring</span><strong>The countdown films.</strong> From next year's kickoff to September, one vertical clip a week on Instagram and Facebook, cut from the real footage, captioned, no faces without releases. Twelve weeks out, the countdown starts counting.</li>
+        <li><span class="when">Spring</span><strong>Local press.</strong> A volunteer society of men running a rite of passage since 1990 is a story the Squamish and Burnaby papers will print, especially with consented photographs from September. The "What he built" page is the hook, when it exists.</li>
+        <li><span class="when">Spring</span><strong>Search.</strong> If the Society qualifies for Google for Nonprofits, the Ad Grants program funds search advertising at no cost; worth one afternoon to find out. Either way the site is written so that the searches parents actually type ("rite of passage BC", "youth mentorship Squamish", the plain words for a wilderness weekend for teenagers) land on it.</li>
+        <li><span class="when">Spring</span><strong>The two newsletters.</strong> Rising the Man Within for families and The Forged Circle for the men, already designed on paper in the communications strategy, get a home and a sign-up on the site.</li>
       </ul>
-      <h3>A yearly rhythm</h3>
-      <p>January kickoff opens enrolment. Spring Open Fire. Summer countdown films. September weekend and capture. October "What he built" gathering and the press pitch. Then the site turns to next year, with this year's consented footage in it. The site is never finished; it grows a ring every September.</p>
+      <h3>A yearly rhythm, from spring on</h3>
+      <p>Dorian's word for the spring is "potentially", and the rhythm below is held that lightly. Kickoff opens enrolment. Spring Open Fire. Summer countdown films. September weekend and capture. October "What he built" gathering and the press pitch. Then the site turns to next year, with this year's consented footage in it. The site is never finished; it grows a ring every September.</p>
     </section>
 
     <section class="stop" id="phases">
       <p class="stamp">09 · Phases</p>
-      <h2>What happens before the bus, and what happens after.</h2>
-      <p>Nine days is not enough to rebuild a website. It is exactly enough to make sure September gives the rebuild what it needs.</p>
+      <h2>Today, the nine days, the weekend, and the spring.</h2>
+      <p class="lead">Dorian's answer on time settles the shape of everything: "There is only you and me and today. In the spring we can refresh for next year potentially." So there is no build month, no board review, no January launch. There is what two people ship today, what nine days can carry, what the weekend can give, and a spring refresh held as potential, not promised.</p>
       <div class="tbl"><table>
-        <thead><tr><th class="num">When</th><th>Phase</th><th>What ships</th></tr></thead>
+        <thead><tr><th class="num">When</th><th>Phase</th><th>What ships</th><th>Honest read</th></tr></thead>
         <tbody>
-          <tr><td class="num">Sep 2 – 10</td><td><b>0 · Before the bus</b></td><td>Consent form and shot list to the team. Documentarian named. Bus countdown and pickup details on the live site. Send-this-to-a-dad on every page. Letter to Sunday and the field card if the PTM says yes in time. Nothing else changes on the live site.</td></tr>
-          <tr><td class="num">Sep 11 – 13</td><td><b>1 · Capture</b></td><td>The weekend. Twenty stills, twelve clips, six sounds, eight voices, a stack of signed releases. Letters delivered at Future Plans.</td></tr>
-          <tr><td class="num">Sep 15 – Oct 31</td><td><b>2 · Build</b></td><td>Consent reconciliation and the faces list. Dorian's answers become the content. All copy written new in two voices. The trail rebuilt on a staging address with the fresh footage. Media moved to owned hosting.</td></tr>
-          <tr><td class="num">Nov 1 – 30</td><td><b>3 · Review</b></td><td>The board reads it. Accessibility and performance passes. Press kit and partner kit. "What he built" page and the October gathering photographs.</td></tr>
-          <tr><td class="num">Jan 2027</td><td><b>4 · Launch</b></td><td>ymaw.com points at the new site at the January kickoff, with 2027 enrolment open, the Open Fire date set and the first countdown film scheduled.</td></tr>
+          <tr><td class="num">Today · Sept 2</td><td><b>What ships today</b></td><td><span class="when">Realistic today</span>Two doors on the front: His Path and Bringing Him. The media release inside registration: grant or decline, typed signature, required. Stripe unpaused and card payments in the form; e-transfer kept. $320 flat, the Squamish region, no phones, non-denominational, on every page. "Seen all weekend" in the moment that was cut. The Men names Brad Leslie, co-founder and vision holder, with roles. Since 1990 carries Dorian's words. The v3 brand direction drafted (<a href="brand-v3.html">brand-v3.html</a>). Dorian points ymaw.com this evening.</td><td>Forms, copy and a payment integration. Nothing here needs footage, a release or a third person. This is the part that is actually in our hands.</td></tr>
+          <tr><td class="num">Sept 3 – 10</td><td><b>The nine days</b></td><td><span class="when">Realistic with Dorian's inputs</span>ymaw.com resolving to the site, old links redirected, checked on a phone. Stripe live: a real card payment through, wallets once the domain is verified. The roster of men added to The Men as Dorian sends it. Send this to a dad on every page; a personal link for every production man and every registered family; QR posters in the pickup towns. Bus countdown and pickup details, once stops and times are confirmed. The capture plan: shot list written, a documentarian named or not, the grants pulled from registration before Friday. All of it pointed at 50.</td><td>Depends on names and stop times arriving, and on the men carrying their links into conversations that are already happening. The site cannot register 50 young men; men can.</td></tr>
+          <tr><td class="num">Sept 11 – 13</td><td><b>The weekend (capture)</b></td><td><span class="when">Only if a man is named</span>Twenty stills, twelve clips, six sounds, from a shot list mapped to the moments. Nothing from a circle, no interviews. Grants known before Friday from the registration records.</td><td>Entirely dependent on a documentarian being named. Without one, the archive Dorian shot is what the site has, and it is enough for a beautiful site.</td></tr>
+          <tr><td class="num">Spring 2027</td><td><b>The refresh</b></td><td><span class="when">Later · potential</span>Everything else: the new identity from the brand direction carried through every page, dusk mode, the fire's sound, Voices from letters, invitations and approved testimonials, the Since 1990 timeline, "What he built", the Partners page and kit, the newsletters, the Open Fire, the press pitch, media on owned hosting, the accessibility and performance passes, the content matrix. Next year's enrolment opens on the refreshed site.</td><td>"Potentially", in Dorian's word. Not promised. Today's work is built so none of it has to be undone to make room for this.</td></tr>
         </tbody>
       </table></div>
-      <p class="small">Cost: almost entirely time. Video hosting and the domain are tens of dollars a month; fonts, forms and the database are free at this size; Stripe takes its cut per card. The largest cost is one production man's weekend behind a camera and a few evenings of Dorian's answers.</p>
+      <h3>What is realistic today, and what is not</h3>
+      <ul>
+        <li><strong>Today can carry</strong> forms, words, a payment provider and a DNS change: the release inside registration, Stripe, the two doors, the locked facts, the founding story, the named men as far as the roster goes.</li>
+        <li><strong>Today cannot carry</strong> anything that needs footage that does not exist yet, a release that has not been granted, or a person who has not been named: Voices, the timeline, the fire's sound, the documentarian's shot list, the full roster.</li>
+        <li><strong>The nine days can carry</strong> the outreach and the countdown, if the men carry their links and Dorian sends stop times and names.</li>
+        <li><strong>Spring is potential</strong>, and everything in that row is written so it can be dropped without leaving a hole in the site as it stands today.</li>
+      </ul>
+      <p class="small">Cost: almost entirely time. Video hosting and the domain are tens of dollars a month; fonts, forms and the database are free at this size; Stripe takes its cut per card. The largest cost is one production man's weekend behind a camera, if a man is named, and Dorian's evening at the DNS console.</p>
     </section>
 
     <section class="stop" id="questions">
-      <p class="stamp">10 · Questions</p>
-      <h2>Fourteen answers unlock the rest. Reply by number.</h2>
-      <p>Where I have made an assumption to keep moving, it is marked. Change any of them.</p>
+      <p class="stamp">10 · Answered</p>
+      <h2>Fourteen answers, in Dorian's words, and what each one changed.</h2>
+      <p>Dorian replied on 2 September. Each entry keeps the original question, gives his answer (quoted where it was verbatim), and says what moved in this plan because of it. The short list of what is still open follows.</p>
       <ol class="qs">
-        <li><b>Identity: keep or reset?</b><p>Keep the logo's colours on warm paper and the field-guide feel, or start the visual identity from nothing too? Name two or three sites or films whose feel you admire, in any field.</p><p class="assume"><b>Assumed</b>Keep the palette; new typography; everything else new.</p></li>
-        <li><b>May the site speak to him directly?</b><p>The plan addresses the young man in the second person on his own path. Some organisations prefer to speak only to parents. Is "you" to a 13-year-old acceptable to the board?</p><p class="assume"><b>Assumed</b>Yes; it is already live on three pages.</p></li>
-        <li><b>Consent: what exists and who signs?</b><p>Do the 2024 families have any signed media release? Who can sign for a young man under 18 (guardian plus his assent is my proposal)? Can a release ride along with the pickup details this week?</p><p class="assume"><b>Assumed</b>Nothing on file; paper at the bus stop plus a form on the site.</p></li>
-        <li><b>The 2024 interviews.</b><p>Seven young men and two men speak on camera in the 2024 album. Can you reach those families for releases? If yes, Voices launches this autumn instead of next year.</p></li>
-        <li><b>Names.</b><p>May the site name the founders, the board and the Production Team Manager? Which men are willing to be on camera and named? Who is the man who writes the walk-out line?</p><p class="assume"><b>Assumed</b>Roles only until you say otherwise.</p></li>
-        <li><b>The founding story.</b><p>Who started this in 1990, where, and why? Five sentences from you, in your words, become the spine of Since 1990. Is 2026 the 34th annual weekend, as the flyer says?</p></li>
-        <li><b>Facts to lock.</b><p>$320 flat for everyone, or early bird with a later price? May the site name the actual location, or only "Squamish region"? Exact bus stops and times. Phones in bags: rule or custom? Is work-to-earn running in 2026? Is "non-denominational" the right word?</p><p class="assume"><b>Assumed</b>$320 flat; region only; phones in bags; work-to-earn yes; non-denominational yes.</p></li>
-        <li><b>Letter to Sunday.</b><p>Will the PTM agree to print each young man's line and hand it to him at Future Plans? It is the one moment that needs the team's hands, not code.</p></li>
-        <li><b>The documentarian.</b><p>Can one production man be assigned to shoot the weekend from a shot list, with the circle off limits? A phone on a small tripod is enough. Who?</p></li>
-        <li><b>What must never be shown.</b><p>My rule: The Push, the ceremony and anything said in a circle are never filmed. Is that the whole list, or is there more that stays inside the weekend?</p></li>
-        <li><b>Accounts and the domain.</b><p>When do we point ymaw.com at the new site? Who holds the Instagram and Facebook logins? Is the Society a registered non-profit or charity (this decides donation receipts and the Google grant)?</p></li>
-        <li><b>Payments.</b><p>Unpause Stripe before the weekend so families can pay by card and Apple Pay, or leave e-transfer as the only path for 2026 and switch on for 2027?</p><p class="assume"><b>Assumed</b>E-transfer only for 2026.</p></li>
-        <li><b>What does success look like?</b><p>A number of young men on the bus by a date, a number of sponsors, a number of partner organisations, or something else? The site is designed toward whatever you name.</p></li>
-        <li><b>Your hours, and your circle.</b><p>How many hours a week can you give this through October? Is there a filmmaker, photographer or designer among the men who wants a real job on this?</p></li>
+        <li><b>Identity: keep or reset?</b><p class="answer"><q>You are welcome to propose new branding — Star Wars, The Last Samurai, Joseph Campbell's hero's journey vibes.</q></p><p class="assume"><b>Changed</b>The "keep the palette" assumption is dropped. A brand direction is being written as its own document, <a href="brand-v3.html">brand-v3.html</a>, and the Build section points at it. What of it reaches the live site today depends on how far that document gets today; the full carry-through is the spring refresh.</p></li>
+        <li><b>May the site speak to him directly? Two doors, His Path and Bringing Him?</b><p class="answer">Yes.</p><p class="assume"><b>Changed</b>Nothing to unwind. The two doors are confirmed at the front, and His Path stays in the second person throughout.</p></li>
+        <li><b>Consent: what exists and who signs?</b><p class="answer"><q>The signed release needs to be part of the registration process — I'm open to reworking the registration process.</q></p><p class="assume"><b>Changed</b>The release is being built into the registration form today: a required grant-or-decline choice with a typed signature, stored on the record. No follow-up email, no paper at the bus stop. Rule 4, the Register page, the Build section and the September capture plan are rewritten around it; the grants are the faces list.</p></li>
+        <li><b>The 2024 interviews.</b><p class="answer">No.</p><p class="assume"><b>Changed</b>The seven young men and two men who spoke on camera in 2024 are not used. Voices does not launch from the archive; it fills after September from the sources in answer 10. The 2024 material with no identifiable face stays usable.</p></li>
+        <li><b>Names.</b><p class="answer"><q>YES we can name men.</q></p><p class="assume"><b>Changed</b>The "roles only" assumption is dropped. The Men page names men with their roles, starting with Brad Leslie, co-founder and vision holder. The alumni line and the walk out may carry names. The exact roster is still open, below.</p></li>
+        <li><b>The founding story.</b><p class="answer"><q>My dad did it for me and for the next generation. It's his legacy and I'm here to support him and it moving forward. This is an opportunity to be of service. This site is also used for engaging men to participate. My dad, Brad Leslie, loves to make a difference in the world, supporting men and young men to be their best and live lives of integrity and service, and hold high standards for themselves and their communities.</q></p><p class="assume"><b>Changed</b>Brad Leslie is named as YMAW's co-founder and vision holder (2011 Production Manual). Dorian's words become the spine of Since 1990 and the opening of The Men, and "engaging men to participate" is now a stated job of the site. The where of 1990 and whether 2026 is the 34th weekend were not in the answer, so the site says "since 1990" and does not count.</p></li>
+        <li><b>Facts to lock.</b><p class="answer">$320 flat. "Squamish region", not a named site. No phones. Non-denominational.</p><p class="assume"><b>Changed</b>Locked on every page and in the Content section: one price for everyone, no early bird; the region only; no phones, said plainly to him; "non-denominational" is the word. Work-to-earn was not confirmed and is held as an open question, so every mention is conditional until it is. Stops and times were not in the answer; the bus countdown ships when they are.</p></li>
+        <li><b>The moment that asked for the team's hands on Sunday.</b><p class="answer"><q>Don't use this.</q> Each young man is acknowledged on Sunday by the men who watched him all weekend; how is internal to the production and stays there.</p><p class="assume"><b>Changed</b>The proposed moment is removed from the idea, the moments and the phases, and "Write your line" is gone from His Path. In its place is "Seen all weekend": the site says only that each young man is acknowledged on Sunday by the men who watched him all weekend, and says nothing about how. That stays inside the weekend.</p></li>
+        <li><b>The documentarian.</b><p class="answer">Dorian himself shot most of the photographs over the years.</p><p class="assume"><b>Changed</b>Rights to the archive are clear. Identifiable young men in it still need a release or approval before they appear, and which of them are approved is still open. Whether a production man is named to shoot this September is also still open; the capture plan is written as "if a man is named", and without one the archive is the material.</p></li>
+        <li><b>What must never be shown.</b><p class="answer"><q>Confidentiality is respected at the weekend.</q></p><p class="assume"><b>Changed</b>Rule 5 widens: nothing said in a circle is ever quoted, filmed or described. Voices is built from letters, invitations, men's public reflections and approved testimonials only. The Sunday "voices booth" is dropped from the capture list, and the Quotes row in Content is rewritten.</p></li>
+        <li><b>Accounts and the domain.</b><p class="answer">Dorian controls ymaw.com and will point it this evening.</p><p class="assume"><b>Changed</b>The domain moves from "launch day in January" to tonight, with the old registration links redirected and a phone check tomorrow. The Instagram and Facebook logins and the Society's registration status were not part of the answer; nothing that ships today depends on them, and donation receipts and the Google grant sit in the spring row.</p></li>
+        <li><b>Payments.</b><p class="answer">Unpausing Stripe today; card payments integrate today.</p><p class="assume"><b>Changed</b>The "e-transfer only for 2026" assumption is dropped. Card payments through Stripe go into the Register form today and e-transfer stays as the second path. Apple Pay and Google Pay follow once ymaw.com is verified with Stripe, which needs the domain resolving first. A real card payment is checked live in the nine days.</p></li>
+        <li><b>What does success look like?</b><p class="answer">50 young men registered.</p><p class="assume"><b>Changed</b>The number sits at the top of this plan and orders the nine days. The Sharing section is re-marked so the two levers that can move it before 11 September, the men's personal links and Send this to a dad, come first, and everything else is marked spring.</p></li>
+        <li><b>Your hours, and your circle.</b><p class="answer"><q>There is only you and me and today. In the spring we can refresh for next year potentially.</q></p><p class="assume"><b>Changed</b>The phases are re-sequenced to Today, the nine days, the weekend, and a spring refresh. Build, Review and a January launch are gone. Everything the two of us cannot ship today or carry through the nine days moves to spring and is marked potential, not promised. The hero and the footer of this plan say so.</p></li>
+      </ol>
+      <h3>Still open</h3>
+      <p class="small">Four things this plan cannot settle on its own. Each is written into the site as conditional until Dorian answers.</p>
+      <ol class="qs open">
+        <li><b>Work-to-earn in 2026.</b><p>Not confirmed. The Register form, the Partners page and the Sharing section hold it back until it is; nothing on the site offers a young man a way to earn part of his place yet.</p></li>
+        <li><b>The roster of men to name.</b><p>Men may be named, with roles. The Men page ships today with Brad Leslie and the roles; the names fill in as Dorian sends them.</p></li>
+        <li><b>Which identifiable young men are approved.</b><p>The archive from 2012 to 2024 is Dorian's own work and the rights are clear, but each recognisable young man still needs a release or approval. Until a name is approved, the frame is cropped, turned or left out.</p></li>
+        <li><b>Whether the September documentarian is named.</b><p>One production man, a shot list, the circle off limits. If nobody is named, the weekend still happens and the site is built from the archive.</p></li>
       </ol>
     </section>
 
-    <footer class="end">Young Men's Adventure Weekend Society of BC · plan prepared for Dorian Leslie · nothing in this document is published; every claim about the weekend is drawn from the Society's own documents in Drive.</footer>
+    <footer class="end">Young Men's Adventure Weekend Society of BC · plan prepared for Dorian Leslie · answers folded in 2 September 2026 · nothing in this document is published; every claim about the weekend is drawn from the Society's own documents in Drive and from Dorian's answers. Contact: info@ymaw.com.</footer>
   </main>
 </div>

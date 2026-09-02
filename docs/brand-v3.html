@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YMAW brand v3 · three directions</title>
+<meta name="description" content="Three brand directions for ymaw.com built on the feeling of the hero's journey: Blue Hour, The Standard, The Well. Live swatches, type, wordmarks, voice, and a one-day scope for September 2 plus the Spring 2027 refresh.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* ------------------------------------------------------------------
+   Document chrome. Warm paper, one ink, 1px rules. The three direction
+   sheets carry their own type inside .dir--*; the chrome stays neutral
+   so the sheets can be compared fairly.
+   ------------------------------------------------------------------ */
+:root {
+  --paper: #F4EFE4; --paper-deep: #EAE3D2; --surface: #FBF8F1;
+  --ink: #1E2A1F; --ink-soft: #55604F; --ink-faint: #7C8479;
+  --rule: rgba(30, 42, 31, 0.16); --rule-strong: rgba(30, 42, 31, 0.32);
+  --night: #141C21; --dusk: #3A5A6C; --dusk-deep: #22343E; --mist: #8B9697;
+  --ember: #D0562A; --fire: #C93A22; --gold: #C8A65A; --cedar: #2F5030; --drift: #B3A991; --char: #2A2D30;
+  --sans: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --measure: 66ch;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+a { color: var(--dusk); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--fire); }
+:focus-visible { outline: 2px solid var(--dusk); outline-offset: 3px; }
+img, svg { max-width: 100%; }
+p { margin: 0 0 1em; max-width: var(--measure); }
+h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; text-wrap: balance; }
+h2 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.1rem); }
+h3 { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem); }
+h4 { font-size: 0.95rem; }
+code { font-family: var(--mono); font-size: 0.86em; background: var(--paper-deep); padding: 0.08em 0.35em; border-radius: 3px; }
+pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background: var(--paper-deep); padding: 1rem 1.1rem; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; margin: 0.8rem 0 1.2rem; color: var(--ink); }
+ul, ol { padding-left: 1.2em; margin: 0 0 1em; max-width: var(--measure); }
+li { margin-bottom: 0.4em; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+.wrap { width: min(72rem, 100% - 2 * clamp(1.1rem, 4vw, 3rem)); margin-inline: auto; }
+.label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.7rem; }
+.tag { display: inline-block; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--rule-strong); border-radius: 3px; padding: 0.15em 0.5em; color: var(--ink-soft); vertical-align: middle; }
+.tag--prop { border-color: var(--ember); color: var(--ember); }
+.tag--sampled { border-color: var(--cedar); color: var(--cedar); }
+.tag--kept { border-color: var(--rule-strong); }
+.note { border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 1rem; color: var(--ink-soft); font-size: 0.95rem; max-width: var(--measure); margin: 1rem 0 1.2rem; }
+.note strong { color: var(--ink); }
+.small { font-size: 0.9rem; color: var(--ink-soft); }
+
+/* masthead */
+.mast { padding: clamp(2.2rem, 6vw, 4.5rem) 0 clamp(1.6rem, 4vw, 2.6rem); border-bottom: 1px solid var(--rule); }
+.mast h1 { font-size: clamp(2rem, 1.4rem + 3.2vw, 3.6rem); font-weight: 500; letter-spacing: -0.02em; max-width: 24ch; }
+.mast .lede { font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem); color: var(--ink-soft); max-width: 60ch; margin-top: 1.1rem; }
+.facts { display: flex; flex-wrap: wrap; gap: 0.6rem 2rem; list-style: none; padding: 0; margin: 1.4rem 0 0; max-width: none; }
+.facts li { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+.facts b { display: block; font-weight: 600; color: var(--ink); font-size: 1rem; }
+
+/* contents rail */
+.toc { position: sticky; top: 0; z-index: 5; background: rgba(244, 239, 228, 0.96); border-bottom: 1px solid var(--rule); }
+.toc ol { display: flex; gap: 0.2rem 1.4rem; overflow-x: auto; list-style: none; padding: 0.7rem 0; margin: 0; max-width: none; scrollbar-width: none; }
+.toc ol::-webkit-scrollbar { display: none; }
+.toc li { margin: 0; white-space: nowrap; }
+.toc a { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--ink-soft); }
+.toc a:hover { color: var(--ink); }
+.toc a b { color: var(--ink); font-weight: 500; margin-right: 0.35em; }
+
+/* sections */
+section.sec { padding: clamp(2.4rem, 6vw, 4.6rem) 0; border-bottom: 1px solid var(--rule); scroll-margin-top: 3.2rem; }
+.sec__head { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 1rem; align-items: baseline; margin-bottom: clamp(1.2rem, 3vw, 2rem); }
+.sec__num { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--ink-soft); }
+@media (max-width: 640px) { .sec__head { grid-template-columns: 1fr; gap: 0.3rem; } }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.4rem 2.6rem; }
+
+/* swatches */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: 0.8rem; margin: 0.6rem 0 1.2rem; }
+.sw { border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; background: var(--surface); }
+.sw__chip { height: 4.6rem; display: flex; align-items: flex-end; padding: 0.5rem 0.6rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+.sw__meta { padding: 0.55rem 0.65rem 0.65rem; font-size: 0.78rem; line-height: 1.4; color: var(--ink-soft); }
+.sw__meta b { display: block; color: var(--ink); font-weight: 600; font-size: 0.86rem; margin-bottom: 0.15rem; }
+.sw__meta .tag { margin-top: 0.4rem; font-size: 0.6rem; }
+
+/* type specimens & grounds */
+.ground { border-radius: 6px; padding: clamp(1.2rem, 3vw, 2.2rem); margin: 0.8rem 0 1rem; border: 1px solid var(--rule); }
+.ground--paper { background: var(--paper); }
+.ground--night { background: var(--night); color: #F4EFE4; }
+.ground--dusk { background: var(--dusk-deep); color: #F4EFE4; }
+.ground--cedar { background: #2F4A31; color: #F4EFE4; }
+.ground--char { background: var(--char); color: #F4EFE4; }
+.ground--deep { background: var(--paper-deep); }
+.spec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); gap: 1rem 2rem; align-items: start; padding: 1rem 0; border-top: 1px solid var(--rule); }
+.spec:last-child { border-bottom: 1px solid var(--rule); }
+@media (max-width: 760px) { .spec { grid-template-columns: 1fr; } }
+.spec__sample { min-width: 0; overflow-wrap: anywhere; }
+.spec__meta { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; }
+.spec__meta b { color: var(--ink); font-weight: 600; }
+
+/* tables */
+.tbl { overflow-x: auto; margin: 0.6rem 0 1.4rem; border: 1px solid var(--rule); border-radius: 4px; }
+table { border-collapse: collapse; width: 100%; min-width: 40rem; font-size: 0.9rem; background: var(--surface); }
+th, td { text-align: left; vertical-align: top; padding: 0.7rem 0.85rem; border-bottom: 1px solid var(--rule); }
+th { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; background: var(--paper-deep); }
+tr:last-child td { border-bottom: 0; }
+td b { font-weight: 600; }
+td code { white-space: nowrap; }
+
+/* motif cards */
+.motifs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 0.9rem; margin: 0.6rem 0 1.2rem; }
+.motif { border: 1px solid var(--rule); border-radius: 4px; padding: 1rem 1rem 0.9rem; background: var(--surface); }
+.motif svg { display: block; width: 100%; height: 56px; color: var(--ink); margin-bottom: 0.7rem; }
+.motif b { display: block; font-size: 0.9rem; margin-bottom: 0.2rem; }
+.motif p { font-size: 0.82rem; color: var(--ink-soft); margin: 0; }
+
+/* voice */
+.lines { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 1rem; margin: 0.6rem 0 1.2rem; }
+.line { border-top: 1px solid var(--rule-strong); padding-top: 0.8rem; }
+.line .label { margin-bottom: 0.5rem; }
+.dir .line p.label { font-family: var(--mono); font-style: normal; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-variation-settings: normal; }
+.line p { font-size: 1.2rem; line-height: 1.35; margin: 0; }
+
+/* direction sheets: each carries its own faces */
+.dir { --d-display: var(--sans); --d-body: var(--sans); --d-mono: var(--mono); }
+.dir--blue { --d-display: "Newsreader", "Iowan Old Style", Georgia, serif; --d-body: "Public Sans", "Helvetica Neue", Arial, sans-serif; --d-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+.dir--std  { --d-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif; --d-body: "Source Serif 4", "Iowan Old Style", Georgia, serif; --d-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace; --d-ui: "Barlow", "Helvetica Neue", Arial, sans-serif; }
+.dir--well { --d-display: "Fraunces", "Iowan Old Style", Georgia, serif; --d-body: "Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif; --d-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+.dir .thesis { font-family: var(--d-display); font-size: clamp(1.5rem, 1.1rem + 2vw, 2.5rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.012em; max-width: 26ch; margin: 0.4rem 0 1rem; }
+.dir--std .thesis { font-weight: 600; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(1.7rem, 1.2rem + 2.4vw, 2.9rem); }
+.dir--well .thesis { font-weight: 400; font-variation-settings: "opsz" 144; }
+.dir .line p { font-family: var(--d-display); }
+.dir--blue .line p { font-weight: 400; font-variation-settings: "opsz" 40; }
+.dir--blue .line--him p { font-style: italic; }
+.dir--std .line p { font-family: var(--d-body); font-size: 1.12rem; }
+.dir--std .line--him p { font-family: var(--d-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.01em; font-size: 1.35rem; }
+.dir--well .line p { font-variation-settings: "opsz" 60; font-weight: 400; }
+.dir--well .line--him p { font-style: italic; }
+
+/* wordmark lockups */
+.lock { display: inline-block; }
+/* Blue Hour */
+.lock--blue .top { font-family: "Public Sans", Arial, sans-serif; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-size: 1.55rem; line-height: 1; }
+.lock--blue .rule { display: flex; align-items: center; gap: 0.7rem; margin: 0.55rem 0 0.5rem; }
+.lock--blue .rule i { flex: 1; height: 1px; background: currentColor; opacity: 0.38; }
+.lock--blue .rule span { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75; }
+.lock--blue .long { font-family: "Newsreader", Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.2rem; font-variation-settings: "opsz" 24; letter-spacing: 0.005em; }
+/* The Standard */
+.lock--std { display: inline-grid; grid-template-columns: auto auto; gap: 0 1rem; align-items: start; }
+.lock--std .top { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-weight: 700; font-size: 3.1rem; line-height: 0.92; letter-spacing: 0.01em; text-transform: uppercase; }
+.lock--std .long { font-family: "Barlow", Arial, sans-serif; font-weight: 500; font-size: 0.66rem; letter-spacing: 0.17em; text-transform: uppercase; margin-top: 0.35rem; opacity: 0.9; white-space: nowrap; }
+@media (max-width: 480px) { .lock--std .long { display: none; } }
+.lock--std .stamp { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid currentColor; border-radius: 2px; padding: 0.28em 0.5em; opacity: 0.8; align-self: start; margin-top: 0.3rem; }
+/* The Well */
+.lock--well { display: inline-grid; grid-template-columns: 44px auto; gap: 0 0.9rem; align-items: center; }
+.lock--well svg { width: 44px; height: 44px; color: currentColor; }
+.lock--well .top { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 2.35rem; line-height: 1; letter-spacing: -0.01em; font-variation-settings: "opsz" 144; }
+.lock--well .long { font-family: "Atkinson Hyperlegible", Arial, sans-serif; font-size: 0.78rem; letter-spacing: 0.05em; margin-top: 0.3rem; opacity: 0.9; }
+.lockrow { display: flex; flex-wrap: wrap; gap: 1rem; align-items: stretch; }
+.lockrow > div { flex: 1 1 18rem; }
+.lockrow .ground { margin: 0; height: 100%; display: flex; align-items: center; }
+
+/* current-brand strip */
+.cur { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1rem; }
+.cur .ground { margin: 0; }
+.cur .ground b { font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; }
+
+/* recommendation */
+.rec { background: var(--night); color: #F4EFE4; border-radius: 6px; padding: clamp(1.4rem, 4vw, 2.6rem); margin: 0.6rem 0 1.6rem; }
+.rec .label { color: var(--gold); }
+.rec h3 { font-family: "Newsreader", Georgia, serif; font-weight: 400; font-size: clamp(1.6rem, 1.2rem + 2vw, 2.6rem); letter-spacing: -0.012em; font-variation-settings: "opsz" 72; max-width: 26ch; }
+.rec p { color: rgba(244, 239, 228, 0.82); }
+.rec ol { color: rgba(244, 239, 228, 0.86); }
+.rec a { color: #F4EFE4; }
+
+/* scopes */
+.scope { border: 1px solid var(--rule); border-radius: 6px; padding: clamp(1.1rem, 3vw, 1.8rem); background: var(--surface); }
+.scope h3 { margin-bottom: 0.3rem; }
+.scope .when { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ember); margin-bottom: 0.9rem; }
+.steps { list-style: none; padding: 0; counter-reset: s; max-width: none; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.6rem; padding: 0.7rem 0; border-top: 1px solid var(--rule); margin: 0; }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--mono); font-size: 0.75rem; color: var(--ink-soft); padding-top: 0.2rem; }
+.steps li p { margin: 0.2rem 0 0; font-size: 0.92rem; color: var(--ink-soft); }
+.steps li b { font-weight: 600; }
+.steps pre { margin: 0.6rem 0 0.2rem; }
+
+/* never list */
+.never { list-style: none; padding: 0; max-width: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 0.2rem 2rem; }
+.never li { border-top: 1px solid var(--rule); padding: 0.75rem 0; margin: 0; display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: 0.6rem; font-size: 0.95rem; }
+.never li::before { content: "—"; color: var(--ember); }
+.never b { font-weight: 600; }
+
+footer.colophon { padding: 2.2rem 0 3.5rem; font-size: 0.85rem; color: var(--ink-soft); }
+footer.colophon p { max-width: 70ch; }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="label">ymaw.com · brand proposal v3 · 2 September 2026 · for Dorian Leslie · ten-minute read</p>
+    <h1>The feeling, not the costume.</h1>
+    <p class="lede">You asked for a brand with the feeling of the great initiation stories: mentor and apprentice, discipline, the quiet before the ordeal, honour, the walk into the dark and the return. Here are three ways to carry that feeling with nothing borrowed: no film names, no imagery, no quotes, no typefaces from anyone's franchise. Everything below is a proposal until you say otherwise. Colours are sampled from the weekend's own frames and say so; anything not yet sampled is marked.</p>
+    <ul class="facts" aria-label="Constants that do not change in any direction">
+      <li><b>Young men, never boys</b>Standard 8, in every line</li>
+      <li><b>$320, everyone pays the same</b>assistance available</li>
+      <li><b>Register Now</b>the one action, one label</li>
+      <li><b>Phone-free · non-denominational</b>said plainly, not decorated</li>
+      <li><b>No invented numbers</b>price, ages, dates, stops, since 1990</li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <div class="wrap">
+    <ol>
+      <li><a href="#now"><b>01</b>Where we are</a></li>
+      <li><a href="#blue"><b>02</b>Blue Hour</a></li>
+      <li><a href="#std"><b>03</b>The Standard</a></li>
+      <li><a href="#well"><b>04</b>The Well</a></li>
+      <li><a href="#rec"><b>05</b>Recommendation</a></li>
+      <li><a href="#scope"><b>06</b>Today · Spring 2027</a></li>
+      <li><a href="#never"><b>07</b>What we never do</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================================================ 01 -->
+<section class="sec" id="now">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="sec__num">01</span>
+      <h2>Where the brand is today, and where it is thin.</h2>
+    </div>
+    <div class="cols">
+      <div>
+        <p>Today's ymaw.com has two faces that share a logo but not a ground: the journey page on a green-black night (<code>#0C110D</code>) with the logo's red-orange fire as the one accent, and five field-guide pages on warm paper (<code>#F4EFE4</code>) where forest green carries structure, fire red is the one action and sun yellow is a small mark, set in Archivo and Geist with a mono for labels. What it does well is the hard part: it is honest (real frames from the archive, no invented numbers, "young men" all the way through), the fire is the only thing you click, the trail line is a real signature, and the "Straight talk" sections give the young man his own register on every page. Where it is thin is identity: the palette is the <em>logo's</em> colours rather than the <em>weekend's</em>, so forest green and sun yellow read as "camp" when the footage (mist, dusk, the night circle, hands against grey water) is already saying "rite of passage"; the two faces never meet; Archivo and Geist are a capable product pairing that could belong to any startup; there is no typographic wordmark, only a PNG of the logo; "since 1990" appears in five different forms with no rule; and nothing in the type or the marks carries the stillness before the ordeal that the photographs already have.</p>
+      </div>
+      <div class="cur">
+        <div class="ground ground--paper">
+          <p class="label">Current · field-guide pages</p>
+          <div class="swatches" style="margin:0">
+            <div class="sw"><div class="sw__chip" style="background:#F4EFE4;color:#1E2A1F">#F4EFE4</div><div class="sw__meta"><b>Paper</b>ground</div></div>
+            <div class="sw"><div class="sw__chip" style="background:#3E6B43;color:#F4EFE4">#3E6B43</div><div class="sw__meta"><b>Forest</b>structure</div></div>
+            <div class="sw"><div class="sw__chip" style="background:#2F5233;color:#F4EFE4">#2F5233</div><div class="sw__meta"><b>Forest deep</b>bands, headings</div></div>
+            <div class="sw"><div class="sw__chip" style="background:#C93A22;color:#FFF7EE">#C93A22</div><div class="sw__meta"><b>Fire</b>the one action</div></div>
+            <div class="sw"><div class="sw__chip" style="background:#E9B822;color:#1E2A1F">#E9B822</div><div class="sw__meta"><b>Sun</b>small mark</div></div>
+            <div class="sw"><div class="sw__chip" style="background:#0C110D;color:#F2EFE7">#0C110D</div><div class="sw__meta"><b>Canvas</b>journey page</div></div>
+          </div>
+          <p class="small" style="margin:0.9rem 0 0">Type: Archivo 600/700 display · Geist 400/500 text · Geist Mono labels. Self-hosted in <code>fonts/</code>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="note"><strong>How the colours below were chosen.</strong> Every hex marked <span class="tag tag--sampled">sampled</span> is the mean of a dominant colour cluster in one of the site's own frames (the kayak into the mist, the axe in the forest, the raised hands, the portrait on the gravel road, the 2006 circle on the river rocks, the daytime fire pit under the tarp), measured this morning at 48×48. Two frames this session could not reach, the Friday twilight beach and the Saturday night circle (they sit on the temporary CDN, which is blocked from here), so the fire and dusk-night hexes that depend on them are marked <span class="tag tag--prop">proposal</span> and should be confirmed against those frames before Spring. Contrast ratios quoted are computed WCAG 2 values, not estimates.</div>
+  </div>
+</section>
+
+<!-- ============================================================ 02 -->
+<section class="sec dir dir--blue" id="blue">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="sec__num">02 · Direction one</span>
+      <div>
+        <h2>Blue Hour</h2>
+        <p class="thesis">The quiet before the ordeal. He walks in at dusk; the fire is the only warm thing; he walks out in daylight between two lines of men.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <p class="label">The feel · 60 words</p>
+        <p>Dusk on grey water. The site is cool, still and unhurried, and the fire is the one warm point on every page. Type has the calm of a book read aloud; nothing shouts. The dark is named, not dramatised. The page itself goes to night at the circle and returns to paper on Sunday, so the shape of the weekend is felt before it is explained.</p>
+      </div>
+      <div>
+        <p class="label">Where the feeling comes from</p>
+        <p class="small">The mentor who speaks slowly and lets silence do the work; the apprentice who carries his own gear into the dark; the return in daylight, witnessed. It is the register of "The Man You'll Meet": short lines, pauses, one truth left hanging. No sword, no cloak, no quote. The blue hour is a real time of day at a real beach in the Squamish region, and the footage already has it.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:1.6rem">Wordmark</h3>
+    <p class="small">"YMAW" sits above a 1px rule; the long name sits below it in italic. The rule between them is the threshold: the letters you shout are above the line, the sentence you mean is below it. The logo (fire, sun, crossed logs) stays as the seal and favicon; this is the typographic mark for headers, print and the field card.</p>
+    <div class="lockrow">
+      <div><div class="ground ground--paper"><div class="lock lock--blue"><div class="top">YMAW</div><div class="rule"><i></i><span>since 1990</span></div><div class="long">Young Men's Adventure Weekend</div></div></div></div>
+      <div><div class="ground ground--night"><div class="lock lock--blue"><div class="top">YMAW</div><div class="rule"><i></i></div><div class="long">Young Men's Adventure Weekend</div></div></div></div>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Part</th><th>Face · weight</th><th>Size · tracking</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td><b>YMAW</b></td><td>Public Sans 600, uppercase</td><td>1× · <code>letter-spacing: 0.18em</code></td><td>Always uppercase, always tracked wide. Never bold-italic, never a colour other than ink or paper.</td></tr>
+        <tr><td><b>The rule</b></td><td>1px, currentColor at 38%</td><td>full width of the name</td><td>The threshold. It is the only line in the lockup and it is never doubled or thickened.</td></tr>
+        <tr><td><b>Long name</b></td><td>Newsreader 400 italic, <code>opsz 24</code></td><td>0.77× · <code>0.005em</code></td><td>Sentence case, apostrophe curly, never abbreviated, never on its own.</td></tr>
+        <tr><td><b>Since 1990</b></td><td>IBM Plex Mono 400, uppercase</td><td>0.4× · <code>0.12em</code></td><td><b>The year sits on the line, never in the name.</b> It appears at the right end of the threshold rule once per page (home hero and footer only) and is otherwise written out in prose, always tied to a fact: "since 1990, by volunteer men".</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Type</h3>
+    <div class="spec">
+      <div class="spec__sample" style="font-family:var(--d-display);font-weight:300;font-size:clamp(2rem, 1.4rem + 3.4vw, 3.6rem);line-height:1.05;letter-spacing:-0.015em;font-variation-settings:'opsz' 72">He walks in at dusk. He walks out between two lines of men.</div>
+      <div class="spec__meta"><b>Display · Newsreader</b> variable, <code>opsz</code> 6–72. Weight 300 for the largest lines, 400 for page headings, 500 for the Saturday trial headings only. Tracking −0.015em at display sizes, 0 below 1.4rem. Italic 400 for any line spoken to him.</div>
+    </div>
+    <div class="spec">
+      <div class="spec__sample" style="font-family:var(--d-body);font-size:1.05rem;max-width:56ch">A rite of passage for young men 12 to 17: three days of fire, water and real work in the Squamish wilderness, with men who have shown up for young men since 1990. Phone-free. Non-denominational. $320, everyone pays the same.</div>
+      <div class="spec__meta"><b>Text · Public Sans</b> 400 body, 500 for lists and emphasis, 600 for buttons and nav. Plain, steady and free; it disappears behind the words the way a good production man does at the bus stop. Line height 1.55, measure 62–68ch.</div>
+    </div>
+    <div class="spec">
+      <div class="spec__sample" style="font-family:var(--d-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft)">Friday · dusk &nbsp;&nbsp; Saturday · dawn &nbsp;&nbsp; Saturday · noon &nbsp;&nbsp; Saturday · night &nbsp;&nbsp; Sunday &nbsp;&nbsp; since 1990</div>
+      <div class="spec__meta"><b>Labels · IBM Plex Mono</b> 400, uppercase, 0.1em. Waypoints, figcaptions, the year, the price line. Never for a sentence.</div>
+    </div>
+
+    <h3 style="margin-top:1.6rem">Palette</h3>
+    <div class="swatches">
+      <div class="sw"><div class="sw__chip" style="background:#141C21;color:#F4EFE4">#141C21</div><div class="sw__meta"><b>Night</b>the journey ground and the circle band. Tuned from the shaded shoreline in the raised-hands frame (<code>#0D0F11</code>, <code>#18252E</code>).<br><span class="tag tag--prop">proposal · confirm vs leg 4</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#3A5A6C;color:#F4EFE4">#3A5A6C</div><div class="sw__meta"><b>Dusk</b>structure: labels, links, the Donate outline, headings on bands. From the kayak-into-mist frame (<code>#395A6E</code>). 6.4:1 on paper.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#22343E;color:#F4EFE4">#22343E</div><div class="sw__meta"><b>Dusk deep</b>the plate under page heroes, the footer. Dusk pulled toward night. Paper on it 11.2:1.<br><span class="tag tag--prop">tuned</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#8B9697;color:#141C21">#8B9697</div><div class="sw__meta"><b>Mist</b>hairlines on night, quiet text on night. From the mist sky above the kayak.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#F4EFE4;color:#1E2A1F">#F4EFE4</div><div class="sw__meta"><b>Paper</b>the information pages. Kept: the overcast sky samples at <code>#F4F9F8</code>, too cold and too close to white; paper stays warm.<br><span class="tag tag--kept">kept</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#B3A991;color:#1E2A1F">#B3A991</div><div class="sw__meta"><b>Driftwood</b>deep paper, tags and figcaptions on night. From the gravel and driftwood behind the Sunday portrait.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#D0562A;color:#16100C">#D0562A</div><div class="sw__meta"><b>Ember</b>the one action. Dark ink on it 4.5:1. The true source is the Saturday-night fire frame, unsampled this session; nearest measured warm is the fire-lit tarp, <code>#A77455</code>, kept as the hover.<br><span class="tag tag--prop">proposal</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#C8A65A;color:#141C21">#C8A65A</div><div class="sw__meta"><b>Ember gold</b>small marks and labels on night. From the yellow rain jacket in the raised-hands frame (<code>#C7A45D</code>). 7.4:1 on night.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#2F5030;color:#F4EFE4">#2F5030</div><div class="sw__meta"><b>Cedar</b>kept for the logo and one section rule; no longer structure. From the forest behind the axe.<br><span class="tag tag--sampled">sampled</span></div></div>
+    </div>
+    <p class="small">Until the ember is confirmed, the logo's own fire <code>#C93A22</code> is a legitimate stand-in and is what the one-day scope keeps. Sun yellow <code>#E9B822</code> leaves the interface and lives only inside the logo.</p>
+
+    <h3 style="margin-top:1.6rem">Motifs · 1px marks</h3>
+    <div class="motifs">
+      <div class="motif">
+        <svg viewBox="0 0 240 56" aria-hidden="true"><line x1="8" y1="28" x2="104" y2="28" stroke="currentColor" stroke-width="1"/><line x1="136" y1="28" x2="232" y2="28" stroke="currentColor" stroke-width="1"/></svg>
+        <b>The threshold</b><p>One horizontal rule with a gap the width of a step. The Register button sits in the gap. Used once per page, under the hero and above the confirmation. The wordmark's rule is the same line without the gap.</p>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 240 56" aria-hidden="true"><g stroke="currentColor" stroke-width="1"><line x1="24" y1="16" x2="24" y2="40"/><line x1="48" y1="16" x2="48" y2="40" opacity=".85"/><line x1="72" y1="16" x2="72" y2="40" opacity=".7"/><line x1="96" y1="16" x2="96" y2="40" opacity=".56"/><line x1="120" y1="16" x2="120" y2="40" opacity=".44"/><line x1="144" y1="16" x2="144" y2="40" opacity=".33"/><line x1="168" y1="16" x2="168" y2="40" opacity=".24"/><line x1="192" y1="16" x2="192" y2="40" opacity=".16"/><line x1="216" y1="16" x2="216" y2="40" opacity=".1"/></g></svg>
+        <b>The walk in</b><p>A row of short ticks fading into the dark: the hike in on Friday. Counts the Quest Stations on Saturday. Reversed (dark to light) it becomes the walk out on Sunday and on the registration confirmation.</p>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 240 56" aria-hidden="true"><path d="M112 10 A18 18 0 1 0 112 46 A14 18 0 1 1 112 10 Z" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="150" cy="28" r="2.4" fill="currentColor"/></svg>
+        <b>The crescent and the ember</b><p>The crescent from the Friday twilight clip stamps "Friday, dusk". The ember is the trail's existing dot, the one filled shape on the site: where he is now. Nothing else is filled.</p>
+      </div>
+    </div>
+
+    <h3>Voice</h3>
+    <ul class="small" style="margin-bottom:0.4rem">
+      <li>Short sentences. Say what is hard first. Name the dark; never dramatise it.</li>
+      <li>To him: present tense, second person, one italic line per page and never more. To the parent: plain future tense, specifics before reassurance.</li>
+      <li>No exclamation marks. No adjective that sells. "Young men", "production men", "the weekend", "rite of passage".</li>
+    </ul>
+    <div class="lines">
+      <div class="line line--him"><p class="label">To the young man</p><p>The bus leaves at five. By the time you reach camp it is dark, and you are carrying your own gear.</p></div>
+      <div class="line line--him"><p class="label">To the young man</p><p>Saturday night the men speak first. Nobody makes you say a word. Most of what matters happens in the quiet anyway.</p></div>
+      <div class="line"><p class="label">To the parent</p><p>He walks in at dusk on Friday. He walks out on Sunday between two lines of the men who held his weekend. Then the bus, and home to you.</p></div>
+      <div class="line"><p class="label">To the parent</p><p>Every man on site is screened, no man is ever alone with a young man, and anyone can call safety. Read the standards first. The rest of the site can wait.</p></div>
+    </div>
+
+    <h3>The journey across the site</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Stage</th><th>Page · moment</th><th>How Blue Hour carries it</th></tr></thead>
+      <tbody>
+        <tr><td><b>The Call</b></td><td>Home, leg 1 (Friday, dusk) and the two doors</td><td>The twilight beach, the hero line, one italic line to him. The site is quietest here on purpose; the ember is the only warm thing on screen.</td></tr>
+        <tr><td><b>The Threshold</b></td><td>"Register Now", and Friday's hike in (The Weekend · Friday; His Path opening)</td><td>The button sits in the gap of the threshold rule. Friday's copy names the bus and the dark. Registering is the first crossing; the site says so.</td></tr>
+        <tr><td><b>Trials</b></td><td>Legs 2 and 3; The Weekend · Saturday field log</td><td>Type firms up (Newsreader 500 for the station headings), the walk-in ticks count the Quest Stations, nothing is softened. "Nobody finishes one alone, and nobody gets carried."</td></tr>
+        <tr><td><b>The Ordeal</b></td><td>Leg 4, the circle; The Weekend · Saturday night</td><td>The page goes to night. Smallest type on the site. The circle is described only in the handbook's public words and is never shown, filmed or quoted.</td></tr>
+        <tr><td><b>The Return</b></td><td>Leg 5 Sunday; Why YMAW · "What he brings home"; the registration confirmation as the walk out</td><td>Paper comes back. The walk-in ticks reverse into daylight. The confirmation page is the two lines of men. The ember rests at the end of the trail.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============================================================ 03 -->
+<section class="sec dir dir--std" id="std">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="sec__num">03 · Direction two</span>
+      <div>
+        <h2>The Standard</h2>
+        <p class="thesis">Discipline you can read. Fourteen written standards, held by every man, and a young man who adds his own.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <p class="label">The feel · 60 words</p>
+        <p>A field order, not a brochure. Condensed capitals, numbered rules, a serif for the long reading and mono stamps for facts. Everything is checkable: the standard by number, the price to the meal, the stop and the time. Honour here is procedural, the way it is on site: be at the place, at the time, ready. Cedar, stone and driftwood; fire is the only colour that moves.</p>
+      </div>
+      <div>
+        <p class="label">Where the feeling comes from</p>
+        <p class="small">The dojo's posted rules and the drill sergeant's clipboard, without either uniform. YMAW already runs on a written code: fourteen standards, the Man Code, T.E.A.M.S. This direction simply makes the code the identity. The risk, named up front: to a mother on her phone it can read as boot camp, so the serif body and the "Straight talk" register do the softening, not the palette.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:1.6rem">Wordmark</h3>
+    <p class="small">The four letters set tall and tight; the long name in small tracked capitals beneath, flush left, on one line; the founding year as a stamp beside it, at label size, in a hairline box. A stamp is a fact. It is never bigger than a label and never bold.</p>
+    <div class="lockrow">
+      <div><div class="ground ground--paper"><div class="lock lock--std"><div><div class="top">YMAW</div><div class="long">Young Men's Adventure Weekend</div></div><div class="stamp">est. 1990</div></div></div></div>
+      <div><div class="ground ground--cedar"><div class="lock lock--std"><div><div class="top">YMAW</div><div class="long">Young Men's Adventure Weekend</div></div><div class="stamp">est. 1990</div></div></div></div>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Part</th><th>Face · weight</th><th>Size · tracking</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td><b>YMAW</b></td><td>Barlow Condensed 700, uppercase</td><td>1× · <code>0.01em</code> · line-height 0.92</td><td>Never stretched, never outlined, never in fire. Ink on paper, paper on cedar or night.</td></tr>
+        <tr><td><b>Long name</b></td><td>Barlow 500, uppercase</td><td>0.21× · <code>0.17em</code></td><td>Sits flush left under the letters on one line and is never wrapped or stretched to match them. Below 480px the lockup drops the long name rather than breaking it (as it does on this page on a phone).</td></tr>
+        <tr><td><b>Est. 1990</b></td><td>IBM Plex Mono 400, uppercase, 1px box</td><td>0.19× · <code>0.12em</code></td><td><b>The year is a stamp.</b> Hairline box, top-right of every page and beside the lockup; never larger than a label, never bold, never fire. In prose: "since 1990" followed by the fact it earns.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Type</h3>
+    <div class="spec">
+      <div class="spec__sample" style="font-family:var(--d-display);font-weight:600;font-size:clamp(2.2rem, 1.5rem + 4vw, 4.2rem);line-height:0.98;letter-spacing:0.01em;text-transform:uppercase">Be at the place. At the time. Ready.</div>
+      <div class="spec__meta"><b>Display · Barlow Condensed</b> 600 for headings, 700 for the wordmark and one line per page, 500 for the numbered station titles. Always uppercase at display sizes; sentence case below 1.4rem. Tracking +0.01em. Line height under 1.</div>
+    </div>
+    <div class="spec">
+      <div class="spec__sample" style="font-family:var(--d-body);font-size:1.12rem;max-width:56ch;font-variation-settings:'opsz' 14">The weekend runs on a written set of standards that every man on the production team commits to before he is allowed on site, and that the young men add to on Friday night. What a man consistently accepts, requires and lives is the measure of his standards, not what he says they are.</div>
+      <div class="spec__meta"><b>Text · Source Serif 4</b> 400 body with true italics, 600 for defined terms. A reading face for a parent reading carefully. Line height 1.6, measure 60–66ch. UI (buttons, nav, form labels) in <b>Barlow 500</b>.</div>
+    </div>
+    <div class="spec">
+      <div class="spec__sample" style="font-family:var(--d-mono);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft)">08 &nbsp;Young men, not boys &nbsp;&nbsp;·&nbsp;&nbsp; 02 &nbsp;Buddy system &nbsp;&nbsp;·&nbsp;&nbsp; 05 &nbsp;Confidentiality &nbsp;&nbsp;·&nbsp;&nbsp; Sept 11–13 &nbsp;·&nbsp; $320</div>
+      <div class="spec__meta"><b>Stamps · IBM Plex Mono</b> 400 and 500. Standard numbers, dates, stops, price, the year. The mono is where facts live; if a thing is set in mono, a man on the team can stand behind it in a parking lot.</div>
+    </div>
+
+    <h3 style="margin-top:1.6rem">Palette</h3>
+    <div class="swatches">
+      <div class="sw"><div class="sw__chip" style="background:#F4EFE4;color:#1E2A1F">#F4EFE4</div><div class="sw__meta"><b>Paper</b>the ground everywhere but the journey.<br><span class="tag tag--kept">kept</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#1E2321;color:#F4EFE4">#1E2321</div><div class="sw__meta"><b>Ink</b>text and the wordmark. Tuned from the near-blacks in the raised-hands frame (<code>#2D2E30</code>).<br><span class="tag tag--prop">tuned</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#334E31;color:#F4EFE4">#334E31</div><div class="sw__meta"><b>Cedar</b>structure: rules under headings, the hero plate, the footer. From the forest behind the axe. 8.1:1 on paper.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#6F726F;color:#F4EFE4">#6F726F</div><div class="sw__meta"><b>Stone</b>hairlines and figcaptions. From the river rocks in the 2006 circle. 4.3:1 on paper: labels and large text only; small text uses <code>#55605C</code> (5.7:1).<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#B3A991;color:#1E2A1F">#B3A991</div><div class="sw__meta"><b>Driftwood</b>deep paper and stamp fills. From the gravel road behind the portrait.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#C93A22;color:#FFF7EE">#C93A22</div><div class="sw__meta"><b>Fire</b>the one action, unchanged from the logo. Paper-white text on it 4.8:1.<br><span class="tag tag--kept">kept</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#893432;color:#F4EFE4">#893432</div><div class="sw__meta"><b>Bandana</b>standard numbers only. From the red bandanas in the 2006 circle. 7.0:1 on paper. Proposal: this swatch changes to the year's team colour (purple in 2025).<br><span class="tag tag--sampled">sampled</span></div></div>
+    </div>
+
+    <h3 style="margin-top:1.6rem">Motifs · 1px marks</h3>
+    <div class="motifs">
+      <div class="motif">
+        <svg viewBox="0 0 240 56" aria-hidden="true"><g stroke="currentColor" stroke-width="1"><line x1="8" y1="20" x2="232" y2="20"/><line x1="8" y1="36" x2="232" y2="36"/></g><circle cx="196" cy="28" r="2.4" fill="currentColor"/></svg>
+        <b>The two lines</b><p>Two parallel rules with a young man's width between them: the walk out on Sunday, eye to eye with every man. Frames the registration confirmation and the Sunday section. The dot is him, passing through.</p>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 240 56" aria-hidden="true"><text x="8" y="33" font-family="IBM Plex Mono, monospace" font-size="13" fill="currentColor" letter-spacing="1">08</text><line x1="40" y1="28" x2="232" y2="28" stroke="currentColor" stroke-width="1"/></svg>
+        <b>The numbered rule</b><p>A two-digit mono number and a hairline. Every standard, every station, every hour of the field log gets one. Numbers are never decorative: if it has a number it exists in a document the team holds.</p>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 240 56" aria-hidden="true"><rect x="70" y="14" width="100" height="28" rx="2" fill="none" stroke="currentColor" stroke-width="1"/><text x="120" y="33" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.6" fill="currentColor">EST. 1990</text></svg>
+        <b>The stamp</b><p>A hairline box around a fact: the year, the price, "phone-free", "non-denominational". Never a slogan inside a stamp.</p>
+      </div>
+    </div>
+
+    <h3>Voice</h3>
+    <ul class="small" style="margin-bottom:0.4rem">
+      <li>Declarative. Verbs first. Every promise checkable against a document the team holds.</li>
+      <li>Quote the standards by number when they answer a question; do not paraphrase them into marketing.</li>
+      <li>"We" is the men. "You" is him. The parent is addressed as the person reading the standards before signing.</li>
+    </ul>
+    <div class="lines">
+      <div class="line line--him"><p class="label">To the young man</p><p>Standard eight: here you are a young man, not a boy. Every man on site is held to it. So are you.</p></div>
+      <div class="line line--him"><p class="label">To the young man</p><p>Be at the place, at the time, ready. It is the smallest promise on the weekend, and the first one that counts.</p></div>
+      <div class="line"><p class="label">To the parent</p><p>Fourteen written standards, agreed to by every man before the young men arrive. Buddy system. No man alone with a young man. Anyone, of any age, can call safety.</p></div>
+      <div class="line"><p class="label">To the parent</p><p>The men who run this are volunteers. Nobody is paid. Every one of them pays the same $320 he does.</p></div>
+    </div>
+
+    <h3>The journey across the site</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Stage</th><th>Page · moment</th><th>How The Standard carries it</th></tr></thead>
+      <tbody>
+        <tr><td><b>The Call</b></td><td>Home hero and the facts strip</td><td>Facts first: dates, stops, $320, est. 1990, in one row of stamps. The call is an order of the day, not an invitation.</td></tr>
+        <tr><td><b>The Threshold</b></td><td>Register (the form)</td><td>The form is the first standard he signs. It asks him for one line: the standard he will hold on Friday night. Registering is crossing.</td></tr>
+        <tr><td><b>Trials</b></td><td>The Weekend · the Quest Stations</td><td>Numbered stations, mono numerals, 1px rules; T.E.A.M.S. as the five section heads.</td></tr>
+        <tr><td><b>The Ordeal</b></td><td>The Weekend · Saturday night, and "The container he is held in"</td><td>The standards frame the night: buddy system, safety call, confidentiality. The circle is named by number, never described beyond the handbook.</td></tr>
+        <tr><td><b>The Return</b></td><td>Sunday: ceremony, Future Plans, the game, the walk out; the confirmation page</td><td>The two-lines mark. "What he brings home" as a numbered list. The plan he wrote in his own hand.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============================================================ 04 -->
+<section class="sec dir dir--well" id="well">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="sec__num">04 · Direction three</span>
+      <div>
+        <h2>The Well</h2>
+        <p class="thesis">Mentor and apprentice. A fire kept since 1990 by men who sat at it themselves, and one chair just outside the circle.</p>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <p class="label">The feel · 60 words</p>
+        <p>Warm and unhurried: paper, driftwood, ember gold, cedar, char. Type is a soft old-style serif with a hyper-legible sans, built for a thirteen-year-old on a cracked phone and his grandfather. The men are present on every page before the young man is asked anything. The ring with one chair outside it is the whole idea: the man he is becoming is not here yet, but he is coming.</p>
+      </div>
+      <div>
+        <p class="label">Where the feeling comes from</p>
+        <p class="small">The team's own script for the fire: "When you drink from the well, remember the men who dug it." The elder who goes first. The lineage since 1990. Of the three, this is the one a parent feels safest in and the one that depends most on material the site does not yet hold: consented faces of the men, the archive year by year, the alumni line for the walk out.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:1.6rem">Wordmark</h3>
+    <p class="small">The ring mark, then the four letters in a soft serif, then the long name in the reading sans. The ring is twelve short strokes with a single dot outside it: the empty chair. The logo's fire, sun and logs stay as the seal.</p>
+    <div class="lockrow">
+      <div><div class="ground ground--paper"><div class="lock lock--well"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4.6 2.73" transform="rotate(-90 20 20)"/><circle cx="38" cy="36" r="1.9" fill="currentColor"/></svg><div><div class="top">YMAW</div><div class="long">Young Men's Adventure Weekend</div></div></div></div></div>
+      <div><div class="ground ground--char"><div class="lock lock--well"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4.6 2.73" transform="rotate(-90 20 20)"/><circle cx="38" cy="36" r="1.9" fill="currentColor"/></svg><div><div class="top">YMAW</div><div class="long">Young Men's Adventure Weekend</div></div></div></div></div>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Part</th><th>Face · weight</th><th>Size · tracking</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td><b>The ring</b></td><td>1px, twelve dashes, one dot outside</td><td>1× the cap height of YMAW</td><td>Always to the left of the letters, never above. The dot is always outside the ring, low right, and is the only filled shape.</td></tr>
+        <tr><td><b>YMAW</b></td><td>Fraunces 600, <code>opsz 144</code></td><td>1× · <code>−0.01em</code></td><td>Mixed case is never used for the four letters. Ink on paper, paper on char or cedar; never ember.</td></tr>
+        <tr><td><b>Long name</b></td><td>Atkinson Hyperlegible 400</td><td>0.33× · <code>0.05em</code></td><td>Sentence case, one line, directly under the letters.</td></tr>
+        <tr><td><b>Since 1990</b></td><td>in prose only</td><td>body size</td><td><b>The year is never alone and never in the lockup.</b> It is always followed by the thing it earns: "since 1990, by volunteer men", "since 1990, nobody turned away for money". A date that is not attached to a fact is a boast.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Type</h3>
+    <div class="spec">
+      <div class="spec__sample" style="font-family:var(--d-display);font-weight:400;font-size:clamp(2rem, 1.4rem + 3.4vw, 3.6rem);line-height:1.08;letter-spacing:-0.012em;font-variation-settings:'opsz' 144">You are drinking from a well you did not dig.</div>
+      <div class="spec__meta"><b>Display · Fraunces</b> variable, <code>opsz</code> 9–144. Weight 400 for headings at optical size 144, 300 for the largest quiet lines, 600 only for the wordmark. Italic 400 for any line to him. Tracking −0.012em at display sizes. The soft axis is left at its default; no "wonk".</div>
+    </div>
+    <div class="spec">
+      <div class="spec__sample" style="font-family:var(--d-body);font-size:1.08rem;max-width:56ch">YMAW is run by the Young Men's Adventure Weekend Society of BC, a volunteer society of men who plan the weekend for months, build the site, cook the meals, run the Quest Stations and hold the circles. No one is paid. Production men pay the same $320 as the young men.</div>
+      <div class="spec__meta"><b>Text · Atkinson Hyperlegible</b> 400 and 700. Designed for low vision; every letter is distinguishable on a bad screen in a moving bus. Line height 1.55, measure 60–66ch. Labels are the same face in small tracked capitals; there is no mono in this direction.</div>
+    </div>
+
+    <h3 style="margin-top:1.6rem">Palette</h3>
+    <div class="swatches">
+      <div class="sw"><div class="sw__chip" style="background:#F4EFE4;color:#1E2A1F">#F4EFE4</div><div class="sw__meta"><b>Paper</b>the ground.<br><span class="tag tag--kept">kept</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#EAE3D2;color:#1E2A1F">#EAE3D2</div><div class="sw__meta"><b>Deep paper</b>alternating sections.<br><span class="tag tag--kept">kept</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#B3A991;color:#1E2A1F">#B3A991</div><div class="sw__meta"><b>Driftwood</b>rules, tags, figcaptions on char. From the gravel behind the Sunday portrait. 7.4:1 on night.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#2A2D30;color:#F4EFE4">#2A2D30</div><div class="sw__meta"><b>Char</b>text, and the dark ground for the circle and footer. From the charred greys and dark shirts in the portrait frame. 12.1:1 on paper.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#4B704F;color:#F4EFE4">#4B704F</div><div class="sw__meta"><b>Cedar</b>structure: headings, the hero plate. From the mid-forest behind the axe.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#D0562A;color:#16100C">#D0562A</div><div class="sw__meta"><b>Ember</b>the one action. Same caveat as Blue Hour: confirm against the night-fire frame; the logo's <code>#C93A22</code> stands in until then.<br><span class="tag tag--prop">proposal</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#A77455;color:#F4EFE4">#A77455</div><div class="sw__meta"><b>Fire-lit</b>hover and the deep ember. From the tarp lit by the daytime fire pit. On night 4.3:1: large text only.<br><span class="tag tag--sampled">sampled</span></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#C8A65A;color:#141C21">#C8A65A</div><div class="sw__meta"><b>Ember gold</b>the ring mark on dark grounds, labels on char. From the yellow jacket in the raised-hands frame.<br><span class="tag tag--sampled">sampled</span></div></div>
+    </div>
+
+    <h3 style="margin-top:1.6rem">Motifs · 1px marks</h3>
+    <div class="motifs">
+      <div class="motif">
+        <svg viewBox="0 0 240 56" aria-hidden="true"><circle cx="112" cy="28" r="20" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="6.6 3.87" transform="rotate(-90 112 28)"/><circle cx="140" cy="48" r="2.4" fill="currentColor"/></svg>
+        <b>The circle and the chair</b><p>Twelve strokes in a ring, one dot just outside it. The circle is the men and the young men on Saturday night; the chair outside is the man he is becoming. Marks the Ordeal and the wordmark; never animated.</p>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 240 56" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="120" cy="28" r="8"/><circle cx="120" cy="28" r="15" opacity=".6"/><circle cx="120" cy="28" r="22" opacity=".3"/></g></svg>
+        <b>The well</b><p>Three concentric rings fading outward: the men who dug it, the men who kept it, the young man drinking now. Marks the archive (Since 1990) and the footer.</p>
+      </div>
+      <div class="motif">
+        <svg viewBox="0 0 240 56" aria-hidden="true"><g stroke="currentColor" stroke-width="1"><line x1="40" y1="22" x2="132" y2="22"/><line x1="108" y1="34" x2="200" y2="34"/></g></svg>
+        <b>Hand to hand</b><p>Two short rules that overlap by a third: the thing passed from a man to a young man. Separates a section spoken by the men from a section spoken to him.</p>
+      </div>
+    </div>
+
+    <h3>Voice</h3>
+    <ul class="small" style="margin-bottom:0.4rem">
+      <li>The cadence of the fire: line breaks as pauses. One question per page, never answered for him.</li>
+      <li>The men are present in every paragraph before he is asked for anything.</li>
+      <li>The parent is someone widening a circle, not buying a service. "Since 1990" is always tied to a fact.</li>
+    </ul>
+    <div class="lines">
+      <div class="line line--him"><p class="label">To the young man</p><p>A lot of the men at this fire were once the one on the bus. They remember what it cost to stand up.</p></div>
+      <div class="line line--him"><p class="label">To the young man</p><p>Sunday you write your plan for the year in your own hand. Nobody edits it. Nobody grades it. It is yours.</p></div>
+      <div class="line"><p class="label">To the parent</p><p>You are not handing him to strangers. You are widening his circle, with men who have shown up for young men since 1990.</p></div>
+      <div class="line"><p class="label">To the parent</p><p>The circle he sits in on Saturday night has been kept since 1990 by men who sat in it themselves, and by men who wished they had.</p></div>
+    </div>
+
+    <h3>The journey across the site</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Stage</th><th>Page · moment</th><th>How The Well carries it</th></tr></thead>
+      <tbody>
+        <tr><td><b>The Call</b></td><td>Why YMAW · "No family should have to raise a young man entirely alone"</td><td>The parent's call, in the voice of the men at the bus stop. The well mark opens the page.</td></tr>
+        <tr><td><b>The Threshold</b></td><td>The Team (the men), then Register</td><td>The mentor appears before the crossing, as he does in every initiation story: the men first, named by role, then the door.</td></tr>
+        <tr><td><b>Trials</b></td><td>The Weekend · Saturday</td><td>The Quests told the way the men tell them at the Thursday meeting. Hand-to-hand rules separate what the men say from what is said to him.</td></tr>
+        <tr><td><b>The Ordeal</b></td><td>The Weekend · Saturday night; The Push in the handbook's words</td><td>The ring with the chair outside. Char ground, the smallest type. Nothing filmed, nothing quoted, no man's story but his own.</td></tr>
+        <tr><td><b>The Return</b></td><td>Since 1990 (the archive); What he built; the confirmation page</td><td>The well: he drank from a well he did not dig, and the site shows him the men who dug it. The confirmation carries one true line from a man who was once on the bus.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============================================================ 05 -->
+<section class="sec" id="rec">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="sec__num">05</span>
+      <h2>Recommendation</h2>
+    </div>
+    <div class="rec">
+      <p class="label">Recommended · Blue Hour</p>
+      <h3>Go with Blue Hour, and borrow one rule from each of the others.</h3>
+      <ol>
+        <li>Blue Hour is the only direction that is already in the footage: the kayak in the mist, the twilight beach, the night circle and the raised hands against grey water are all cool frames with one warm point, so the palette is a description of the weekend rather than a decoration on it.</li>
+        <li>It carries the feeling you named in structure rather than in props: the page goes to night at the circle and returns to paper on Sunday, which is the walk into the dark and the return done with colour and type alone.</li>
+        <li>It is the safest direction for consent, because it is complete with landscape, backs, hands and silhouettes, which is everything the site can legally show until releases arrive from September.</li>
+        <li>It is the cheapest to ship this week: three token changes and one font swap move the live site onto it without touching the engine, the legs or the logo.</li>
+        <li>The Standard risks reading as boot camp to a mother on her phone, and The Well is the warmest of the three but leans on an archive and consented faces the site does not yet hold; both should be borrowed from once Blue Hour is the ground, the stamp rule for facts and the ring-with-the-chair for the circle.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 06 -->
+<section class="sec" id="scope">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="sec__num">06</span>
+      <h2>Two scopes: today, and the Spring refresh.</h2>
+    </div>
+    <div class="cols" style="align-items:start">
+      <div class="scope">
+        <p class="when">Today · September 2 · one working day · goal: 50 registrations</p>
+        <h3>Make the live site feel like Blue Hour without touching the engine, the legs or the logo.</h3>
+        <p class="small">Colours, type, wordmark treatment and the hero line only. Four files plus a re-render. The logo PNGs stay as the header mark today; the typographic lockup is Spring. Everything here is reversible with <code>git revert</code>.</p>
+        <ol class="steps">
+          <li><div><b><code>pages.css</code> · the <code>body.page</code> token block</b><p>Re-point the two green structure tokens to dusk and the sun to ember gold. Fire stays. Because every band, heading, plate and outline references these tokens, this is one edit for all five pages plus register and success.</p>
+<pre>--dusk: #3A5A6C; --dusk-deep: #22343E;
+--night: #141C21; --ember-gold: #C8A65A;
+--forest: var(--dusk);          /* was #3E6B43 */
+--forest-deep: var(--dusk-deep);/* was #2F5233 */
+--sun: var(--ember-gold);       /* was #E9B822 */
+/* --fire stays #C93A22 until the ember is confirmed */</pre>
+<p>Then one rule so headings take the serif: <code>.pg h2, .pg h3, .pull p { font-weight: 400; letter-spacing: -0.012em; }</code>. Measured: paper on dusk-deep 11.2:1, ember gold on dusk-deep 5.6:1, dusk on paper 6.4:1, paper on dusk 6.4:1 (the Donate hover).</p></div></li>
+          <li><div><b><code>site.css</code> · <code>:root</code> and two overrides</b><p>Night ground and the three font tokens. Buttons and nav keep the sans; the display face is for headings only. The engine's <code>.sc-display</code> weight is overridden here, not in <code>scrollcraft.css</code>, per the engine rule.</p>
+<pre>--sc-canvas: #141C21; --sc-surface: #1B262D;
+--sc-font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+--sc-font-text: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+--sc-font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+.sc-display { font-weight: 400; letter-spacing: -0.012em; }
+.cta, .bar__links a, .bar__drawer a { font-family: var(--sc-font-text); }</pre></div></li>
+          <li><div><b><code>src/partials/head.html</code>, <code>index.html</code> head, and the standalone heads of <code>register.html</code> and <code>success.html</code></b><p>Load the three faces. Fastest: the Google Fonts link. Better, and still a one-hour job: download the woff2 files into <code>fonts/</code> and extend <code>fonts/fonts.css</code> the way Archivo and Geist are served today, so a phone on a bus makes no third-party request. Then re-render the five pages.</p>
+<pre>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Public+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap"&gt;
+
+node scripts/render-pages.mjs</pre></div></li>
+          <li><div><b><code>index.html</code> · the hero block only</b><p>Keep the label and the CTA. Replace the H1 and the sub-line. The current headline, "Not a summer camp. A rite of passage.", is the team's own line and stays on Why YMAW; the home page takes the walk in and the walk out.</p>
+<pre>&lt;h1 class="sc-display sc-display--xl"&gt;He walks in at dusk. He walks out between two lines of&amp;nbsp;men.&lt;/h1&gt;
+&lt;p class="sc-lede w-sub"&gt;A rite of passage for young men 12 to 17: three days of fire, water and real work in the Squamish wilderness, with men who have shown up for young men since 1990. Phone-free. Non-denominational. $320, everyone pays the same.&lt;/p&gt;
+&lt;a class="cta cta--ghost" href="register.html"&gt;Register Now&lt;/a&gt;</pre></div></li>
+          <li><div><b>Verify before deploy</b><p>Serve locally, check the five pages and the journey on a phone width, confirm the hero clears 4.5:1 on its worst frame (the existing shoot script does this), confirm the trail tags and waypoints still read on the new night, and confirm "since 1990" appears in the wordmark rule form nowhere yet (that is Spring) and in prose everywhere it is tied to a fact. Then deploy and reload ymaw.com on a real phone.</p></div></li>
+        </ol>
+        <p class="small" style="margin-top:0.8rem">Rough clock: tokens one hour, fonts one hour, hero thirty minutes, render and verification two hours, deploy and phone check one hour.</p>
+      </div>
+
+      <div class="scope">
+        <p class="when">Spring 2027 refresh · the full build · after the September capture</p>
+        <h3>Build the Threshold plan in Blue Hour, on footage the weekend gives us.</h3>
+        <ol class="steps">
+          <li><div><b>Confirm the palette against the real frames.</b><p>Sample the Saturday-night fire and the Friday twilight beach from the September capture and replace the two proposal hexes (Night, Ember). Retire sun yellow from the interface; it lives in the logo only.</p></div></li>
+          <li><div><b>The typographic wordmark and the seal.</b><p>The threshold lockup in SVG for header, footer, print and the field card; the logo as seal and favicon; a rule sheet for "since 1990" (on the line, once per page, otherwise in prose with a fact).</p></div></li>
+          <li><div><b>Two doors, in two voices.</b><p>His Path and Bringing Him from the v3 plan, written new from the source documents, with Blue Hour's one italic line per page to him and the plain future tense to the parent. Reading level of His Path checked against a thirteen-year-old.</p></div></li>
+          <li><div><b>The motifs drawn into the trail.</b><p>The crescent stamps Friday dusk, the walk-in ticks count the stations, the ember stays as "where he is now", the two lines frame the confirmation. Nothing animates except the existing scroll-drawn trail.</p></div></li>
+          <li><div><b>Dusk mode.</b><p>After local sunset the paper goes to night and the ember is the only warm light. Reduced-motion and no-JavaScript visitors get the paper version. This is the one signature moment that needs only code and footage the site already has.</p></div></li>
+          <li><div><b>Real over rendered.</b><p>Legs 2 and 6 are AI-animated stills today; replace them with September footage and retire the generated loops. Every frame with a face waits for a signed release and his assent.</p></div></li>
+          <li><div><b>Self-hosted type, measured budget.</b><p>Newsreader, Public Sans and IBM Plex Mono in <code>fonts/</code> with real fallback stacks; first paint under two seconds on a phone on 4G; the brand sheet (this document, revised) published at <code>/docs/brand/</code> for the next volunteer.</p></div></li>
+          <li><div><b>Borrow the two rules.</b><p>From The Standard: facts in stamps, never slogans. From The Well: the ring with the chair outside for the circle section and the confirmation page, once the alumni line for the walk out exists.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 07 -->
+<section class="sec" id="never">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="sec__num">07</span>
+      <div>
+        <h2>What we never do.</h2>
+        <p class="small" style="margin-top:0.4rem">Brand guardrails for the next volunteer who touches the site. If a change breaks one of these, it does not ship, however good it looks.</p>
+      </div>
+    </div>
+    <ul class="never">
+      <li><span><b>Never "boys".</b> Not "kids", "children", "campers" or "youth" in a headline. Young men. It is Standard 8 and it sets how they are treated.</span></li>
+      <li><span><b>Never a number we cannot source.</b> Price, ages, dates, stops, since 1990. No "over a thousand", no percentages, no capacity, no testimonials nobody signed.</span></li>
+      <li><span><b>Never pure white.</b> Paper is <code>#F4EFE4</code>; night is <code>#141C21</code>. White is a screen; paper is a thing you hold.</span></li>
+      <li><span><b>Never glow, gradient text, coloured shadows or anything that bounces.</b> Structure comes from whitespace, hierarchy and 1px rules. Motion is the scroll-drawn trail and nothing else.</span></li>
+      <li><span><b>Never a second action colour.</b> The fire is the one thing you click and it always says "Register Now". Ember gold is a mark, never a button.</span></li>
+      <li><span><b>Never a frame that did not happen at a YMAW weekend.</b> No stock, no generated imagery presented as real. Where we have no footage we write, or we film it in September.</span></li>
+      <li><span><b>Never an identifiable young man without a release.</b> A guardian's signature and his own assent, on file, before his face appears anywhere.</span></li>
+      <li><span><b>Never the circle.</b> The Push, the ceremony and anything said in a circle are not filmed, recorded, quoted or described beyond what the handbook already says publicly.</span></li>
+      <li><span><b>Never a borrowed costume.</b> No film's name, image, quote, typeface or music. The feeling is ours; the props are someone else's trademark.</span></li>
+      <li><span><b>Never a religious symbol or phrase.</b> The weekend is non-denominational and says so plainly.</span></li>
+      <li><span><b>Never a screen in a photograph.</b> The weekend is phone-free; the pictures should be too.</span></li>
+      <li><span><b>Never a countdown that is not the bus.</b> The only urgency is the real Friday pickup. No "spots filling fast", no timers.</span></li>
+      <li><span><b>Never a price other than $320, everyone pays the same,</b> with assistance available to any family that asks, in the same sentence.</span></li>
+      <li><span><b>Never "program", "camp", "staff" or "event".</b> Rite of passage. The weekend. Production men. The men.</span></li>
+      <li><span><b>Never a link that is not ymaw.com.</b> Nothing ending in <code>.vercel.app</code> is printed, posted or texted.</span></li>
+      <li><span><b>Never an exclamation mark in a headline.</b> The weekend does not need to raise its voice, and neither does the site.</span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="colophon">
+  <div class="wrap">
+    <hr>
+    <p style="margin-top:1.4rem"><strong>Provenance.</strong> Facts about the weekend are drawn from the Society's own documents in Drive ("The Big Why: YMAW 2026", the 2026 flyer, the YMAW Standards, "The Man You'll Meet") and from the live site's copy. Colours marked sampled were measured from the frames in <code>assets/</code>; the two frames on the temporary CDN (Friday twilight beach, Saturday night circle) were not reachable from this session and the hexes that depend on them are marked proposal. Contrast ratios are computed WCAG 2.x values. Nothing here is published; nothing here quotes, names or imitates any film, franchise or its typography. Fonts shown are open licences on Google Fonts: Newsreader, Public Sans, IBM Plex Mono, Barlow, Barlow Condensed, Source Serif 4, Fraunces, Atkinson Hyperlegible.</p>
+    <p>Young Men's Adventure Weekend Society of BC · brand proposal v3 · prepared 2 September 2026 for Dorian Leslie.</p>
+  </div>
+</footer>
+
+</body>
+</html>
