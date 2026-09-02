@@ -389,3 +389,15 @@ not confirm as one file three times but confirmed as two halves. Descriptions li
 with "How it began"; team.html 200 with "Who is holding"; register.html 200 with "Media release
 (release-2026-1)"; why.html 200 with "Where this came from"; faq.html 200 with "Will my son's photo";
 pages.css serves the `.pg h2` rule at line 82, before `.pg-hero` at 86.
+
+**Later the same day (b0fd401):** the QA sweep's today-items fixed and verified live — the
+Saturday-night circle copy sat half off the left edge on every phone width (mobile `inset-inline`
+reset kept `translate:-50%`); the four values on Why YMAW rendered forest-on-forest; Since 1990 was
+missing from the hand-maintained navs and the footer; register/success gained og tags; success.html
+no longer claims a payment on a bare visit. Report: `docs/qa-2026-09-02.md`.
+
+**Photo catalogue (`docs/photo-catalogue.md`, index `docs/photos-2026-09-02.tsv`):** all 542 stills
+described and sorted into 20 sets by theme, circumstance and sequence. Consent: 308 GREEN, 194 AMBER
+(identifiable young men, Dorian to approve in batches, 2016 first), 27 FLAG (mixed-gender / visitors),
+13 CEREMONY (never). a1-170 shows the campground sign and must never be published. First sets for the
+site: the walk in, the fire, twilight and the empty shore, the kitchen and the men, the Sunday game.
