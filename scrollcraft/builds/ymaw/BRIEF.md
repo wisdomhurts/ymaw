@@ -314,3 +314,32 @@ https://ymaw.vercel.app, desktop 1440×900 and mobile 390×844, commit 1018ba6):
 the four new ids; all six legs reach readyState 4 as the flight advances with durations 4.0 / 4.5 / 4.9 /
 5.4 / 4.1 / 4.5 s at 1920 (desktop) and 720 (mobile) wide; currentTime tracks scroll to the end of each
 clip; every poster decodes; no console errors and no failed requests on either viewport.
+
+## v2.2 (2026-09-02): the copy speaks to him too
+
+Dorian: "make this super cool so both teens and adults love it." The fix is not a second site, it is a
+second register on the same pages. Each information page now carries a **Straight talk** section
+(`.pg-section--talk`, deep forest ground, sun-yellow label, display-weight list) addressed to the young
+man himself, in plain second person and with nothing polished off: the bus in the dark, the phone in the
+bag, the shelter his team builds, the circle where the men go first, the Sunday game against the men.
+The FAQ gained a block of the questions young men ask when their parents leave the room (do I have to
+talk, my phone, never camped, know nobody, bring a friend, religious, will it get back to my parents, is
+it hard). The landing finale turns to him for two lines (`.w-him`).
+
+Headlines moved onto the organisation's own framing, lifted from its outreach documents in Drive:
+"Not a summer camp. A rite of passage." (the enrolment call script), "We believe in you. Now prove it
+to yourself." (partner email template), "No one is immune to the crucible of transformation and
+initiation." (The Big Why), and the flyer tagline "Creating healthy communities by building strong,
+successful, spirited young men." Work-to-earn (a young man earning his place through community
+service) is named on The Weekend, the FAQ and Donate because the templates describe it as a live
+program; if it is not running in 2026, strike those three sentences.
+
+Kept out on purpose: the flyer's "$375 regular price" (Dorian: $320 flat), the "50+ participants" and
+"over 1,000 young men" counts (the org's own figures, but this site carries no statistics), and any
+quote from a young man or a production man (none exist in writing; nothing was invented).
+
+**Verified live (2026-09-02 07:00 UTC, commit 005f5ba, headless Chromium in the Higgsfield sandbox,
+1440×900 and 390×844):** all six pages serve the new copy; the landing finale with the two extra lines
+sits fully inside the viewport on both sizes (desktop 311–801 of 900, mobile 259–751 of 844); the
+straight-talk sections render on the deep-forest ground with paper text at 24px / 19.55px list type, no
+horizontal overflow, no console errors.
