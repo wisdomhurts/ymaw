@@ -198,3 +198,16 @@ body.page .reg-demo { color: var(--fire); border-color: color-mix(in oklab, var(
 body:not(.page) .bar__links a { color: var(--sc-ink); }
 body:not(.page) .bar__burger { border-color: color-mix(in oklab, var(--sc-ink) 35%, transparent); }
 body:not(.page) .bar__burger span { background: var(--sc-ink); }
+
+/* ---- straight talk: the page turns and speaks to the young man ---------- */
+.pg-section--talk { background: var(--forest-deep); color: var(--paper); }
+.pg-section--talk .sc-label { color: var(--sun); }
+.pg-section--talk h2, .pg-section--talk h3 { color: var(--paper); }
+.pg-section--talk .sc-body, .pg-section--talk p { color: color-mix(in oklab, var(--paper) 84%, transparent); }
+.pg-section--talk .marks { margin-top: 0; }
+.pg-section--talk .marks li { color: var(--paper); font-family: var(--sc-font-display); font-weight: 600; font-size: var(--sc-t-lg); line-height: 1.3; }
+.pg-section--talk .marks li + li { margin-top: var(--sc-4); }
+.pg-section--talk .pull { border-color: var(--sun); margin-bottom: 0; }
+.pg-section--talk .pull p { color: var(--paper); }
+.pg-section--talk .pull cite { color: color-mix(in oklab, var(--paper) 70%, transparent); }
+.pg-section--talk a { color: var(--paper); }

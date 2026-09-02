@@ -238,3 +238,7 @@ body[data-leg="3"] .w-veil { opacity: 1; }
 .noscript img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
 .noscript > div { padding: var(--sc-6) var(--sc-gutter) var(--sc-8); }
 .noscript a { color: var(--sc-accent); }
+
+/* The finale turns, for two lines, to the young man reading over a shoulder. */
+.w-him { margin-top: var(--sc-4); }
+.w-him strong { color: var(--sc-ink); font-weight: 600; }
