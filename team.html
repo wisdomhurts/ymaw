@@ -25,6 +25,7 @@
       <li><a href="weekend.html" >The Weekend</a></li>
       <li><a href="why.html" >Why YMAW</a></li>
       <li><a href="team.html" aria-current="page">The Team</a></li>
+      <li><a href="since1990.html" >Since 1990</a></li>
       <li><a href="faq.html" >FAQ</a></li>
     </ul>
     <a class="cta cta--green" href="donate.html">Donate</a>
@@ -37,12 +38,28 @@
       <a href="weekend.html">The Weekend</a>
       <a href="why.html">Why YMAW</a>
       <a href="team.html">The Team</a>
+      <a href="since1990.html">Since 1990</a>
       <a href="faq.html">FAQ</a>
       <a href="donate.html">Donate / Support</a>
       <a class="cta cta--solid" href="register.html">Register Now</a>
     </div>
   </nav>
 </header>
+<style>
+  /* The men (team.html only) */
+  .tm-grid { margin-top: var(--sc-5); align-items: start; }
+  .tm-copy { display: grid; gap: var(--sc-4); }
+  .tm-elders { margin: 0; padding-top: var(--sc-4); border-top: 1px solid var(--rule); color: var(--ink-soft); max-width: var(--sc-measure); }
+  .tm-elders strong { color: var(--forest-deep); }
+  .tm-men { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--forest); }
+  .tm-men li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.15rem 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--rule); }
+  .tm-men b { font-family: var(--sc-font-display); font-weight: 600; color: var(--forest-deep); }
+  .tm-men span { color: var(--ink-soft); font-size: var(--sc-t-sm); text-align: right; }
+  @media (max-width: 760px) {
+    .pg-grid.tm-grid { grid-template-columns: 1fr; }
+    .tm-men span { text-align: left; flex-basis: 100%; }
+  }
+</style>
 <main class="pg">
   <section class="pg-hero">
     <img class="pg-hero__img" src="assets/ph-men-2003.webp" alt="A line of men from the production team standing together at the weekend, 2003" width="1536" height="1038" decoding="async">
@@ -103,6 +120,33 @@
         <div><h3>Transport</h3><p>The bus, the pickups in Burnaby, Langley and Squamish, the Vancouver Island carpool, and the truck that carries everything in and out.</p></div>
         <div><h3>Safety</h3><p>Safety practice before the young men arrive, the medical information from registration, and the authority to stop everything when "safety" is called.</p></div>
         <div><h3>Load and strike</h3><p>Can't make the weekend? Load the truck the Thursday before, or meet the truck Sunday evening in Abbotsford to unload it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pg-section" id="the-men">
+    <div class="sc-wrap">
+      <p class="sc-label">The men</p>
+      <h2 class="sc-display sc-display--md">Who is holding the 2026 weekend.</h2>
+      <div class="pg-grid tm-grid">
+        <div class="tm-copy">
+          <p class="sc-body">The men leading each team for September 11–13, 2026, and their seconds. Program is the team that designs the Quest Stations and runs the circles and ceremonies. Behind these men stand the Shadow Watchers and the crews on every team, and positions are still open: <a href="register.html#production">join the production team</a>, or ask first at <a href="mailto:info@ymaw.com">info@ymaw.com</a>.</p>
+          <p class="tm-elders"><strong>Founders and elders.</strong> Brad Leslie, co-founder and vision holder. Don Osborn, Patrick Wells and Bruce Hendriks compiled the production manual that still shapes the weekend. Read <a href="why.html#where-this-came-from">where this came from</a>.</p>
+        </div>
+        <ul class="tm-men">
+          <li><b>Jeffrey Woods</b><span>Production Team Manager</span></li>
+          <li><b>Thomas Farrell</b><span>Program Manager</span></li>
+          <li><b>Ipswa</b><span>Program, with Thomas Farrell</span></li>
+          <li><b>Raymond Wong</b><span>Safety and Emergency Manager</span></li>
+          <li><b>Jason MacLeod</b><span>First aid · Enrollment, second</span></li>
+          <li><b>Dorian Leslie</b><span>Kitchen Manager</span></li>
+          <li><b>Fabiano Soriani</b><span>Kitchen, second</span></li>
+          <li><b>William Abraham</b><span>Site Manager</span></li>
+          <li><b>Tim Bolan</b><span>Transport</span></li>
+          <li><b>Nathaniel King</b><span>Supplies</span></li>
+          <li><b>Bryan Wadsworth</b><span>Enrollment Manager</span></li>
+          <li><b>Bernard Leclair</b><span>Enrollment, support</span></li>
+        </ul>
       </div>
     </div>
   </section>

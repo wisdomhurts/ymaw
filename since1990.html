@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Since 1990 · YMAW</title>
+<meta name="description" content="The lineage of the Young Men's Adventure Weekend: how a group of volunteer men founded it in 1990, what has not changed in its purpose and standards, the shape of the weekend then and now, and voices from its letters and scripts. September 11 to 13, 2026, Squamish region BC.">
+<meta property="og:title" content="Since 1990 · YMAW">
+<meta property="og:description" content="The lineage of the Young Men's Adventure Weekend: how a group of volunteer men founded it in 1990, what has not changed in its purpose and standards, the shape of the weekend then and now, and voices from its letters and scripts. September 11 to 13, 2026, Squamish region BC.">
+<meta property="og:image" content="https://ymaw.com/assets/p2.webp">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="scrollcraft.css">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body class="page">
+<div class="sc-grain" aria-hidden="true"></div>
+<header class="bar bar--paper">
+  <a class="bar__mark" href="/" aria-label="YMAW home">
+    <img src="assets/wordmark-green.png" alt="YMAW" width="560" height="131">
+  </a>
+  <nav class="bar__nav" aria-label="Site">
+    <ul class="bar__links">
+      <li><a href="weekend.html" >The Weekend</a></li>
+      <li><a href="why.html" >Why YMAW</a></li>
+      <li><a href="team.html" >The Team</a></li>
+      <li><a href="since1990.html" aria-current="page">Since 1990</a></li>
+      <li><a href="faq.html" >FAQ</a></li>
+    </ul>
+    <a class="cta cta--green" href="donate.html">Donate</a>
+    <a class="cta cta--solid cta--nav" href="register.html">Register Now</a>
+    <input class="bar__toggle" type="checkbox" id="menuToggle" aria-hidden="true">
+    <label class="bar__burger" for="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></label>
+    <div class="bar__drawer" role="dialog" aria-label="Menu">
+      <label class="bar__close" for="menuToggle" aria-label="Close menu">×</label>
+      <a href="/">The Journey</a>
+      <a href="weekend.html">The Weekend</a>
+      <a href="why.html">Why YMAW</a>
+      <a href="team.html">The Team</a>
+      <a href="since1990.html">Since 1990</a>
+      <a href="faq.html">FAQ</a>
+      <a href="donate.html">Donate / Support</a>
+      <a class="cta cta--solid" href="register.html">Register Now</a>
+    </div>
+  </nav>
+</header>
+<style>
+  .s90-ledger { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr) minmax(0, 1fr); gap: 0 var(--sc-5); margin-top: var(--sc-6); border-top: 1px solid var(--rule); }
+  .s90-ledger > * { margin: 0; padding: var(--sc-4) 0; border-bottom: 1px solid var(--rule); }
+  .s90-ledger__head { font-family: var(--sc-font-mono); font-size: var(--sc-t-xs); letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--forest); padding: var(--sc-3) 0; }
+  .s90-ledger dt { font-family: var(--sc-font-display); font-weight: 700; color: var(--fire); font-size: var(--sc-t-base); line-height: 1.2; }
+  .s90-ledger dd { color: var(--ink-soft); font-size: var(--sc-t-sm); max-width: 46ch; line-height: 1.5; }
+  .s90-ledger dd::before { display: none; font-family: var(--sc-font-mono); font-size: var(--sc-t-xs); letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--forest); content: attr(data-col); margin-bottom: 0.2rem; }
+  @media (max-width: 760px) {
+    .s90-ledger { grid-template-columns: 1fr; }
+    .s90-ledger__head { display: none; }
+    .s90-ledger dt { border-bottom: 0; padding-bottom: 0.4rem; padding-top: var(--sc-5); }
+    .s90-ledger dd { padding-top: 0.2rem; }
+    .s90-ledger dd.s90-then { border-bottom: 0; padding-bottom: 0.6rem; }
+    .s90-ledger dd::before { display: block; }
+  }
+  .s90-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sc-4); margin-top: var(--sc-6); }
+  @media (max-width: 640px) { .s90-strip { grid-template-columns: 1fr; } }
+  .s90-voices { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: var(--sc-6) var(--sc-7); margin-top: var(--sc-6); }
+  .s90-voice { margin: 0; border-left: 3px solid var(--sun); padding-left: var(--sc-5); }
+  .pg-section--forest .s90-voice p { font-family: var(--sc-font-display); font-size: var(--sc-t-lg); line-height: 1.3; color: #F4EFE4; margin: 0; text-wrap: balance; }
+  .pg-section--forest .s90-voice cite { display: block; font-style: normal; font-family: var(--sc-font-mono); font-size: var(--sc-t-xs); letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sun); margin-top: var(--sc-3); }
+  .s90-ask h3 { margin: 0 0 0.5rem; font-size: var(--sc-t-xl); }
+  /* pages.css declares the .pg colour rules after the --forest and hero-plate overrides at equal specificity, so those lose; re-assert them for this page only */
+  .pg .s90-hero .pg-hero__plate .sc-label { color: var(--sun); }
+  .pg .s90-forest h2 { color: #F4EFE4; }
+  .pg .s90-forest .sc-label { color: var(--sun); }
+  .pg .s90-forest .sc-body { color: color-mix(in oklab, #F4EFE4 84%, var(--forest)); }
+</style>
+<main class="pg">
+  <section class="pg-hero s90-hero">
+    <img class="pg-hero__img" src="assets/ph-circle-2006.webp" alt="Men and young men in a circle at the weekend, 2006" width="1024" height="684" decoding="async">
+    <div class="pg-hero__plate">
+      <p class="sc-label">Since 1990</p>
+      <h1 class="sc-display sc-display--lg">One weekend, handed from the men who built it in 1990 to the men who will run it this September.</h1>
+      <p class="sc-lede">It began as a conversation among volunteer men about the hard passage from adolescence to manhood. More than thirty-five years on it is still built, cooked, carried and held by volunteer men, who pay the same $320 as the young men.</p>
+    </div>
+  </section>
+
+  <section class="pg-section">
+    <div class="sc-wrap">
+      <ul class="facts" role="list">
+        <li><b>Since 1990</b><span>Volunteer men. Nobody is paid.</span></li>
+        <li><b>Sept 11–13, 2026</b><span>Squamish region, BC</span></li>
+        <li><b>Ages 12–17</b><span>Phone-free. Non-denominational.</span></li>
+        <li><b>$320</b><span>Per person. Everyone pays the same.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pg-section">
+    <div class="sc-wrap pg-grid" style="align-items: start;">
+      <div>
+        <p class="sc-label">How it began</p>
+        <h2 class="sc-display sc-display--md">It started with a group of men who decided to do something.</h2>
+        <p class="sc-body">The 2011 Production Manual, drawn from "the combined experience of countless men over 20 years", tells the founding in one paragraph signed by co-founder and vision holder Brad Leslie:</p>
+        <div class="pull">
+          <p>"A group of men were discussing the plight of today's male teenagers… Deciding they wanted to do something about it, this group of volunteer men created the Young Men's Adventure Weekend as a wilderness experience where Young Men could spend time with adult men… men who are committed to holding high personal standards and being accountable in the community and in their own lives."</p>
+          <cite>From the 2011 Production Manual, "How it all began"</cite>
+        </div>
+        <p class="sc-body">Brad's son Dorian puts it more plainly: "My dad, Brad Leslie, loves to make a difference in the world, supporting men and young men to be their best and live lives of integrity and service, and hold high standards for themselves and their communities."</p>
+      </div>
+      <figure class="pg-photo">
+        <img src="assets/ph-men-2003.webp" alt="A row of men at the weekend, 2003" width="1536" height="1038" loading="lazy" decoding="async">
+        <figcaption>The men, 2003</figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <section class="pg-section">
+    <div class="sc-wrap">
+      <p class="sc-label">What has not changed</p>
+      <h2 class="sc-display sc-display--md">The purpose was written down early, and it still reads the same.</h2>
+      <div class="pg-grid" style="margin-top: var(--sc-5); align-items: start;">
+        <div>
+          <p class="sc-body">The Society's Context–Purpose–Results statement, written in 2023 and repeated word for word in the 2026 overview for parents and staff:</p>
+          <div class="pull">
+            <p>"The Young Men's Adventure Weekend provides the environment, community, and circumstances for young men to challenge themselves, push their limits, and build the confidence that is required to stay true to themselves while facing the challenges of life today."</p>
+            <cite>From the Context–Purpose–Results statement, 2023</cite>
+          </div>
+        </div>
+        <div>
+          <p class="sc-body">Its four values, Responsibility, Integrity, Community and Self-discovery, are the same four words in the same order on <a href="why.html">Why YMAW</a>, in the 2023 statement and in the 2026 overview.</p>
+        </div>
+      </div>
+      <dl class="values">
+        <div><dt>Results, 2011</dt><dd>"The Young Men show courage in the face of challenges and adversity… The men and the Young Men leave the event as equals, friends and brothers."</dd></div>
+        <div><dt>Results, 2026</dt><dd>"Young men will return home, happier, more confident, and better prepared to face the challenges of their lives."</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="pg-section pg-section--deep">
+    <div class="sc-wrap">
+      <p class="sc-label">The shape of the weekend, then and now</p>
+      <h2 class="sc-display sc-display--md">A young man walking in this September would recognize the 2011 schedule.</h2>
+      <p class="sc-body" style="max-width: 62ch;">The manual's sample schedule and this September's weekend share the same bones. The manual's words on the left.</p>
+      <div class="s90-strip">
+        <figure class="pg-photo"><img src="assets/arch-2003.webp" alt="Five men lean on a truck at camp, 2003" width="640" height="432" loading="lazy" decoding="async"><figcaption>2003</figcaption></figure>
+        <figure class="pg-photo"><img src="assets/arch-2006.webp" alt="Young men in red bandanas circled on river rocks, 2006" width="640" height="426" loading="lazy" decoding="async"><figcaption>2006</figcaption></figure>
+        <figure class="pg-photo"><img src="assets/arch-2025.webp" alt="Leaders congratulate young men in purple bandanas, 2025" width="640" height="426" loading="lazy" decoding="async"><figcaption>2025</figcaption></figure>
+      </div>
+      <dl class="s90-ledger">
+        <div class="s90-ledger__head" aria-hidden="true"></div>
+        <div class="s90-ledger__head">Then · the 2011 manual</div>
+        <div class="s90-ledger__head">Now · September 2026</div>
+
+        <dt>Friday walk-in</dt>
+        <dd class="s90-then" data-col="Then">"Arrive at site and hike in. Its physical work, usually in the dark… should feel a little nervy."</dd>
+        <dd data-col="Now">The bus from Burnaby, Langley or Squamish, then the hike in with his own gear. Still in the dark.</dd>
+
+        <dt>Teams</dt>
+        <dd class="s90-then" data-col="Then">"Line up by height… Teams are formed and a leader is picked."</dd>
+        <dd data-col="Now">Sized up once, in the open, then set aside. Each new team picks its own leader.</dd>
+
+        <dt>Camp build</dt>
+        <dd class="s90-then" data-col="Then">"That new team heads off to build a shelter together. This is a first opportunity for leadership to show up."</dd>
+        <dd data-col="Now">Teams still build the shelters they sleep in.</dd>
+
+        <dt>Saturday quests</dt>
+        <dd class="s90-then" data-col="Then">"A series of six or seven stations… less entertainment and more leadership training." Every quest had to include trust, leadership, strength, problem solving, teamwork and facing fear.</dd>
+        <dd data-col="Now">Quest Stations built by the production team: strength, nerve, problem-solving and trust, none of them finishable alone.</dd>
+
+        <dt>The circle</dt>
+        <dd class="s90-then" data-col="Then">Saturday night was already called The Push. The sequence begins: "A fire is lit."</dd>
+        <dd data-col="Now">Still The Push, still around a fire. The men speak first, no one is made to speak, and what is said there stays there.</dd>
+
+        <dt>Sunday</dt>
+        <dd class="s90-then" data-col="Then">Future Plans, a young-men-versus-men game, then the young men "walk through two lines of the production men… eye to eye".</dd>
+        <dd data-col="Now">A ceremony, Future Plans in his own hand, the ball game against the men, the walk out between two lines of men. Then the bus home.</dd>
+
+        <dt>The calendar</dt>
+        <dd class="s90-then" data-col="Then">"YMAWs are typically held in mid-July."</dd>
+        <dd data-col="Now">September 11–13, 2026, Squamish region.</dd>
+
+        <dt>The fee</dt>
+        <dd class="s90-then" data-col="Then">$125 "per young man and production man".</dd>
+        <dd data-col="Now">$320 per person, men included. Assistance available.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="pg-section pg-section--forest s90-forest">
+    <div class="sc-wrap">
+      <p class="sc-label">Voices</p>
+      <h2 class="sc-display sc-display--md">From the letters, invitations and scripts. Never from the circle.</h2>
+      <p class="sc-body" style="max-width: 62ch;">Written to invite families and to open a circle. Nothing spoken in a circle is repeated here.</p>
+      <div class="s90-voices">
+        <blockquote class="s90-voice"><p>"A man isn't built in front of a crowd. He's built in the quiet, when no one is watching."</p><cite>From The Man You'll Meet, a circle script</cite></blockquote>
+        <blockquote class="s90-voice"><p>"When you drink from the well, remember the men who dug it. All of us are here because another man showed up."</p><cite>From The Man You'll Meet, "The Well"</cite></blockquote>
+        <blockquote class="s90-voice"><p>"Our goal with the weekend is to encourage challenge, leadership development, teamwork, and provide some good role models to educate the young men."</p><cite>From the 2018 letter to friends</cite></blockquote>
+        <blockquote class="s90-voice"><p>"It's a place to challenge yourself, and make new friends that last a lifetime."</p><cite>From the 2018 Men's Conversation Package, on what to tell a young man</cite></blockquote>
+        <blockquote class="s90-voice"><p>"We know that raising a resilient, capable young man is a profound responsibility, and we believe that no family should have to do it entirely alone."</p><cite>From the 2026 letter to friends and family</cite></blockquote>
+        <blockquote class="s90-voice"><p>"It is part summer camp, part rite of passage, and a powerful stepping stone into young adulthood."</p><cite>From the 2026 letter to friends and family</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="pg-section">
+    <div class="sc-wrap">
+      <p class="sc-label">Carry it forward</p>
+      <h2 class="sc-display sc-display--md">The well was dug by men who showed up. It needs digging again this September.</h2>
+      <div class="pg-grid" style="margin-top: var(--sc-5); align-items: start;">
+        <div class="s90-ask">
+          <h3>To the men</h3>
+          <p class="sc-body">The 2011 manual is blunt: "Producing a YMAW is your chance to make a difference, reconnect with the values that make men strong and purposeful and to help Young Men who need positive role models to give them the gifts that our fathers gave to us." The 2026 overview ends: "We need men like you on our team."</p>
+          <p class="sc-body">Every man is screened, every first-timer shadows before he leads, and production men pay the same $320. Roles are on <a href="team.html">The Team</a>; the form is <a href="register.html">the same one the young men use</a>.</p>
+        </div>
+        <div class="s90-ask">
+          <h3>To families</h3>
+          <p class="sc-body">The 2026 letter asks it directly: "If you have a son, or know a young man who could benefit from this experience, I strongly encourage you to consider this year's weekend."</p>
+          <p class="sc-body">September 11–13, 2026, Squamish region. Phone-free, non-denominational, $320 with assistance available, young men of every background welcome. <a href="register.html">Register him</a>, or write to <a href="mailto:info@ymaw.com">info@ymaw.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="sc-wrap row">
+      <div>
+        <h2 class="sc-display sc-display--md">Since 1990, the men have gone first.</h2>
+        <p>September 11–13, 2026, Squamish region. $320 per person, everyone pays the same. Assistance available.</p>
+      </div>
+      <a class="cta cta--paper" href="register.html">Register Now</a>
+    </div>
+  </section>
+</main>
+<footer class="foot">
+  <div class="sc-wrap foot__grid">
+    <div>
+      <img src="assets/wordmark-bone.png" alt="YMAW" width="560" height="131">
+      <p style="margin-top:0.9rem; max-width: 40ch;">Creating healthy communities by building strong, successful, spirited young men. Since 1990.</p>
+      <p>Young Men's Adventure Weekend Society of BC</p>
+    </div>
+    <div>
+      <h4>The weekend</h4>
+      <a href="/">The Journey</a>
+      <a href="weekend.html">The Weekend</a>
+      <a href="why.html">Why YMAW</a>
+      <a href="team.html">The Team</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div>
+      <h4>Take part</h4>
+      <a href="register.html">Register Now</a>
+      <a href="register.html#sponsor">Come as a Sponsor</a>
+      <a href="register.html#production">Join the Production Team</a>
+      <a href="donate.html">Donate / Support</a>
+      <a href="mailto:info@ymaw.com">info@ymaw.com</a>
+    </div>
+  </div>
+  <div class="sc-wrap foot__fine">
+    <p>September 11–13, 2026 · Squamish region, BC · <a href="https://www.instagram.com/ymaw_official/" rel="noopener" style="display:inline">Instagram</a> · <a href="https://www.facebook.com/ymawofficial/" rel="noopener" style="display:inline">Facebook</a> · © 2026 Young Men's Adventure Weekend Society of BC</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -79,6 +79,10 @@ body:not(.page) .cta--green { color: var(--sc-ink); }
 
 /* ---- page structure ---------------------------------------------------- */
 .pg { padding-top: clamp(4.6rem, 10vh, 6rem); }
+.pg h2, .pg h3 { color: var(--forest-deep); }
+.pg .sc-label { color: var(--forest); }
+.pg .sc-body { color: var(--ink-soft); }
+.pg .sc-lede { color: var(--ink); }
 .pg-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); }
 .pg-hero__img { width: 100%; height: clamp(320px, 56vh, 640px); object-fit: cover; display: block; }
 .pg-hero__plate {
@@ -98,10 +102,6 @@ body:not(.page) .cta--green { color: var(--sc-ink); }
 .pg-section--forest .sc-label { color: var(--sun); }
 .pg-section--forest .sc-body, .pg-section--forest p { color: color-mix(in oklab, #F4EFE4 84%, var(--forest)); }
 .pg-section--forest h2, .pg-section--forest h3 { color: #F4EFE4; }
-.pg h2, .pg h3 { color: var(--forest-deep); }
-.pg .sc-label { color: var(--forest); }
-.pg .sc-body { color: var(--ink-soft); }
-.pg .sc-lede { color: var(--ink); }
 
 .pg-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(1.6rem, 5vw, 4rem); align-items: center; }
 .pg-grid--flip > :first-child { order: 2; }
