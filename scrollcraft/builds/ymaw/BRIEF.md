@@ -250,3 +250,14 @@ unconfirmed object's lifetime, the 9:16 leg 3 keeps the committed v1
 `assets/leg3-m.mp4` camera move (same still, slow move instead of AI motion).
 The other 23 objects are confirmed and serving. If the loop is wanted on
 mobile too, re-generate leg 3 from a different portrait crop and try again.
+
+**Verified live (2026-09-02, headless Chromium in the Higgsfield sandbox
+against https://ymaw.vercel.app, desktop 1300×900 and mobile 390×844):** no
+console errors; the first leg fetches from the CDN with `video/mp4` (200),
+decodes at 1600×900 / 900×1600 (readyState 4) and the remaining legs load on
+demand as the flight advances. Note the engine SCRUBS each clip against
+scroll (currentTime follows the segment's progress, paused throughout) rather
+than looping it, which is why the dense GOP is kept; the crossfaded tail is
+harmless there, it simply lands on the same still the segment fades out on.
+ffprobe over the served objects confirms H.264 in MP4 for the primaries and
+VP9 in Matroska for the `-webm` alternates, 108 frames / 4.5 s each.
