@@ -289,19 +289,21 @@ running clip came out at 20–31 MB, the 720 version is 6–10 MB.
 Posters: the first frame of each loop, JPEG, on the same CDN, so the poster→video hand-off is
 frame-identical. `assets/p1|p3|p4|p5*.webp` stay in the repo (unused) and p2/p6 are still live.
 
-One exception: the leg 5 mobile VP9 slot was never uploaded (the upload step was refused three times
-by the session's permission classifier). Its `data-sc-src-mobile-webm` therefore points at the desktop
-VP9 file, so a webm-only mobile browser gets the 16:9 file cover-cropped by the stage. Everything else
-serves 206/200 from the CDN (checked with ranged GETs).
+Loop-length gotcha (found by ffprobe on the first upload, fixed the same night): `xfade` keeps running
+after the transition and, with `fps=` in the chains, pads the output with the head's last frame until the
+first input ends, so every loop came out at twice its length with a frozen second half. The fix is a
+`trim=end=<D-X>,setpts=PTS-STARTPTS` after the xfade. The doubled objects (dccff19d…, 39132ec0…,
+fe12096a…, 85b22e91… and their variants) are still on the CDN but unreferenced. All sixteen replacement
+objects serve 206/200 with the intended 4.0 / 4.9 / 5.4 / 4.1 s (checked with ranged GETs + ffprobe).
 
 CDN object ids (all under `https://d2ol7oe51mr4n9.cloudfront.net/user_30xvkrK0pKbvva4hQU0vp05t80n/<id>.mp4|.jpg`):
 
 | Leg | mp4 | mobile mp4 | VP9 (as .mp4) | mobile VP9 | poster | mobile poster |
 |---|---|---|---|---|---|---|
-| 1 | dccff19d… | 1d0f11f6… | 25c83be5… | 77fedc77… | fa6f8363….jpg | 82dd6acc….jpg |
-| 3 | 39132ec0… | 275732e3… | 782fb125… | 8e336758… | 17f9dfe0….jpg | 917ee16e….jpg |
-| 4 | fe12096a… | 1fec6ad2… | 79dfa3db… | 03b869f7… | 8a2c132d….jpg | 785ee5e2….jpg |
-| 5 | 85b22e91… | f41648d7… | d633f0d6… | (desktop VP9) | 7daa25fc….jpg | 3ce1e409….jpg |
+| 1 | a8361ac8… | efe38055… | 63d9cf83… | e80f980f… | fa6f8363….jpg | 82dd6acc….jpg |
+| 3 | 44b973d3… | ac415b57… | 16229097… | 20236900… | 17f9dfe0….jpg | 917ee16e….jpg |
+| 4 | 18c315fa… | 32be63f0… | db05e949… | 737558a7… | 8a2c132d….jpg | 785ee5e2….jpg |
+| 5 | c2a0f7e8… | dd0a2c96… | 387a57eb… | ebe10514… | 7daa25fc….jpg | 3ce1e409….jpg |
 
 Consent rule carried forward: nothing with an identifiable young man's face goes live without Dorian's
 approval. Leg 5 is the only one of the four that shows faces at all; it ships on his say-so and is a
