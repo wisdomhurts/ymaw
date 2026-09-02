@@ -241,3 +241,12 @@ want the loops in-repo later (download the 24 objects, drop them in `assets/`,
 restore the `assets/legN.mp4` attributes and the shim's regex). Posters are
 unchanged: the loop's first frame is 0.6 s into a subtle clip, visually the
 same still.
+
+**One exception: mobile leg 3.** Higgsfield's media-confirm step rejected the
+portrait kayak loop deterministically (four attempts, both the H.264 and VP9
+copies, same file that plays fine locally and byte-identical on re-encode),
+and its unconfirmed objects went 403 within minutes. Rather than gamble on an
+unconfirmed object's lifetime, the 9:16 leg 3 keeps the committed v1
+`assets/leg3-m.mp4` camera move (same still, slow move instead of AI motion).
+The other 23 objects are confirmed and serving. If the loop is wanted on
+mobile too, re-generate leg 3 from a different portrait crop and try again.
