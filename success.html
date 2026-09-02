@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Registered · YMAW</title>
 <meta name="robots" content="noindex">
+<meta name="description" content="Registration confirmation for the Young Men's Adventure Weekend, September 11 to 13, 2026, Squamish region BC.">
+<meta property="og:title" content="Registered · YMAW">
+<meta property="og:description" content="Registration confirmation for the Young Men's Adventure Weekend, September 11 to 13, 2026.">
+<meta property="og:image" content="https://ymaw.com/assets/p5.webp">
 <link rel="icon" href="assets/favicon.png">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="scrollcraft.css">
@@ -29,6 +33,7 @@
       <li><a href="weekend.html">The Weekend</a></li>
       <li><a href="why.html">Why YMAW</a></li>
       <li><a href="team.html">The Team</a></li>
+      <li><a href="since1990.html">Since 1990</a></li>
       <li><a href="faq.html">FAQ</a></li>
     </ul>
     <a class="cta cta--green" href="donate.html">Donate</a>
@@ -41,6 +46,7 @@
       <a href="weekend.html">The Weekend</a>
       <a href="why.html">Why YMAW</a>
       <a href="team.html">The Team</a>
+      <a href="since1990.html">Since 1990</a>
       <a href="faq.html">FAQ</a>
       <a href="donate.html">Donate / Support</a>
       <a class="cta cta--solid" href="register.html">Register Now</a>
@@ -55,6 +61,9 @@
       <h1 class="sc-display sc-display--lg" id="okTitle">On the list.</h1>
       <div class="reg-card" style="margin-top: var(--sc-6); max-width: 40rem;">
         <p class="reg-demo" id="demoNote" hidden>This was a demo submission: the site is not yet connected to its database, so nothing was stored. Email <a href="mailto:info@ymaw.com">info@ymaw.com</a> to register for real.</p>
+        <div id="okNone" hidden>
+          <p class="sc-body">This page confirms a registration once one has been made. If you arrived here without registering, start at <a href="register.html">Register Now</a>.</p>
+        </div>
         <div id="okCard" hidden>
           <p class="sc-body">Payment received. A receipt is on its way from Stripe, and the welcome package with the packing list, pickup times and drop-off details follows from us.</p>
         </div>
@@ -77,13 +86,13 @@
 <script>
 (function () {
   var q = new URLSearchParams(location.search);
-  var path = q.get('path') || 'card';
+  var path = q.get('path') || ((q.get('ref') || q.get('demo')) ? 'card' : 'none');
   var type = q.get('type') || 'young_man';
   var ref = q.get('ref') || '';
   var who = q.get('who') || '';
   var total = q.get('total') || '320';
   document.getElementById('demoNote').hidden = !q.get('demo');
-  var el = { card: 'okCard', etransfer: 'okEtransfer', aid: 'okAid' }[path] || 'okCard';
+  var el = { card: 'okCard', etransfer: 'okEtransfer', aid: 'okAid', none: 'okNone' }[path] || 'okNone';
   document.getElementById(el).hidden = false;
   var titles = {
     young_man:  { card: 'He’s on the list.', etransfer: 'His spot is held.', aid: 'We got it. We’ll call.' },
@@ -91,6 +100,7 @@
     production: { card: 'Welcome to the team.', etransfer: 'Your place is held.', aid: 'We got it. We’ll call.' }
   };
   document.getElementById('okTitle').textContent = (titles[type] || titles.young_man)[path] || 'On the list.';
+  if (path === 'none') document.getElementById('okTitle').textContent = 'Nothing to confirm yet.';
   document.getElementById('etrTotal').textContent = '$' + total + ' CAD';
   if (who) document.getElementById('whoName').textContent = who + (type === 'young_man' ? '’s name' : '');
   document.getElementById('refCode').textContent = ref;

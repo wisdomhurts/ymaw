@@ -82,6 +82,9 @@
 
 /* The circle (leg 4): centred, quiet, with three decades of the archive. */
 .w-circle { text-align: center; max-width: min(46rem, 88vw); }
+/* Right-aligned copy must clear the trail column (dots + tags) on desktop;
+   the "Register" waypoint tag was overprinting the leg-2 heading. */
+@media (min-width: 861px) { .sc-copy--trail { right: calc(var(--sc-gutter) + 5rem); } }
 .w-arch {
   display: flex; gap: var(--sc-4); justify-content: center;
   margin-top: var(--sc-6);
@@ -219,6 +222,10 @@ body[data-leg="3"] .w-veil { opacity: 1; }
   .trail__stops li { position: static; translate: none; }
   .trail__tag { display: none; }
   .w-peak, .w-finale { bottom: clamp(3.5rem, 9vh, 6rem); }
+  /* The circle copy is centred with translate:-50%; the generic mobile
+     inset-inline reset moved its left edge to the gutter but kept the translate,
+     so half the block sat off-screen. Re-centre it the way the peak does. */
+  .sc-copy.w-circle { left: 50%; right: auto; translate: -50% -50%; width: min(46rem, 92vw); max-width: none; }
   .w-long { display: none; }
   .w-short { display: inline; }
   .w-fine { margin-top: var(--sc-4); }

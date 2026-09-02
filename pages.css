@@ -130,6 +130,8 @@ body:not(.page) .cta--green { color: var(--sc-ink); }
 .values dt { font-family: var(--sc-font-display); font-weight: 700; font-size: var(--sc-t-lg); color: var(--forest-deep); }
 .values dt b { color: var(--fire); }
 .values dd { margin: 0.3rem 0 0; color: var(--ink-soft); max-width: 40ch; }
+.pg-section--forest .values dt { color: #F4EFE4; }
+.pg-section--forest .values dd { color: color-mix(in oklab, #F4EFE4 84%, var(--forest)); }
 
 /* quote */
 .pull { border-left: 3px solid var(--fire); padding-left: var(--sc-5); margin: var(--sc-6) 0; }
@@ -178,7 +180,7 @@ body:not(.page) .cta--green { color: var(--sc-ink); }
 .foot p, .foot a { color: color-mix(in oklab, #F4EFE4 78%, var(--forest)); font-size: var(--sc-t-sm); }
 .foot a { display: block; text-decoration: none; margin-bottom: 0.4rem; }
 .foot a:hover { color: #F4EFE4; }
-.foot h4 { margin: 0 0 0.6rem; font-size: var(--sc-t-xs); font-family: var(--sc-font-mono); letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sun); }
+.foot h4, .foot .foot__h { margin: 0 0 0.6rem; font-size: var(--sc-t-xs); font-family: var(--sc-font-mono); letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sun); }
 .foot__fine { margin-top: var(--sc-6); padding-top: var(--sc-4); border-top: 1px solid color-mix(in oklab, #F4EFE4 16%, transparent); font-size: var(--sc-t-xs); }
 
 /* registration page inherits paper theme */
