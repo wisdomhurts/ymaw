@@ -343,3 +343,49 @@ quote from a young man or a production man (none exist in writing; nothing was i
 sits fully inside the viewport on both sizes (desktop 311–801 of 900, mobile 259–751 of 844); the
 straight-talk sections render on the deep-forest ground with paper text at 24px / 19.55px list type, no
 horizontal overflow, no console errors.
+
+## v2.3 (2026-09-02): Dorian's fourteen answers, applied
+
+Dorian answered the plan's fourteen questions in one message and asked for "ten agents". Nine ran in
+parallel on disjoint files while the photo survey ran in the Higgsfield sandbox; commits 091b4aa,
+efdf7fc, e473c86.
+
+- **Media release inside registration** (answer 3). Step 3 of `register.html` carries a Media release
+  (release-2026-1) for all three registrant types: required grant/decline choice, typed full-name
+  signature, date recorded server-side; stored as four additive columns (migration 0003), legacy
+  `photo_consent` kept in sync. Webhook hardened; optional Sheet mirror behind `SHEETS_WEBHOOK_URL`;
+  `docs/go-live-checklist.md` names every env var Dorian must set once Stripe is unpaused (answer 12).
+- **Named men** (answer 5). `team.html` "The men": twelve 2026 production roles from the roster and
+  dashboard in Drive, plus founders and elders (Brad Leslie, co-founder and vision holder; Don Osborn,
+  Patrick Wells, Bruce Hendriks compiled the 2011 manual). Board roles were NOT published (the minutes
+  mark board communication confidential). Dorian can strike any name.
+- **Founding story** (answer 6). `why.html` "Where this came from", paraphrased from the 2011 Production
+  Manual. Dorian's first-person note is written but HELD in an HTML comment until he approves it.
+- **Since 1990** page, new, linked in the nav: lineage, then-and-now ledger, Voices quoted only from
+  letters, invitations and scripts (answer 10: nothing from a circle, ever).
+- **Facts** (answer 7): $320 flat everywhere; "Squamish region"; phone-free; non-denominational.
+  Work-to-earn struck from Weekend, FAQ and Donate (unconfirmed for 2026). New FAQ on the release.
+- **Letter to Sunday** withdrawn (answer 8); the plan now says only that each young man is acknowledged
+  on Sunday by the men who watched him all weekend. The gift is internal and is not on the site.
+- **CSS bug fixed**: `.pg h2/h3` and `.pg .sc-label` were declared after the forest-section and
+  hero-plate rules and won on equal specificity, so h2s in every forest section rendered
+  forest-on-forest and hero labels lost their gold. Moved above; verified by computed style.
+- **Docs**: plan v3 re-sequenced to Today / Sept 3–10 / the weekend / Spring 2027 with all answers
+  folded in; `docs/brand-v3.html` (three directions, Blue Hour recommended); `docs/social-cuts.md`
+  (12 recipes with timecodes and consent colours); `docs/outreach-2026.md` (paste-ready outreach for
+  50 registrations, facts boxed, assumptions labelled).
+
+Flagged for Dorian: the 2026 flyer in circulation says "Early bird $320 – $375 regular"; the site says
+$320 flat per his instruction, so the men should hear one price. Sponsor signs the release once for
+every young man he lists. A cancelled card checkout leaves a pending row.
+
+Photo survey: all 542 stills from the eight albums (2024, 2019, 2016, 2015, 2014, 2013, 2012, Old
+Photos) were re-fetched, labelled, cut into 39 contact-sheet videos and scene-described; sheet-37 would
+not confirm as one file three times but confirmed as two halves. Descriptions live in
+`.cache/gp/photo-scenes.json` with `sheets-map.tsv`; the full-archive video scene data now covers 93 of
+94 clips (`scenes.json`, rebuilt from the Higgsfield job list; a1-208 failed analysis).
+
+**Verified live (2026-09-02 13:52 UTC, commit e473c86, curl from the sandbox):** since1990.html 200
+with "How it began"; team.html 200 with "Who is holding"; register.html 200 with "Media release
+(release-2026-1)"; why.html 200 with "Where this came from"; faq.html 200 with "Will my son's photo";
+pages.css serves the `.pg h2` rule at line 82, before `.pg-hero` at 86.
