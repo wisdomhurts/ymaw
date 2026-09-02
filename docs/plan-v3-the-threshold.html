@@ -1,0 +1,361 @@
+<title>The Threshold</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #F4EFE4; --paper-deep: #EAE3D2; --surface: #FFFDF8;
+    --ink: #1E2A1F; --ink-soft: #55604F; --ink-faint: #8A9284;
+    --forest: #3E6B43; --forest-deep: #2F5233; --night: #172019;
+    --fire: #C93A22; --sun: #E9B822; --log: #5A4A42;
+    --rule: rgba(30, 42, 31, 0.14); --rule-strong: rgba(30, 42, 31, 0.28);
+    --band: var(--forest-deep); --band-ink: #F4EFE4; --band-soft: rgba(244, 239, 228, 0.78); --band-label: var(--sun);
+    --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --body: "Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --measure: 66ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #141A15; --paper-deep: #1B231C; --surface: #1F2820;
+      --ink: #EFE9DC; --ink-soft: #B9B4A6; --ink-faint: #7E8479;
+      --forest: #7FAE84; --forest-deep: #24402A; --night: #0E130F;
+      --fire: #E4573D; --sun: #F0C445; --log: #B79E92;
+      --rule: rgba(239, 233, 220, 0.14); --rule-strong: rgba(239, 233, 220, 0.3);
+      --band: #24402A; --band-ink: #EFE9DC; --band-soft: rgba(239, 233, 220, 0.78); --band-label: var(--sun);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #141A15; --paper-deep: #1B231C; --surface: #1F2820;
+    --ink: #EFE9DC; --ink-soft: #B9B4A6; --ink-faint: #7E8479;
+    --forest: #7FAE84; --forest-deep: #24402A; --night: #0E130F;
+    --fire: #E4573D; --sun: #F0C445; --log: #B79E92;
+    --rule: rgba(239, 233, 220, 0.14); --rule-strong: rgba(239, 233, 220, 0.3);
+    --band: #24402A; --band-ink: #EFE9DC; --band-soft: rgba(239, 233, 220, 0.78); --band-label: var(--sun);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: var(--forest); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--fire); }
+  :focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
+
+  .wrap { width: min(72rem, 100% - 3rem); margin-inline: auto; }
+  .doc { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); column-gap: 3rem; }
+  @media (max-width: 760px) { .doc { grid-template-columns: minmax(0, 1fr); } .rail { display: none; } }
+
+  /* the rail: the plan as a trail, one stamp per stop */
+  .rail { position: sticky; top: 1.5rem; align-self: start; padding-top: 0.4rem; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
+  .rail ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--rule); }
+  .rail li { position: relative; padding: 0.45rem 0 0.45rem 1rem; }
+  .rail li::before { content: ""; position: absolute; left: -4px; top: 0.95rem; width: 7px; height: 7px; background: var(--paper); border: 1.5px solid var(--ink-faint); transform: rotate(45deg); }
+  .rail a { color: inherit; text-decoration: none; }
+  .rail a:hover { color: var(--ink); }
+  .rail li.here::before { background: var(--sun); border-color: var(--sun); }
+
+  /* hero: the thesis, on the night ground */
+  .thesis { background: var(--night); color: var(--band-ink); padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2.5rem, 6vw, 4rem); }
+  .thesis .wrap { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); column-gap: 3rem; }
+  @media (max-width: 760px) { .thesis .wrap { grid-template-columns: minmax(0, 1fr); } }
+  .stamp { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--band-label); }
+  .thesis h1 { font-family: var(--display); font-weight: 600; font-variation-settings: "opsz" 144; font-size: clamp(2.4rem, 5.4vw, 4.4rem); line-height: 1.02; letter-spacing: -0.015em; margin: 0.6rem 0 1.1rem; text-wrap: balance; max-width: 22ch; }
+  .thesis h1 em { font-style: italic; font-weight: 400; color: var(--sun); }
+  .thesis .lede { font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.5; max-width: 56ch; color: var(--band-soft); margin: 0; }
+  .thesis .meta { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.6rem; font-family: var(--mono); font-size: 12.5px; color: var(--band-soft); }
+  .thesis .meta b { color: var(--band-ink); font-weight: 500; }
+
+  /* sections */
+  section.stop { padding: clamp(2.2rem, 5vw, 3.6rem) 0; border-top: 1px solid var(--rule); }
+  section.stop:first-of-type { border-top: 0; }
+  .stop .stamp { color: var(--forest); }
+  .stop h2 { font-family: var(--display); font-weight: 600; font-variation-settings: "opsz" 72; font-size: clamp(1.7rem, 3vw, 2.35rem); line-height: 1.1; letter-spacing: -0.01em; margin: 0.4rem 0 1rem; text-wrap: balance; max-width: 28ch; }
+  .stop h3 { font-family: var(--display); font-weight: 600; font-size: 1.28rem; line-height: 1.25; margin: 1.8rem 0 0.5rem; text-wrap: balance; }
+  .stop p, .stop li { max-width: var(--measure); }
+  .stop p { margin: 0 0 1rem; }
+  .stop p.lead { font-size: 1.12rem; color: var(--ink); }
+  .stop ul, .stop ol { padding-left: 1.2rem; margin: 0 0 1rem; }
+  .stop li { margin: 0.35rem 0; }
+  .stop li::marker { color: var(--forest); }
+  .quiet { color: var(--ink-soft); }
+  .small { font-size: 0.93rem; color: var(--ink-soft); }
+  strong { font-weight: 700; color: var(--ink); }
+
+  /* the dark band for the signature moments */
+  .band { background: var(--band); color: var(--band-ink); margin: 1.5rem 0 0; padding: clamp(1.8rem, 4vw, 2.8rem) clamp(1.2rem, 3vw, 2.4rem); }
+  .band h3 { color: var(--band-ink); margin-top: 0; }
+  .band p { color: var(--band-soft); }
+  .band strong { color: var(--band-ink); }
+  .band .stamp { color: var(--band-label); }
+  .moments { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.6rem 2.2rem; margin-top: 1.4rem; }
+  .moment h4 { font-family: var(--display); font-weight: 600; font-size: 1.15rem; margin: 0 0 0.35rem; color: var(--band-ink); }
+  .moment p { margin: 0 0 0.4rem; font-size: 0.97rem; max-width: none; }
+  .moment .needs { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--band-label); }
+
+  /* the site map */
+  .map { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 0.55rem 1.4rem; margin: 1rem 0 0.4rem; border-top: 1px solid var(--rule); padding-top: 0.8rem; }
+  .map dt { font-family: var(--display); font-weight: 600; font-size: 1.05rem; }
+  .map dd { margin: 0; color: var(--ink-soft); max-width: 60ch; padding-bottom: 0.55rem; border-bottom: 1px solid var(--rule); }
+  .map dt { padding-bottom: 0.55rem; border-bottom: 1px solid var(--rule); }
+  @media (max-width: 600px) { .map { grid-template-columns: minmax(0, 1fr); } .map dt { border-bottom: 0; padding-bottom: 0; } }
+
+  /* tables */
+  .tbl { overflow-x: auto; margin: 1rem 0 1.2rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td { text-align: left; vertical-align: top; padding: 0.6rem 0.9rem 0.6rem 0; border-bottom: 1px solid var(--rule); }
+  th { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  td.num, th.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td b { font-weight: 700; }
+
+  /* questions */
+  .qs { counter-reset: q; list-style: none; padding: 0; margin: 1rem 0 0; }
+  .qs li { counter-increment: q; position: relative; padding: 0.9rem 0 0.9rem 3.2rem; border-top: 1px solid var(--rule); max-width: none; }
+  .qs li::before { content: counter(q, decimal-leading-zero); position: absolute; left: 0; top: 0.95rem; font-family: var(--mono); font-size: 13px; color: var(--fire); }
+  .qs li b { display: block; font-family: var(--display); font-weight: 600; font-size: 1.08rem; margin-bottom: 0.2rem; }
+  .qs li p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .qs li p.assume { font-size: 0.93rem; margin-top: 0.3rem; }
+  .qs li p.assume b { display: inline; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--forest); margin-right: 0.4rem; }
+
+  .pull { border-left: 3px solid var(--fire); padding-left: 1.2rem; margin: 1.6rem 0; }
+  .pull p { font-family: var(--display); font-size: 1.35rem; line-height: 1.3; margin: 0 0 0.3rem; text-wrap: balance; }
+  .pull cite { font-style: normal; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.35rem 1.2rem; margin: 0.6rem 0 1rem; font-size: 0.97rem; }
+  .kv dt { font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); padding-top: 0.15rem; }
+  .kv dd { margin: 0; max-width: 60ch; }
+
+  footer.end { padding: 2rem 0 3rem; border-top: 1px solid var(--rule-strong); font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<header class="thesis">
+  <div class="wrap">
+    <div><p class="stamp">ymaw.com · v3 plan · 2 September 2026</p></div>
+    <div>
+      <h1>The website is the <em>threshold</em>. Not a brochure. The first quest.</h1>
+      <p class="lede">A plan to start ymaw.com from nothing and build it the way the weekend itself is built: on the shape of the hero's journey, in real footage, with two doors at the front, one for the young man and one for the person bringing him. Everything below is a proposal for Dorian to cut, keep and answer.</p>
+      <p class="meta"><span>Bus leaves in <b>9 days</b></span><span>Stills on hand <b>644</b></span><span>Clips on hand <b>102</b></span><span>Consent on file <b>unknown</b></span><span>Questions for Dorian <b>14</b></span></p>
+    </div>
+  </div>
+</header>
+
+<div class="wrap doc">
+  <nav class="rail" aria-label="Sections">
+    <ol>
+      <li class="here"><a href="#idea">The idea</a></li>
+      <li><a href="#rules">Six rules</a></li>
+      <li><a href="#trail">The trail</a></li>
+      <li><a href="#moments">Signature moments</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#media">Real footage</a></li>
+      <li><a href="#build">The build</a></li>
+      <li><a href="#share">Sharing it</a></li>
+      <li><a href="#phases">Phases</a></li>
+      <li><a href="#questions">Questions</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section class="stop" id="idea">
+      <p class="stamp">01 · The idea</p>
+      <h2>Make the site do to a visitor what the weekend does to a young man.</h2>
+      <p class="lead">The hero's journey has three moves: separation, trial, return. A young man arriving at ymaw.com on his phone, sent there by his father, is at the first move whether he knows it or not. The site should feel like that. Not a camp brochure with a price at the bottom, but a place that takes him seriously, shows him the real thing, asks him one honest question, and ends with an action he takes himself.</p>
+      <p>The current site is good and it is honest. It is also written from the parent's side of the screen, and it is built on a mix of real footage and animated photographs. The reimagined site keeps what works (the scroll-driven trail, the field-guide palette, the standards, the "young men, never boys" discipline) and changes three things at the root:</p>
+      <ul>
+        <li><strong>Two doors at the front.</strong> "I'm 12 to 17" and "I'm bringing him." Same weekend, two voices, one registration. The young man is never talked about in the third person on his own path.</li>
+        <li><strong>Every frame is real.</strong> No animated stills, no stock, no AI. What is on the site happened at a YMAW weekend. This is the one thing a young man can smell from a mile off, and the one thing no other youth program's website in BC can claim.</li>
+        <li><strong>The site crosses into the weekend.</strong> A line he writes on the site in September comes back to him, on paper, at Future Plans on Sunday. The website is the first station and the bus is the second.</li>
+      </ul>
+      <div class="pull">
+        <p>We aren't a summer camp; we're a rite of passage.</p>
+        <cite>YMAW enrolment call script</cite>
+      </div>
+      <p>What "award-winning" actually takes, stripped of the hype: one clear idea executed all the way down, typography and motion that belong to the subject, real material, and a page that loads fast and works for everyone. Sites that win do one thing nobody else could do. Ours is that everything on it is true.</p>
+    </section>
+
+    <section class="stop" id="rules">
+      <p class="stamp">02 · Six rules</p>
+      <h2>The standards the site is held to, the way the men are held to theirs.</h2>
+      <ol>
+        <li><strong>Real over rendered.</strong> Photographs and film from YMAW weekends only. Where we have no footage of something, we write about it or we film it in September. We do not generate it.</li>
+        <li><strong>His voice and theirs.</strong> Every page speaks to the young man in the second person somewhere, and to his family in the plain, unhurried voice a good production man uses at the bus stop.</li>
+        <li><strong>Nothing invented.</strong> No statistics we cannot source, no quotes nobody said, no promises the weekend does not keep. If it is on the site, a man on the team can stand behind it in a parking lot.</li>
+        <li><strong>Consent is the design constraint.</strong> No identifiable young man appears without a signed release from a guardian and his own assent. The site is designed so that it is beautiful with backs, hands, silhouettes and landscape, and becomes richer as consents arrive.</li>
+        <li><strong>The sacred stays off camera.</strong> The Push, the Sunday ceremony and anything said in a circle are never filmed, recorded or described beyond what the handbook already says publicly.</li>
+        <li><strong>Fast, quiet, for everyone.</strong> Loads in under two seconds on a phone on a bus. Works without sound, without motion, without JavaScript, with a screen reader. Sound and motion are gifts you opt into, not a toll.</li>
+      </ol>
+    </section>
+
+    <section class="stop" id="trail">
+      <p class="stamp">03 · The trail</p>
+      <h2>Ten places, one path.</h2>
+      <p>The site map below is a trail, not a menu. Every page hands you to the next one, and every page ends at the same fire: registration. The names are working names.</p>
+      <dl class="map">
+        <dt>The Threshold</dt><dd>Home. Two doors, then one continuous scroll through the weekend in real footage: dusk, dawn, the Quests, the circle, Sunday, the walk out. The version live today is the prototype of this.</dd>
+        <dt>His Path</dt><dd>The young man's door. Second person throughout. What actually happens, what is hard, what nobody makes you do, what you come home with. Ends with "Write your line" and Register.</dd>
+        <dt>Bringing Him</dt><dd>The family's door. Why this exists, safety and the standards, what $320 covers, how the weekend runs hour by hour, what to expect Sunday night. Ends with Register and Come as a Sponsor.</dd>
+        <dt>The Weekend</dt><dd>The field log, hour by hour, each hour with a real clip or still from that hour. The one page both doors share.</dd>
+        <dt>Voices</dt><dd>Short vertical films and written lines from young men and men, every one with a signed release. Empty until the 2026 weekend gives us consented material; launched the day it does.</dd>
+        <dt>Since 1990</dt><dd>The archive. One photograph per year we have (the "Old" album, 2012, 2013, 2014, 2015, 2016, 2019, 2024, 2026), scrubbed through time. "Then and now": men who came as young men.</dd>
+        <dt>The Men</dt><dd>Who runs it, the departments, the standards, the Man Code, how to join. The straight-talk block for men stays.</dd>
+        <dt>Register</dt><dd>One form, three roles, five minutes on a phone. Card, Apple Pay and Google Pay when Stripe is unpaused; e-transfer; the assistance and work-to-earn box. The confirmation is the walk out.</dd>
+        <dt>Support</dt><dd>Send a young man, sponsor one you know, give time on the load and strike crews, spread the word. Donation receipts if the Society can issue them.</dd>
+        <dt>Partners</dt><dd>For schools, counsellors, youth organisations, treatment centres and faith communities: the 20-minute meeting ask, the work-to-earn path, a downloadable kit. This page exists because the outreach templates already do.</dd>
+      </dl>
+      <p class="small">Two more pages appear only when they are useful: <strong>While He's Gone</strong>, a page for parents to read over the weekend itself, and <strong>Events</strong>, the monthly gatherings and the January kickoff that the communications strategy already describes.</p>
+    </section>
+
+    <section class="stop" id="moments">
+      <p class="stamp">04 · Signature moments</p>
+      <h2>The ten things a visitor remembers.</h2>
+      <p>Each moment says what it is, why it matters to a young man, and what it needs from us. Most need footage and consent more than they need code.</p>
+      <div class="band">
+        <p class="stamp">Real, not rendered</p>
+        <div class="moments">
+          <div class="moment"><h4>Dusk mode</h4><p>The site knows the visitor's local time. After sunset the paper goes to night and the fire is the only warm light on the page. Friday, dusk, on his phone, at dusk.</p><p class="needs">Needs: nothing but code and the night footage we have.</p></div>
+          <div class="moment"><h4>The fire</h4><p>The hearth on the home page is the real Saturday-night fire. Press and hold to hear it crackle. Sound is opt-in, recorded at the weekend, never music.</p><p class="needs">Needs: a clean 60 s audio capture in September.</p></div>
+          <div class="moment"><h4>The bus countdown</h4><p>Days, hours, minutes to the Friday pickup, with the three stops and the Island carpool on a hand-drawn map. When it hits zero it becomes While He's Gone.</p><p class="needs">Needs: confirmed stop locations and times.</p></div>
+          <div class="moment"><h4>Letter to Sunday</h4><p>At registration the young man may write one line to himself. The team prints it and hands it to him at Future Plans. The site reaches into the weekend and the weekend reaches back.</p><p class="needs">Needs: the PTM's yes, a printer, an envelope per young man.</p></div>
+          <div class="moment"><h4>The field card</h4><p>Registration produces a printable card: the packing list, the arc of the weekend, and a blank line for the standard he will write on Friday night. Something to hold on the bus.</p><p class="needs">Needs: the packing list and a one-hour design pass.</p></div>
+          <div class="moment"><h4>The walk out</h4><p>The registration confirmation is the two lines of men, in photographs, and one written line from a man who was once on the bus. He has been received before he has left home.</p><p class="needs">Needs: releases from a dozen production men and one true paragraph.</p></div>
+          <div class="moment"><h4>Voices</h4><p>Vertical films of 30 to 60 seconds, captioned, no music, shot at a "voices booth" on Sunday afternoon with three questions. Young men with releases, men with releases.</p><p class="needs">Needs: consent forms at the bus stop, a phone on a tripod, one man for two hours.</p></div>
+          <div class="moment"><h4>Since 1990</h4><p>A timeline you scrub with your thumb. One frame per year we have, from the old prints to last September. Faces in the old photographs only with the men's permission; they are men now.</p><p class="needs">Needs: a date for every album and an hour with Dorian on names.</p></div>
+          <div class="moment"><h4>Send this to a dad</h4><p>Every page has one share button that writes the message for you: a real line from the page, a vertical clip, the link. Built for a text message, because that is how young men arrive.</p><p class="needs">Needs: the 9:16 cuts we already know how to make.</p></div>
+          <div class="moment"><h4>What he built</h4><p>Four weeks after the weekend, a page for families and young men: the consented photographs from their year, and an invitation to the October gathering. The trail does not end at the bus stop.</p><p class="needs">Needs: the documentarian's work from September and a gathering date.</p></div>
+        </div>
+      </div>
+      <p class="small quiet" style="margin-top: 1rem;">What is deliberately not on this list: parallax for its own sake, gamified quizzes, badges, a chatbot, anything that asks a young man for data the weekend does not need.</p>
+    </section>
+
+    <section class="stop" id="content">
+      <p class="stamp">05 · Content</p>
+      <h2>Two voices, one truth, written new.</h2>
+      <p>All copy is rewritten from the source documents (The Big Why, the standards, the flyer, the partner templates, the communications strategy) and from Dorian's answers to the questions at the end. Two registers:</p>
+      <dl class="kv">
+        <dt>To him</dt><dd>Second person, present tense, short sentences, no adjectives that sell. Says what is hard first. Never explains what he should feel. "Your phone spends the weekend in your bag. Everyone survives this, including you."</dd>
+        <dt>To them</dt><dd>Plain, unhurried, specific. Safety and standards before magic. Names what $320 covers to the meal. Ends every page with the one thing they can do next.</dd>
+        <dt>Quotes</dt><dd>Only recorded words with a signed release, gathered at the voices booth in September and from men who write their own line for the walk out. Until then, the organisation's own lines carry the pages.</dd>
+        <dt>Numbers</dt><dd>Price, ages, dates, stops, since 1990. Nothing else unless the Society can source it and stand behind it.</dd>
+        <dt>Language</dt><dd>Young men, never boys. Production men, not staff. The weekend, not the event. Rite of passage, not program.</dd>
+      </dl>
+      <p>A content matrix (page by audience by job) comes with the first draft, so every paragraph can be traced to a reader and a reason. Reading level for His Path is checked against a 13-year-old, not a 40-year-old.</p>
+    </section>
+
+    <section class="stop" id="media">
+      <p class="stamp">06 · Real footage</p>
+      <h2>What we have, what we can use, and what September has to give us.</h2>
+      <p>The eight shared albums hold 644 stills and 102 clips. The 2024 clips were surveyed frame by frame by description this week; the stills have not been surveyed yet. Roughly:</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Album</th><th class="num">Stills</th><th class="num">Clips</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>2024</td><td class="num">237</td><td class="num">102</td><td>Beach, camp, Quests, archery, night circle, kitchen, the Sunday game, seven interviews with young men, two with men.</td></tr>
+          <tr><td>2019</td><td class="num">40</td><td class="num">0</td><td>Unsurveyed.</td></tr>
+          <tr><td>2016</td><td class="num">85</td><td class="num">0</td><td>Unsurveyed.</td></tr>
+          <tr><td>YMAW 15 (2015)</td><td class="num">88</td><td class="num">0</td><td>Unsurveyed.</td></tr>
+          <tr><td>2014</td><td class="num">74</td><td class="num">0</td><td>Unsurveyed.</td></tr>
+          <tr><td>2013</td><td class="num">32</td><td class="num">0</td><td>Unsurveyed.</td></tr>
+          <tr><td>2012</td><td class="num">25</td><td class="num">0</td><td>Unsurveyed.</td></tr>
+          <tr><td>Old</td><td class="num">63</td><td class="num">0</td><td>The early years. The men in them are men now; they can consent for themselves.</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Usable today, no release needed</h3>
+      <p>Landscape and weather, the beach at twilight, the forest road, tarps going up, gear on the ground, hands on a bow from behind, the night circle in silhouette, young men running away from the camera, the wide Sunday table. The four legs cut this week came from this set. It is enough for a beautiful site. It is not enough for Voices or the walk out.</p>
+      <h3>Needs a release before it goes live</h3>
+      <p>Every interview, every close-up, the boxing pads with a face, the line of young men facing camera, anything a classmate could recognise. The 2024 interviews (seven young men, two men) are the best material in the archive and they need a guardian's signature each. Dorian knows these families.</p>
+      <h3>The September capture</h3>
+      <p>The weekend in nine days is the single biggest opportunity this plan has, and it costs one man's weekend. Proposal: appoint one production man as <strong>Documentarian</strong>, a real role on the team chart, with a shot list mapped to the ten moments above and a rule that he never films a circle. Consent forms go out with the pickup details and are signed at the bus stop; a young man who opts out wears a coloured wristband and the documentarian works around him. Deliverables to aim for:</p>
+      <ul>
+        <li>Twenty stills that carry a page each: the bus at dusk, the hike in as silhouettes, hands (knots, axe, fire), the shelters, a Quest from behind, the kitchen, the Sunday game wide, the walk out from behind the lines.</li>
+        <li>Twelve clips of five to ten seconds, tripod or steady, each one a moment on the trail, shot for both 16:9 and 9:16.</li>
+        <li>Six sound captures of one minute: fire, the drum circle, the bus, wind on the beach, the game, morning birds.</li>
+        <li>Eight voices at the Sunday booth: five young men, three men, three questions each, releases signed.</li>
+      </ul>
+      <p class="small">Hosting: the footage moves off the temporary CDN it sits on now to a video host the Society owns and pays for (Mux or Cloudflare Stream, roughly the price of two coffees a month at this traffic), with the originals kept in the Society's Drive.</p>
+    </section>
+
+    <section class="stop" id="build">
+      <p class="stamp">07 · The build</p>
+      <h2>Keep the engine, replace everything on it.</h2>
+      <dl class="kv">
+        <dt>Experience</dt><dd>The scroll-driven trail (the scrollcraft engine already running) stays as the spine of the home page and The Weekend; it is proven on desktop and phone. Every other page is plain, fast HTML.</dd>
+        <dt>Identity</dt><dd>The logo's colours on warm paper stay unless Dorian wants a reset (question 1). Typography gets a real display face for headlines and a hyper-legible body face for a 13-year-old on a cracked phone screen.</dd>
+        <dt>Registration</dt><dd>Supabase for the records, owner-only access, no third-party trackers. Stripe with Apple Pay and Google Pay when unpaused; e-transfer with a reference code as it works today; the assistance and work-to-earn box; the Google Sheet sync the team asked for.</dd>
+        <dt>Consent</dt><dd>Releases collected at the bus stop on paper and photographed into the registration record, or signed on a phone through the same form. A "faces list" the site checks before any identifiable image is published.</dd>
+        <dt>Performance</dt><dd>Budget: first paint under two seconds on a 4G phone, under five megabytes per page view including the first clip, reduced-motion visitors get stills, no sound without a tap.</dd>
+        <dt>Accessibility</dt><dd>WCAG AA contrast on both grounds, captions on every voice, keyboard through everything, alt text written by a person.</dd>
+        <dt>Domain</dt><dd>ymaw.com points at the new site on launch day with the old registration links redirected; the .vercel.app address is never printed anywhere.</dd>
+      </dl>
+    </section>
+
+    <section class="stop" id="share">
+      <p class="stamp">08 · Sharing it</p>
+      <h2>How a young man hears about this in the first place.</h2>
+      <p>Most young men arrive because a man they knew told their parents. Everything below is built to make that one conversation easier to start and harder to forget.</p>
+      <h3>Inside the circle</h3>
+      <ul>
+        <li><strong>Who brought you? Who will you bring?</strong> Every registered young man's family and every production man gets a personal link. Not a discount, an invitation with his name on it. The team sees, privately, which invitations became registrations.</li>
+        <li><strong>The men's own link.</strong> Each production man carries a QR card in his wallet. At the every-other-Thursday meeting the count is read out, kindly. Men are competitive about the right things.</li>
+        <li><strong>The alumni line.</strong> Men who came as young men are asked for one written line for the walk out and one for the October gathering. Their names go on the site only if they want them there.</li>
+      </ul>
+      <h3>For families</h3>
+      <ul>
+        <li><strong>Send this to a dad.</strong> One tap writes the text message and attaches the clip. The message is honest: "This is the weekend I wish I'd had."</li>
+        <li><strong>The field card in the world.</strong> The printable card doubles as the flyer: a school counsellor pins it, a coach hands it out, a barbershop keeps a stack by the register.</li>
+        <li><strong>The Open Fire.</strong> One of the monthly gatherings the communications strategy already plans becomes the spring enrolment night: an actual fire, in Burnaby or Squamish, families and young men invited, men who have been there speaking, RSVP on the site.</li>
+      </ul>
+      <h3>Partners</h3>
+      <ul>
+        <li><strong>The Partners page and kit.</strong> Youth organisations, treatment centres, faith communities and schools, exactly the audiences the partner email templates already address: the 20-minute meeting ask, the work-to-earn path, a one-page PDF and a 60-second film they can forward.</li>
+        <li><strong>Work-to-earn with a partner.</strong> A community organisation provides the service hours; the Society provides the seat. The story writes itself and it is true.</li>
+      </ul>
+      <h3>In public</h3>
+      <ul>
+        <li><strong>The bus-stop posters.</strong> QR posters in the three pickup towns where young men actually are: climbing gyms, skate parks, barbershops, rec centres. The poster is a photograph and eight words.</li>
+        <li><strong>The countdown films.</strong> From the January kickoff to September, one vertical clip a week on Instagram and Facebook, cut from the real footage, captioned, no faces without releases. Twelve weeks out, the countdown starts counting.</li>
+        <li><strong>Local press.</strong> A volunteer society of men running a rite of passage since 1990 is a story the Squamish and Burnaby papers will print, especially with consented photographs from September. Pitch in October with the "What he built" page as the hook.</li>
+        <li><strong>Search.</strong> If the Society qualifies for Google for Nonprofits, the Ad Grants program funds search advertising at no cost; worth one afternoon to find out. Either way the site is written so that "rite of passage BC", "boys wilderness weekend BC" and "youth mentorship Squamish" land on it.</li>
+        <li><strong>The two newsletters.</strong> Rising the Man Within for families and The Forged Circle for the men, already designed on paper in the communications strategy, get a home and a sign-up on the site.</li>
+      </ul>
+      <h3>A yearly rhythm</h3>
+      <p>January kickoff opens enrolment. Spring Open Fire. Summer countdown films. September weekend and capture. October "What he built" gathering and the press pitch. Then the site turns to next year, with this year's consented footage in it. The site is never finished; it grows a ring every September.</p>
+    </section>
+
+    <section class="stop" id="phases">
+      <p class="stamp">09 · Phases</p>
+      <h2>What happens before the bus, and what happens after.</h2>
+      <p>Nine days is not enough to rebuild a website. It is exactly enough to make sure September gives the rebuild what it needs.</p>
+      <div class="tbl"><table>
+        <thead><tr><th class="num">When</th><th>Phase</th><th>What ships</th></tr></thead>
+        <tbody>
+          <tr><td class="num">Sep 2 – 10</td><td><b>0 · Before the bus</b></td><td>Consent form and shot list to the team. Documentarian named. Bus countdown and pickup details on the live site. Send-this-to-a-dad on every page. Letter to Sunday and the field card if the PTM says yes in time. Nothing else changes on the live site.</td></tr>
+          <tr><td class="num">Sep 11 – 13</td><td><b>1 · Capture</b></td><td>The weekend. Twenty stills, twelve clips, six sounds, eight voices, a stack of signed releases. Letters delivered at Future Plans.</td></tr>
+          <tr><td class="num">Sep 15 – Oct 31</td><td><b>2 · Build</b></td><td>Consent reconciliation and the faces list. Dorian's answers become the content. All copy written new in two voices. The trail rebuilt on a staging address with the fresh footage. Media moved to owned hosting.</td></tr>
+          <tr><td class="num">Nov 1 – 30</td><td><b>3 · Review</b></td><td>The board reads it. Accessibility and performance passes. Press kit and partner kit. "What he built" page and the October gathering photographs.</td></tr>
+          <tr><td class="num">Jan 2027</td><td><b>4 · Launch</b></td><td>ymaw.com points at the new site at the January kickoff, with 2027 enrolment open, the Open Fire date set and the first countdown film scheduled.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Cost: almost entirely time. Video hosting and the domain are tens of dollars a month; fonts, forms and the database are free at this size; Stripe takes its cut per card. The largest cost is one production man's weekend behind a camera and a few evenings of Dorian's answers.</p>
+    </section>
+
+    <section class="stop" id="questions">
+      <p class="stamp">10 · Questions</p>
+      <h2>Fourteen answers unlock the rest. Reply by number.</h2>
+      <p>Where I have made an assumption to keep moving, it is marked. Change any of them.</p>
+      <ol class="qs">
+        <li><b>Identity: keep or reset?</b><p>Keep the logo's colours on warm paper and the field-guide feel, or start the visual identity from nothing too? Name two or three sites or films whose feel you admire, in any field.</p><p class="assume"><b>Assumed</b>Keep the palette; new typography; everything else new.</p></li>
+        <li><b>May the site speak to him directly?</b><p>The plan addresses the young man in the second person on his own path. Some organisations prefer to speak only to parents. Is "you" to a 13-year-old acceptable to the board?</p><p class="assume"><b>Assumed</b>Yes; it is already live on three pages.</p></li>
+        <li><b>Consent: what exists and who signs?</b><p>Do the 2024 families have any signed media release? Who can sign for a young man under 18 (guardian plus his assent is my proposal)? Can a release ride along with the pickup details this week?</p><p class="assume"><b>Assumed</b>Nothing on file; paper at the bus stop plus a form on the site.</p></li>
+        <li><b>The 2024 interviews.</b><p>Seven young men and two men speak on camera in the 2024 album. Can you reach those families for releases? If yes, Voices launches this autumn instead of next year.</p></li>
+        <li><b>Names.</b><p>May the site name the founders, the board and the Production Team Manager? Which men are willing to be on camera and named? Who is the man who writes the walk-out line?</p><p class="assume"><b>Assumed</b>Roles only until you say otherwise.</p></li>
+        <li><b>The founding story.</b><p>Who started this in 1990, where, and why? Five sentences from you, in your words, become the spine of Since 1990. Is 2026 the 34th annual weekend, as the flyer says?</p></li>
+        <li><b>Facts to lock.</b><p>$320 flat for everyone, or early bird with a later price? May the site name the actual location, or only "Squamish region"? Exact bus stops and times. Phones in bags: rule or custom? Is work-to-earn running in 2026? Is "non-denominational" the right word?</p><p class="assume"><b>Assumed</b>$320 flat; region only; phones in bags; work-to-earn yes; non-denominational yes.</p></li>
+        <li><b>Letter to Sunday.</b><p>Will the PTM agree to print each young man's line and hand it to him at Future Plans? It is the one moment that needs the team's hands, not code.</p></li>
+        <li><b>The documentarian.</b><p>Can one production man be assigned to shoot the weekend from a shot list, with the circle off limits? A phone on a small tripod is enough. Who?</p></li>
+        <li><b>What must never be shown.</b><p>My rule: The Push, the ceremony and anything said in a circle are never filmed. Is that the whole list, or is there more that stays inside the weekend?</p></li>
+        <li><b>Accounts and the domain.</b><p>When do we point ymaw.com at the new site? Who holds the Instagram and Facebook logins? Is the Society a registered non-profit or charity (this decides donation receipts and the Google grant)?</p></li>
+        <li><b>Payments.</b><p>Unpause Stripe before the weekend so families can pay by card and Apple Pay, or leave e-transfer as the only path for 2026 and switch on for 2027?</p><p class="assume"><b>Assumed</b>E-transfer only for 2026.</p></li>
+        <li><b>What does success look like?</b><p>A number of young men on the bus by a date, a number of sponsors, a number of partner organisations, or something else? The site is designed toward whatever you name.</p></li>
+        <li><b>Your hours, and your circle.</b><p>How many hours a week can you give this through October? Is there a filmmaker, photographer or designer among the men who wants a real job on this?</p></li>
+      </ol>
+    </section>
+
+    <footer class="end">Young Men's Adventure Weekend Society of BC · plan prepared for Dorian Leslie · nothing in this document is published; every claim about the weekend is drawn from the Society's own documents in Drive.</footer>
+  </main>
+</div>
