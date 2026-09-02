@@ -199,3 +199,45 @@ Why: YMAW 2026", the volunteer invitation and the friends-and-family letter.
 - Registration restructured to three registrant types per the team's doc
   (Young Man / Sponsor / Production) plus a Donate/Support section (e-transfer
   to info@ymaw.com). CTA label everywhere is now "Register Now".
+
+## v2 (2026-09-02): the legs move for real
+
+Dorian's verdict on v1 was "not good enough" on all four axes (visuals, too
+little information, structure, look and feel). v2 answers each:
+
+- **Information + structure:** five field-guide pages (The Weekend, Why YMAW,
+  The Team, FAQ, Donate and Support) behind a real menu, rendered from
+  `src/pages/*.html` by `scripts/render-pages.mjs` with shared nav/footer
+  partials. Content is lifted from the team's own documents (The Big Why, the
+  2026 flyer, the volunteer invitation, the TEAMS deck). No names are
+  published; the only contact is info@ymaw.com. The journey (index) is
+  unchanged as a page and gains the same menu in bone over its dark ground.
+- **Look and feel:** `pages.css` puts the logo's own colours on warm paper
+  (forest #3E6B43 / #2F5233, fire #C93A22, sun #E9B822, paper #F4EFE4) and
+  re-points the engine tokens under `body.page`; register and success adopt it.
+- **Visuals:** the six legs are now the real archive photographs brought to
+  life with image-to-video (Higgsfield, kling3_0 pro, 5 s, prompts insisting on
+  subtle documentary motion and exact framing; the "IN THE DARK" preset
+  recommendation was declined for legs 4 and 5). Twelve clips: 16:9 for the
+  desktop legs and 9:16 from the mobile crops. Each is cut into a seamless
+  loop (body = clip[0.6 s : end], its last 0.6 s cross-faded into clip[0 : 0.6 s],
+  so the loop point lands on itself), scaled to 1600×900 / 900×1600, H.264
+  dense-GOP (g=8, crf 25) plus a VP9 copy, no audio. Verified frame-by-frame
+  on the three face-critical legs (axe, raised hands, the portrait): motion is
+  subtle, no warping, identity preserved.
+
+**Where the loops live, and why.** This session's egress proxy blocks the
+Higgsfield CDN, so the rendered clips could never be pulled into the repo;
+all cutting and encoding ran in Higgsfield's sandbox and the results were
+uploaded back to Higgsfield media storage. The page references them on
+`d2ol7oe51mr4n9.cloudfront.net` (public, CORS `*`, byte-range). The codec
+shim now honours explicit `data-sc-src-webm` / `data-sc-src-mobile-webm`
+attributes because the VP9 copies have their own object ids (Higgsfield
+normalises the extension to `.mp4`, so the WebM bytes are served under an
+`.mp4` name with a video/mp4 type; Chromium sniffs the container). The
+committed `assets/leg*.mp4|webm` are the v1 ffmpeg camera-move versions and
+are no longer referenced; they stay as a same-origin fallback should the team
+want the loops in-repo later (download the 24 objects, drop them in `assets/`,
+restore the `assets/legN.mp4` attributes and the shim's regex). Posters are
+unchanged: the loop's first frame is 0.6 s into a subtle clip, visually the
+same still.
