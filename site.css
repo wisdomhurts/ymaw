@@ -71,6 +71,7 @@
 .w-label { margin: 0 0 var(--sc-3); color: color-mix(in oklab, var(--sc-ink) 85%, var(--sc-ink-soft)); }
 .w-short { display: none; }
 .w-hero .w-label { color: var(--sc-ink); }
+.w-hero { bottom: clamp(2.5rem, 8vh, 6rem); }
 .w-sub { margin-top: var(--sc-4); color: var(--sc-ink); }
 .w-sub--quiet { color: var(--sc-ink-soft); max-width: 44ch; margin-inline: auto; font-size: var(--sc-t-base); line-height: 1.55; }
 .w-hero .w-sub { max-width: 40ch; }
