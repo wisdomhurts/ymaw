@@ -69,6 +69,8 @@
 /* Labels ride photographs at small size: tinted toward full ink so the
    worst frame under them still clears 4.5:1. */
 .w-label { margin: 0 0 var(--sc-3); color: color-mix(in oklab, var(--sc-ink) 85%, var(--sc-ink-soft)); }
+.w-short { display: none; }
+.w-hero .w-label { color: var(--sc-ink); }
 .w-sub { margin-top: var(--sc-4); color: var(--sc-ink); }
 .w-sub--quiet { color: var(--sc-ink-soft); max-width: 44ch; margin-inline: auto; font-size: var(--sc-t-base); line-height: 1.55; }
 .w-hero .w-sub { max-width: 40ch; }
@@ -102,9 +104,9 @@
   background: linear-gradient(to top,
     color-mix(in oklab, var(--sc-canvas) 97%, transparent) 0%,
     color-mix(in oklab, var(--sc-canvas) 88%, transparent) 26%,
-    color-mix(in oklab, var(--sc-canvas) 66%, transparent) 50%,
-    color-mix(in oklab, var(--sc-canvas) 30%, transparent) 64%,
-    transparent 76%);
+    color-mix(in oklab, var(--sc-canvas) 72%, transparent) 50%,
+    color-mix(in oklab, var(--sc-canvas) 40%, transparent) 64%,
+    transparent 78%);
 }
 
 /* The veil: a sibling scrim for the one centred block (the circle, leg 4).
@@ -215,7 +217,10 @@ body[data-leg="3"] .w-veil { opacity: 1; }
                   border-radius: var(--sc-r-pill); padding: 7px 12px; }
   .trail__stops li { position: static; translate: none; }
   .trail__tag { display: none; }
-  .w-peak, .w-finale { bottom: clamp(4rem, 12vh, 7rem); }
+  .w-peak, .w-finale { bottom: clamp(3.5rem, 9vh, 6rem); }
+  .w-long { display: none; }
+  .w-short { display: inline; }
+  .w-fine { margin-top: var(--sc-4); }
 }
 
 /* ------------------------------------------------------- reduced motion -- */

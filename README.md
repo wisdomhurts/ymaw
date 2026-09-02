@@ -9,7 +9,7 @@ the weekend's own photo archive, plus a full online registration flow.
 
 ```
 index.html          the journey (worldflight; engine files scrollcraft.js/.css, never edited)
-register.html/.js   4-step registration: parent → son → consent → payment
+register.html/.js   4-step registration for three registrant types (Young Man, Sponsor, Production)
 success.html        post-registration landing (card / e-transfer / assistance)
 api/register.js     validates, stores in Supabase, creates Stripe Checkout
 api/stripe-webhook.js  checkout.session.completed → payment_status='paid'
@@ -20,9 +20,16 @@ src/photos/         the archive sources (2003–2025, real frames only)
 scrollcraft/        BRIEF.md, fingerprint registry (design record)
 ```
 
+## Registrant types
+
+`young_man` (a parent registers one young man 12–17), `sponsor` (an adult
+bringing one or more young men; each is a $320 registration), `production`
+(volunteer staff). Everyone pays the same $320. Type-specific fields live in
+the `details` jsonb column; `headcount` carries the sponsor group size.
+
 ## Registration paths
 
-- **Card** → Stripe Checkout ($279 CAD) → webhook marks `paid`.
+- **Card** → Stripe Checkout ($320 CAD per person; sponsors pay for themselves plus each young man) → webhook marks `paid`.
 - **e-Transfer** → spot reserved as `pending`; parent sends to info@ymaw.com;
   mark `paid` by hand in Supabase (table editor) as transfers arrive.
 - **Financial assistance** → stored as `aid_requested`; follow up personally.
@@ -32,7 +39,7 @@ scrollcraft/        BRIEF.md, fingerprint registry (design record)
 
 ## Provisioning (one-time)
 
-1. **Supabase**: create a free project, run `supabase/migrations/0001_init.sql`
+1. **Supabase**: create a free project, run `supabase/migrations/0001_init.sql` then `0002_registrant_types.sql`
    in the SQL editor, copy `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`.
 2. **Stripe**: create account; copy `STRIPE_SECRET_KEY` (test first). Add a
    webhook endpoint `https://<site>/api/stripe-webhook` for
@@ -43,6 +50,11 @@ scrollcraft/        BRIEF.md, fingerprint registry (design record)
 Admin = the Supabase table editor: `registrations` (mark e-transfers paid in
 `payment_status`) and `inquiries`.
 
+> Facts on the site come from the team's 2026 flyer and website-updates doc:
+> September 11–13, 2026, Squamish region, $320 per person, pickups in Burnaby /
+> Langley / Squamish, "since 1990", and the house rule that youth are always
+> "young men", never "boys".
+>
 > The participation agreement in `register.html` (v2026-1) is a working draft.
 > Have it reviewed by your insurer or lawyer before the first real season, and
 > bump `waiver_version` if the text changes.

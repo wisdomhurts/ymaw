@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Register · YMAW</title>
-<meta name="description" content="Register your son for the Young Men's Adventure Weekend. Fall 2026, Vancouver BC, ages 12 to 17, $279 CAD. Pay by card or e-transfer; financial assistance available.">
+<meta name="description" content="Register for the Young Men's Adventure Weekend: September 11 to 13, 2026, Squamish BC. Young Men 12 to 17, Sponsors and Production Team. $320 per person; pay by card or e-transfer; financial assistance available.">
 <link rel="icon" href="assets/favicon.png">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="scrollcraft.css">
@@ -19,109 +19,235 @@
   <a class="bar__mark" href="/" aria-label="YMAW home">
     <img src="assets/wordmark-bone.png" alt="YMAW" width="560" height="131">
   </a>
-  <a class="cta cta--bar" href="#form">Register Your Son</a>
+  <a class="cta cta--bar" href="#choose">Register Now</a>
 </header>
 
 <main class="reg">
 
   <section class="reg-head">
     <div class="sc-wrap">
-      <p class="sc-label">Registration</p>
-      <h1 class="sc-display sc-display--lg">Secure his&nbsp;spot.</h1>
+      <p class="sc-label">Registration · 34th annual weekend</p>
+      <h1 class="sc-display sc-display--lg">Register for the&nbsp;weekend.</h1>
       <ul class="reg-facts" role="list">
-        <li>Fall 2026 · dates announced soon</li>
-        <li>Vancouver, BC</li>
-        <li>Ages 12–17</li>
-        <li>$279 CAD, everything included</li>
+        <li>September 11–13, 2026</li>
+        <li>Squamish region, BC</li>
+        <li>Young Men 12–17</li>
+        <li>$320 per person, everything included</li>
       </ul>
     </div>
   </section>
 
+  <section class="reg-choose sc-wrap" id="choose">
+    <p class="sc-label">Register as</p>
+    <div class="reg-types" role="group" aria-label="Who is registering">
+      <button type="button" class="reg-type is-on" data-type="young_man" aria-pressed="true">
+        <strong>Young Man</strong>
+        <span>A parent or guardian registers a young man aged 12 to 17.</span>
+      </button>
+      <button type="button" class="reg-type" data-type="sponsor" aria-pressed="false">
+        <strong>Sponsor</strong>
+        <span>A father, uncle or guardian coming to the weekend with one or more young men.</span>
+      </button>
+      <button type="button" class="reg-type" data-type="production" aria-pressed="false">
+        <strong>Production</strong>
+        <span>Volunteer staff. Training is Friday morning, September 11, in Squamish.</span>
+      </button>
+    </div>
+    <p class="reg-note">Want to support a young man's place instead? <a href="#support">Donate or sponsor a spot</a>.</p>
+  </section>
+
   <section class="reg-main sc-wrap" id="form">
-    <form class="reg-card" id="regForm" novalidate>
+    <form class="reg-card" id="regForm" data-type="young_man" novalidate>
       <ol class="reg-steps" aria-label="Registration steps">
         <li data-step-dot="1" class="is-on">Parent</li>
-        <li data-step-dot="2">Your son</li>
+        <li data-step-dot="2">Young man</li>
         <li data-step-dot="3">Consent</li>
         <li data-step-dot="4">Payment</li>
       </ol>
 
-      <!-- honeypot: real parents never see or fill this -->
+      <input type="hidden" name="registrant_type" value="young_man">
+      <!-- honeypot: real people never see or fill this -->
       <input class="reg-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
+      <!-- STEP 1: the person registering -->
       <fieldset class="reg-step is-on" data-step="1">
-        <legend class="sc-display sc-display--md">Parent or guardian</legend>
+        <legend class="sc-display sc-display--md" data-legend='{"young_man":"Parent or guardian","sponsor":"About you","production":"About you"}'>Parent or guardian</legend>
         <label class="reg-field">
           <span>Your full name</span>
-          <input name="parent_name" type="text" autocomplete="name" required maxlength="120">
+          <input name="contact_name" type="text" autocomplete="name" required maxlength="120">
         </label>
-        <label class="reg-field">
-          <span>Email</span>
-          <input name="parent_email" type="email" autocomplete="email" required maxlength="160">
-        </label>
-        <label class="reg-field">
-          <span>Phone</span>
-          <input name="parent_phone" type="tel" autocomplete="tel" required maxlength="40">
-        </label>
-      </fieldset>
-
-      <fieldset class="reg-step" data-step="2">
-        <legend class="sc-display sc-display--md">Your son</legend>
         <div class="reg-row">
           <label class="reg-field">
-            <span>First name</span>
-            <input name="son_first" type="text" required maxlength="80">
+            <span>Email</span>
+            <input name="contact_email" type="email" autocomplete="email" required maxlength="160">
           </label>
           <label class="reg-field">
-            <span>Last name</span>
-            <input name="son_last" type="text" required maxlength="80">
+            <span>Phone</span>
+            <input name="contact_phone" type="tel" autocomplete="tel" required maxlength="40">
           </label>
         </div>
-        <label class="reg-field reg-field--narrow">
-          <span>Age at the weekend</span>
-          <select name="son_age" required>
+        <label class="reg-field" data-for="sponsor">
+          <span>Your relationship to the young men you're bringing</span>
+          <select name="relationship" required>
             <option value="">Choose</option>
-            <option>12</option><option>13</option><option>14</option>
-            <option>15</option><option>16</option><option>17</option>
+            <option>Father</option><option>Uncle</option><option>Grandfather</option>
+            <option>Guardian</option><option>Family friend</option><option>Other</option>
           </select>
         </label>
-        <div class="reg-row">
-          <label class="reg-field">
-            <span>Emergency contact name</span>
-            <input name="emergency_name" type="text" required maxlength="120">
-          </label>
-          <label class="reg-field">
-            <span>Emergency contact phone</span>
-            <input name="emergency_phone" type="tel" required maxlength="40">
-          </label>
-        </div>
-        <label class="reg-field">
-          <span>Medical conditions, allergies, dietary needs <em>(optional, kept private)</em></span>
-          <textarea name="medical_notes" rows="3" maxlength="2000"></textarea>
+        <label class="reg-field" data-for="production">
+          <span>Where you're based (city or region)</span>
+          <input name="region" type="text" required maxlength="120" placeholder="Burnaby, Nanaimo, Calgary...">
         </label>
       </fieldset>
 
+      <!-- STEP 2: who is coming -->
+      <fieldset class="reg-step" data-step="2">
+        <legend class="sc-display sc-display--md" data-legend='{"young_man":"The young man","sponsor":"The young men you are bringing","production":"Your availability"}'>The young man</legend>
+
+        <div data-for="young_man">
+          <div class="reg-row">
+            <label class="reg-field">
+              <span>First name</span>
+              <input name="ym_first" type="text" required maxlength="80">
+            </label>
+            <label class="reg-field">
+              <span>Last name</span>
+              <input name="ym_last" type="text" required maxlength="80">
+            </label>
+          </div>
+          <label class="reg-field reg-field--narrow">
+            <span>Age at the weekend</span>
+            <select name="ym_age" required>
+              <option value="">Choose</option>
+              <option>12</option><option>13</option><option>14</option>
+              <option>15</option><option>16</option><option>17</option>
+            </select>
+          </label>
+          <label class="reg-field reg-field--narrow">
+            <span>Pickup point</span>
+            <select name="pickup" required>
+              <option value="">Choose</option>
+              <option>Burnaby</option><option>Langley</option><option>Squamish</option>
+              <option>Vancouver Island carpool</option><option>We will drive him</option>
+            </select>
+          </label>
+          <div class="reg-row">
+            <label class="reg-field">
+              <span>Emergency contact name</span>
+              <input name="emergency_name" type="text" required maxlength="120">
+            </label>
+            <label class="reg-field">
+              <span>Emergency contact phone</span>
+              <input name="emergency_phone" type="tel" required maxlength="40">
+            </label>
+          </div>
+          <label class="reg-field">
+            <span>Medical conditions, allergies, dietary needs <em>(optional, kept private)</em></span>
+            <textarea name="medical_notes" rows="3" maxlength="2000"></textarea>
+          </label>
+        </div>
+
+        <div data-for="sponsor">
+          <p class="reg-help">List each young man you are bringing or responsible for. Each one is a $320 registration, added at payment.</p>
+          <div class="reg-rows" id="ymRows">
+            <div class="reg-ymrow">
+              <label class="reg-field"><span>First name</span><input name="ym_first[]" type="text" required maxlength="80"></label>
+              <label class="reg-field"><span>Last name</span><input name="ym_last[]" type="text" required maxlength="80"></label>
+              <label class="reg-field"><span>Age</span>
+                <select name="ym_age[]" required>
+                  <option value="">Age</option>
+                  <option>12</option><option>13</option><option>14</option>
+                  <option>15</option><option>16</option><option>17</option>
+                </select>
+              </label>
+              <button type="button" class="reg-ymrow__x" aria-label="Remove this young man" hidden>×</button>
+            </div>
+          </div>
+          <button type="button" class="cta cta--ghost reg-add" id="addYm">Add another young man</button>
+          <label class="reg-field">
+            <span>Medical conditions, allergies or dietary needs for anyone in your group <em>(optional, kept private)</em></span>
+            <textarea name="medical_notes" rows="3" maxlength="2000"></textarea>
+          </label>
+        </div>
+
+        <div data-for="production">
+          <label class="reg-field reg-field--narrow">
+            <span>Have you staffed YMAW before?</span>
+            <select name="experience" required>
+              <option value="">Choose</option>
+              <option value="first_time">First time</option>
+              <option value="returning">Returning</option>
+            </select>
+          </label>
+          <fieldset class="reg-sub">
+            <legend>I can be there for</legend>
+            <label class="reg-check"><input type="checkbox" name="availability[]" value="training_fri_am"><span>Staff training, Friday morning September 11, Squamish</span></label>
+            <label class="reg-check"><input type="checkbox" name="availability[]" value="weekend" checked><span>The weekend, September 11 to 13</span></label>
+            <label class="reg-check"><input type="checkbox" name="availability[]" value="truck_thu"><span>Truck load-up, Thursday September 10</span></label>
+            <label class="reg-check"><input type="checkbox" name="availability[]" value="strike_sun"><span>Strike team offload, Sunday evening September 14, Abbotsford</span></label>
+            <label class="reg-check"><input type="checkbox" name="availability[]" value="shopping"><span>Shopping and gear prep before the weekend</span></label>
+          </fieldset>
+          <label class="reg-field">
+            <span>Skills, certifications, or anything the team should know <em>(first aid, cooking, driving, trades, prior roles)</em></span>
+            <textarea name="skills" rows="3" maxlength="2000"></textarea>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- STEP 3: consent -->
       <fieldset class="reg-step" data-step="3">
-        <legend class="sc-display sc-display--md">Consent</legend>
-        <div class="reg-waiver" tabindex="0" aria-label="Participation agreement">
-          <h3>Participation agreement (v2026-1)</h3>
-          <p>The Young Men's Adventure Weekend is a supervised outdoor program for boys aged 12 to 17, run by a trained volunteer production team. Activities include hiking, paddling, bushcraft, fire craft, group challenges and camping, held outdoors in all weather.</p>
-          <p>I understand that outdoor activities carry inherent risks, including injury, and that YMAW manages these risks through trained leadership, safety briefings, appropriate equipment and supervision of every activity. I confirm my son is able to take part in a physically active outdoor weekend, and that the medical information I have provided is complete and accurate.</p>
-          <p>I authorize the production team to obtain emergency medical care for my son if needed, and to contact the person named as his emergency contact.</p>
-          <p>I understand registration is refundable up to 14 days before the weekend begins, and transferable to another participant at any time by arrangement with the organizers.</p>
+        <legend class="sc-display sc-display--md" data-legend='{"young_man":"Consent","sponsor":"Consent","production":"The standards"}'>Consent</legend>
+
+        <div data-for="young_man sponsor">
+          <div class="reg-waiver" tabindex="0" aria-label="Participation agreement">
+            <h3>Participation agreement (v2026-1)</h3>
+            <p>The Young Men's Adventure Weekend is a supervised outdoor program for young men aged 12 to 17, run by the Young Men's Adventure Weekend Society of BC through a trained, screened volunteer production team. The weekend includes travel by bus, a hike into a wilderness site, team camp building, quest stations that test mind and body, group circles, and camping outdoors in all weather.</p>
+            <p>I understand that outdoor activities carry inherent risks, including injury, and that YMAW manages these risks through trained leadership, safety briefings, appropriate equipment and supervision of every activity. I confirm the young man or men I am registering are able to take part in a physically active outdoor weekend, and that the medical information I have provided is complete and accurate.</p>
+            <p>I authorize the production team to obtain emergency medical care if needed, and to contact the person named as emergency contact.</p>
+            <p>I understand registration is refundable up to 14 days before the weekend begins, and transferable to another participant at any time by arrangement with the organizers.</p>
+          </div>
+          <label class="reg-check">
+            <input type="checkbox" name="consent_waiver" required>
+            <span>I have read the participation agreement and I consent to the young man or men I am registering taking part.</span>
+          </label>
+          <label class="reg-check">
+            <input type="checkbox" name="photo_consent">
+            <span>Photos taken at the weekend may be used by YMAW <em>(optional)</em>.</span>
+          </label>
         </div>
-        <label class="reg-check">
-          <input type="checkbox" name="consent_waiver" required>
-          <span>I have read the participation agreement and I consent to my son taking part.</span>
-        </label>
-        <label class="reg-check">
-          <input type="checkbox" name="photo_consent">
-          <span>Photos of my son taken at the weekend may be used by YMAW <em>(optional)</em>.</span>
-        </label>
+
+        <div data-for="production">
+          <div class="reg-waiver" tabindex="0" aria-label="YMAW standards">
+            <h3>YMAW Standards (2026)</h3>
+            <p><strong>Safety.</strong> We are all responsible for our own safety and the safety of others. See something unsafe, take charge and say so.</p>
+            <p><strong>Buddy system.</strong> Never be alone. Every man is visible to at least one other man at all times, and never alone with a young man.</p>
+            <p><strong>Clear.</strong> No drugs, alcohol or tobacco at YMAW or in the 24 hours before any YMAW event.</p>
+            <p><strong>Honour the site.</strong> Leave it better than we found it.</p>
+            <p><strong>Confidentiality.</strong> What you see and hear stays at the weekend. Speak to your own experience only.</p>
+            <p><strong>Be on time. No foul language. We say "young men".</strong> We are modelling behaviour.</p>
+            <p><strong>Don't make anything up.</strong> Get clear direction, set ego aside, tell your manager if you have misled anyone or any process.</p>
+          </div>
+          <label class="reg-check">
+            <input type="checkbox" name="consent_waiver" required>
+            <span>I have read the YMAW Standards and I commit to them for the training and the weekend.</span>
+          </label>
+          <label class="reg-check">
+            <input type="checkbox" name="screening_ok" required>
+            <span>I understand volunteer staff are screened, and I will complete a criminal record check if asked.</span>
+          </label>
+        </div>
       </fieldset>
 
+      <!-- STEP 4: payment -->
       <fieldset class="reg-step" data-step="4">
-        <legend class="sc-display sc-display--md">Payment · $279 CAD</legend>
+        <legend class="sc-display sc-display--md">Payment · <span id="payTotal">$320</span> CAD</legend>
+        <p class="reg-help" id="payBreakdown">$320 per person.</p>
+        <ul class="reg-included" role="list">
+          <li>2 nights and 3 days of adventure and challenge</li>
+          <li>Transport from Burnaby, Langley and Squamish pickups</li>
+          <li>Snacks Friday; breakfast, lunch, dinner and snacks Saturday; breakfast and lunch Sunday</li>
+          <li>Camping accommodation (packing list comes with your confirmation)</li>
+        </ul>
         <div class="reg-pay" role="radiogroup" aria-label="How would you like to pay">
           <label class="reg-payopt">
             <input type="radio" name="payment_method" value="card" checked>
@@ -134,14 +260,14 @@
             <input type="radio" name="payment_method" value="etransfer">
             <span class="reg-payopt__body">
               <strong>Interac e-Transfer</strong>
-              <small>Reserve his spot now, then send $279 to info@ymaw.com with his name in the message.</small>
+              <small>Reserve the spot now, then send the total to info@ymaw.com with the names in the message.</small>
             </span>
           </label>
           <label class="reg-payopt">
             <input type="radio" name="payment_method" value="aid">
             <span class="reg-payopt__body">
               <strong>Request financial assistance</strong>
-              <small>Complete registration without paying. We follow up personally and no boy misses the weekend over money.</small>
+              <small>Complete registration without paying. We follow up personally, and no young man misses the weekend over money.</small>
             </span>
           </label>
         </div>
@@ -156,21 +282,14 @@
     </form>
   </section>
 
-  <section class="reg-team sc-wrap" id="team">
+  <section class="reg-support sc-wrap" id="support">
     <div class="reg-team__grid">
       <div>
-        <p class="sc-label">The production team</p>
-        <h2 class="sc-display sc-display--md">Built by volunteers, for thirty&nbsp;years.</h2>
-        <p class="sc-body">Every activity is planned, supervised and cooked for by a volunteer team of men who come back year after year. If you want to positively influence younger men, there is a place for you here.</p>
-        <form class="reg-mini" id="teamForm">
-          <label class="reg-field"><span>Name</span><input name="name" type="text" required maxlength="120"></label>
-          <label class="reg-field"><span>Email</span><input name="email" type="email" required maxlength="160"></label>
-          <label class="reg-field"><span>A line about you <em>(optional)</em></span><textarea name="message" rows="2" maxlength="1000"></textarea></label>
-          <input type="hidden" name="kind" value="volunteer">
-          <button type="submit" class="cta cta--ghost">Join the team</button>
-          <p class="reg-error" role="alert" hidden></p>
-          <p class="reg-note reg-mini__done" hidden>Thanks. We will be in touch.</p>
-        </form>
+        <p class="sc-label">Donate / Support</p>
+        <h2 class="sc-display sc-display--md">Sponsor a young man's&nbsp;place.</h2>
+        <p class="sc-body">Some young men who most need this weekend cannot pay for it. A gift of $320 covers one registration in full; any amount helps. The Young Men's Adventure Weekend Society of BC is run entirely by volunteers.</p>
+        <p class="reg-etr"><span>Interac e-Transfer to</span> <strong>info@ymaw.com</strong></p>
+        <p class="sc-body">Put "YMAW support" and your name in the transfer message so we can thank you. Questions: <a href="mailto:info@ymaw.com">info@ymaw.com</a>.</p>
       </div>
       <figure class="reg-team__photo">
         <img src="assets/volunteer.webp" alt="Two smiling volunteers stand together on a mossy forest trail" loading="lazy" width="1200" height="800">
@@ -183,23 +302,27 @@
     <h2 class="sc-display sc-display--md">Asked every year.</h2>
     <details class="reg-q">
       <summary>Is my son safe at YMAW?</summary>
-      <p>Safety runs the weekend. Every activity is supervised by trained leaders, briefed before it starts, and matched to age and ability. The program has run for thirty years on that discipline.</p>
+      <p>Safety runs the weekend. Every activity is supervised by trained, screened volunteer staff, briefed before it starts, and matched to age and ability. Staff are never alone with a young man. The program has run on that discipline since 1990.</p>
     </details>
     <details class="reg-q">
       <summary>Does he need outdoor experience?</summary>
-      <p>No. Activities are structured so every boy can learn and win at his own pace, whatever his fitness or experience.</p>
+      <p>No. Quests and games are built so every young man can learn and win at his own pace, whatever his fitness or experience.</p>
     </details>
     <details class="reg-q">
-      <summary>What does the $279 cover?</summary>
-      <p>Everything: all meals, all activities, all equipment, and supervision from Friday evening to Sunday afternoon.</p>
+      <summary>What does the $320 cover?</summary>
+      <p>Everything: transport from the pickup points, all meals from Friday snacks to Sunday lunch, camping accommodation, all activities and equipment, and supervision from the bus stop on Friday to the bus stop on Sunday.</p>
     </details>
     <details class="reg-q">
       <summary>What if the cost is hard for our family right now?</summary>
-      <p>Choose "Request financial assistance" when you register. We follow up personally and privately. No boy misses the weekend over money.</p>
+      <p>Choose "Request financial assistance" when you register. We follow up personally and privately. No young man misses the weekend over money.</p>
     </details>
     <details class="reg-q">
       <summary>What should he bring?</summary>
       <p>A full packing list comes with your confirmation. In short: weather-appropriate clothing, a sleeping bag, personal items, and a willingness to try something new. Phones stay home.</p>
+    </details>
+    <details class="reg-q">
+      <summary>What actually happens over the three days?</summary>
+      <p>Friday the bus brings the young men to the site and they hike in, form teams and build their own camp. Saturday is the Quests: stations that test mind and body, then a circle in the evening. Sunday brings a closing ceremony, a rowdy staff-versus-young-men game, and the bus home.</p>
     </details>
   </section>
 
@@ -213,7 +336,7 @@
       <span aria-hidden="true">·</span>
       <a href="https://www.facebook.com/ymawofficial/" rel="noopener">Facebook</a>
       <span aria-hidden="true">·</span>
-      <span>© 2026 Young Men's Adventure Weekend</span>
+      <span>© 2026 Young Men's Adventure Weekend Society of BC</span>
     </p>
   </footer>
 

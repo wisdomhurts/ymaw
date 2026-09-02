@@ -174,3 +174,28 @@ remain on the final screen.
 - NOT verified: a real phone (decoder, autoplay policy, Low Power Mode,
   touch scrolling). Headless Chrome cannot reproduce those; check on-device
   after deploy and reach for device-diag.html on the first mobile defect.
+
+
+## Facts corrected from the team's own documents (2026-09-01, later the same day)
+
+Found in Dorian's Google Drive after the build: the 2026 flyer ("for
+distribution"), the team's "YMAW Website updates" doc written today, "The Big
+Why: YMAW 2026", the volunteer invitation and the friends-and-family letter.
+
+- Dates: **September 11–13, 2026**, Squamish region, BC (was "Fall 2026, dates
+  announced soon"). Pickups in Burnaby, Langley and Squamish; Vancouver Island
+  carpool.
+- Price: **$320 per person, everyone pays the same** (Young Men, Sponsors,
+  Production). Was $279. Dorian confirmed $320 flat.
+- Legacy: "since 1990", 34th annual (was "thirty years"). Society: Young Men's
+  Adventure Weekend Society of BC.
+- Voice: the organization refers to youth as **young men, never boys** (YMAW
+  Standard 8). Every "boy" on the page was rewritten.
+- The real arc (Big Why): bus and a hike in, in the dark; teams build camp;
+  Saturday Quest Stations; Saturday night "The Push"; Sunday ceremony,
+  closing witnessed by Shadow Watchers, the walk through two lines of men,
+  the bus home. The six legs already matched it; copy now names the Quests and
+  the bus.
+- Registration restructured to three registrant types per the team's doc
+  (Young Man / Sponsor / Production) plus a Donate/Support section (e-transfer
+  to info@ymaw.com). CTA label everywhere is now "Register Now".
